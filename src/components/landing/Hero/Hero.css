@@ -1,0 +1,692 @@
+/**
+ * ByteSpace Hero Section Styles
+ * Source of truth: design/landing-page/design-context.md (Figma #1:1695)
+ */
+
+.bytespace-hero {
+  position: relative;
+  width: 100%;
+  min-height: 1024px;
+  background-color: var(--color-persian-blue-800);
+  /* #003BE2 */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Ambient Grid Mesh (#12:224) */
+.bytespace-hero__mesh {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1440px;
+  height: 1024px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.85;
+}
+
+/* =========================================
+ * 3D Ornament Cluster (#46:79)
+ * Exact Figma positioning relative to 1440px canvas
+ * ========================================= */
+/* 3D Ornament Cluster (#46:79)
+ * Dynamically scaled and positioned based on viewport width
+ */
+.bytespace-hero__ornaments {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.bytespace-hero__ornament {
+  position: absolute;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Green 3D Ornaments: Matcap 3D elements */
+.bytespace-hero__ornament--cone-lime {
+  left: calc(50% - 370px/2 + 696px);
+  top: 394px;
+  width: 370px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
+}
+
+.bytespace-hero__ornament--sphere-2-large {
+  left: calc(50% - 385px/2 - 645.5px);
+  top: 394px;
+  width: 385px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
+}
+
+/* White 3D Ornaments */
+.bytespace-hero__ornament--sphere-1 {
+  left: calc(50% - 330px/2 + 572px);
+  top: 747px;
+  width: 330px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
+}
+
+.bytespace-hero__ornament--cone-small {
+  left: calc(50% - 188px/2 + 480px);
+  top: 584px;
+  width: 188px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
+}
+
+.bytespace-hero__ornament--sphere-2-small {
+  left: calc(50% - 175px/2 - 449.5px);
+  top: 595px;
+  width: 175px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  transform: scaleX(-1);
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
+}
+
+/* Bottom-Left 3D Ring Ornament */
+.bytespace-hero__ornament--cone-blue {
+  left: calc(50% - 342px/2 - 531px);
+  top: 243px;
+  width: 342px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  z-index: 3;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
+}
+
+/* =========================================
+ * Hero Typography & Search Block (#1:1769)
+ * ========================================= */
+.bytespace-hero__content {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  max-width: var(--container-max-width);
+  /* 1200px */
+  margin: 0 auto;
+  padding: 49px var(--space-24) 0;
+  /* y: 169 in Figma */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.bytespace-hero__heading-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-32);
+  /* 32px */
+  max-width: var(--container-hero-title);
+  /* 935px */
+}
+
+/* Title (#1:1770 - Heading L) */
+.bytespace-hero__title {
+  font-family: var(--font-heading);
+  /* Poppins */
+  font-weight: var(--weight-semibold);
+  /* 600 */
+  font-size: var(--font-size-heading-l);
+  /* 72px */
+  line-height: var(--line-height-heading-l);
+  /* 1.2em / 86.4px */
+  letter-spacing: var(--letter-spacing-heading-l);
+  /* -0.01em */
+  color: var(--color-white);
+  text-align: center;
+  margin: 0;
+}
+
+/* Subtitle (#1:1771 - Body L) */
+.bytespace-hero__subtitle {
+  font-family: var(--font-body);
+  /* Satoshi */
+  font-weight: var(--weight-regular);
+  /* 400 */
+  font-size: var(--font-size-body-l);
+  /* 18px */
+  line-height: var(--line-height-body-l);
+  /* 1.6em / 28.8px */
+  color: var(--color-shuttle-gray-100);
+  /* #E5E6E8 */
+  text-align: center;
+  max-width: 820px;
+  margin: 0;
+}
+
+/* Search Bar Container (#1:1772) */
+.bytespace-hero__search {
+  margin-top: 60px;
+  /* 60px */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* =========================================
+ * Hero Stage: Model, Ring & Floating Cards
+ * ========================================= */
+.bytespace-hero__stage {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  height: clamp(380px, 36.1vw, 520px);
+  margin-top: auto;
+  z-index: 10;
+}
+
+/* Giant Lime Circular Ring (#1:1866)
+ * Anchored to the exact bottom line (50% semicircle visible at all screen widths)
+ */
+.bytespace-hero__ring {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: clamp(600px, 79.8vw, 1149px);
+  height: clamp(600px, 79.8vw, 1149px);
+  transform: translate(-50%, 50%);
+  border: clamp(140px, 22.2vw, 320px) solid var(--color-ring-stroke);
+  /* #CBFC01 */
+  border-radius: 50%;
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Central Hero Model (#1:1796)
+ * Starts right from the bottom where the blue hero section ends
+ */
+.bytespace-hero__model-wrapper {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: clamp(340px, 40.1vw, 578px);
+  height: clamp(318px, 37.6vw, 541px);
+  z-index: 5;
+}
+
+.bytespace-hero__model-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
+}
+
+/* =========================================
+ * Floating Metric Cards
+ * Exact Figma positioning relative to center
+ * Issue 5: Clean, crisp edges without heavy dark shadows
+ * ========================================= */
+.bytespace-hero__card {
+  position: absolute;
+  z-index: 10;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+}
+
+/* Card 1: UI/UX Design (#46:126) */
+.bytespace-hero__card--uiux {
+  left: calc(50% - 316px);
+  /* x = 404px */
+  top: 127px;
+  /* y = 639px */
+  padding: var(--space-16);
+  white-space: nowrap;
+}
+
+.bytespace-hero__card-title {
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  /* Label M (500) */
+  font-size: var(--font-size-label-m);
+  /* 16px */
+  color: var(--color-shuttle-gray-950);
+  line-height: 1.2;
+}
+
+/* Issue 7: UI/UX Card Text & Bullet Contrast */
+.bytespace-hero__card-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  margin-top: var(--space-4);
+}
+
+.bytespace-hero__card-meta-text {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-xs);
+  /* 12px */
+  font-weight: var(--weight-medium);
+  /* 500 for better legibility */
+  color: var(--color-shuttle-gray-700);
+  /* Stronger contrast than gray-400 */
+  line-height: 1.6;
+}
+
+.bytespace-hero__card-meta-dot {
+  font-size: 11px;
+  color: var(--color-shuttle-gray-700);
+  /* Darker and more distinct */
+  line-height: 1;
+}
+
+/* Card 2: Learning Progress (#1:1797) */
+.bytespace-hero__card--progress {
+  left: calc(50% + 122px);
+  /* x = 842px */
+  top: 139px;
+  /* y = 651px */
+  width: 232px;
+  padding: var(--space-16);
+}
+
+.bytespace-hero__card-label {
+  font-family: var(--font-body);
+  font-size: var(--font-size-label-s);
+  /* 14px */
+  font-weight: var(--weight-medium);
+  color: var(--color-shuttle-gray-950);
+  line-height: 1.2;
+}
+
+.bytespace-hero__card-metric-value {
+  font-family: var(--font-heading);
+  /* Poppins */
+  font-weight: var(--weight-semibold);
+  /* 600 */
+  font-size: 48px;
+  line-height: 1.2em;
+  letter-spacing: -0.01em;
+  color: var(--color-shuttle-gray-950);
+  margin: 4px 0 8px;
+}
+
+.bytespace-hero__card-progress-bar {
+  width: 200px;
+  height: 8px;
+  border-radius: var(--radius-lg);
+  display: block;
+}
+
+/* Card 3: Happy Students (#1:1821)
+ * Issue 4: Vertically stacked header (Title on line 1, Rating on line 2)
+ */
+.bytespace-hero__card--students {
+  left: calc(50% - 392px);
+  /* x = 328px */
+  top: 325px;
+  /* y = 837px */
+  width: 258px;
+  padding: var(--space-16);
+}
+
+.bytespace-hero__students-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-bottom: var(--space-12);
+}
+
+.bytespace-hero__rating-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.bytespace-hero__rating-text {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-xs);
+  /* 12px */
+  font-weight: var(--weight-regular);
+  color: var(--color-shuttle-gray-950);
+  /* #242528 */
+  line-height: 1.6;
+}
+
+.bytespace-hero__star-icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+/* Avatar Stack (#1:1827) */
+.bytespace-hero__avatar-stack {
+  display: flex;
+  align-items: center;
+}
+
+.bytespace-hero__avatar-img {
+  width: 43px;
+  height: 43px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-white);
+  margin-left: -16px;
+  object-fit: cover;
+  flex-shrink: 0;
+  display: block;
+}
+
+.bytespace-hero__avatar-img:first-child {
+  margin-left: 0;
+}
+
+.bytespace-hero__avatar-badge {
+  width: 43px;
+  height: 43px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-white);
+  margin-left: -16px;
+  background-color: var(--color-electric-lime-400);
+  /* #D4FB20 */
+  color: var(--color-shuttle-gray-950);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-weight: var(--weight-bold);
+  /* 700 */
+  font-size: var(--font-size-body-xs);
+  /* 12px */
+  line-height: 1.5;
+  flex-shrink: 0;
+}
+
+/* =========================================
+ * Responsive Styles: Large Mode (default > 768px) vs Small Mode (<= 768px)
+ * ========================================= */
+
+@media (max-width: 1024px) {
+  .bytespace-hero {
+    min-height: clamp(800px, 85vw, 1024px);
+  }
+
+  .bytespace-hero__title {
+    font-size: clamp(44px, 5vw, 64px);
+  }
+
+  .bytespace-hero__card--uiux {
+    left: calc(50% - min(316px, 32vw));
+    top: 60px;
+  }
+
+  .bytespace-hero__card--progress {
+    left: calc(50% + min(113px, 12vw));
+    top: 70px;
+  }
+
+  .bytespace-hero__card--students {
+    left: calc(50% - min(355px, 35vw));
+    top: 240px;
+  }
+}
+
+/* =========================================
+ * Small Screen Mode (<= 768px, down to 320px)
+ * 1. First two cards in one line, third in second line
+ * 2. Everything inside the cards centered
+ * 3. Reduced space between cards
+ * 4. Boy's head starts close and below search button, face visible
+ * ========================================= */
+@media (max-width: 768px) {
+  .bytespace-hero {
+    min-height: auto;
+    height: auto;
+    padding-bottom: 0;
+    /* Image ends at the end of section */
+    position: relative;
+  }
+
+  .bytespace-hero__content {
+    padding: var(--space-20) var(--space-16) 0;
+    position: relative;
+    z-index: 20;
+  }
+
+  .bytespace-hero__heading-group {
+    gap: var(--space-16);
+  }
+
+  .bytespace-hero__title {
+    font-size: clamp(28px, 6vw, 40px);
+    line-height: 1.2;
+  }
+
+  .bytespace-hero__subtitle {
+    font-size: clamp(13px, 2.5vw, 15px);
+    line-height: 1.5;
+  }
+
+  .bytespace-hero__search {
+    margin-top: clamp(14px, 3.5vw, 24px);
+    width: 100%;
+  }
+
+  /* Stage: relative wrapper for background ring, model, and front cards */
+  .bytespace-hero__stage {
+    position: relative;
+    width: 100%;
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    /* Boy's head starts close and below search button */
+    margin-top: clamp(8px, 2vw, 16px);
+    padding: 0 var(--space-12) 0;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  /* Half-circle ring: close to or less than half, anchored to bottom BEHIND cards */
+  .bytespace-hero__ring {
+    position: absolute;
+    width: clamp(340px, 80vw, 540px);
+    height: clamp(340px, 80vw, 540px);
+    border-width: clamp(70px, 18vw, 120px);
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 56%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* Central Hero Model: Boy's head starts close below search button, face visible,
+   * base sits directly on the bottom line of the section BEHIND cards
+   */
+  .bytespace-hero__model-wrapper {
+    position: absolute;
+    width: clamp(290px, 68vw, 440px);
+    height: clamp(300px, 70vw, 450px);
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    margin: 0;
+    z-index: 2;
+    /* In front of ring (1), behind cards (10) */
+    pointer-events: none;
+  }
+
+  .bytespace-hero__model-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom center;
+    display: block;
+  }
+
+
+
+  /* Floating cards container: in front of model, center-aligned */
+  .bytespace-hero__cards {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: clamp(8px, 1.8vw, 12px);
+    /* Reduced space between rows */
+    margin: clamp(140px, 32vw, 210px) auto 0;
+    /* Position cards starting at lower chest so face is fully visible */
+  }
+
+  /* Row 1: First two cards side by side; combined width matches third card exactly */
+  .bytespace-hero__cards-row--top {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: clamp(8px, 1.8vw, 12px);
+    width: clamp(270px, 80vw, 360px);
+    /* Exactly same width as third card */
+    box-sizing: border-box;
+  }
+
+  /* Row 2: Third card in second line; width exactly matches row 1 combined width */
+  .bytespace-hero__cards-row--bottom {
+    display: flex;
+    justify-content: center;
+    width: clamp(270px, 80vw, 360px);
+    /* Exactly same width as row 1 */
+    box-sizing: border-box;
+  }
+
+  /* Shared Card Styling for Mobile */
+  .bytespace-hero__card {
+    position: relative;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centered inside cards */
+    text-align: center;
+    /* Centered text */
+    padding: clamp(8px, 1.8vw, 12px);
+    margin: 0;
+  }
+
+  /* Card 1: UI/UX Design */
+  .bytespace-hero__card--uiux {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .bytespace-hero__card--uiux .bytespace-hero__card-title {
+    font-size: clamp(11px, 2vw, 14px);
+    text-align: center;
+    width: 100%;
+  }
+
+  .bytespace-hero__card-meta {
+    justify-content: center;
+    /* Center meta pills/bullets */
+    width: 100%;
+    gap: 4px;
+    margin-top: 2px;
+  }
+
+  .bytespace-hero__card-meta-text {
+    font-size: clamp(8px, 1.5vw, 11px);
+  }
+
+  /* Card 2: Learning Progress */
+  .bytespace-hero__card--progress {
+    flex: 1;
+    min-width: 0;
+    width: auto;
+  }
+
+  .bytespace-hero__card--progress .bytespace-hero__card-label {
+    font-size: clamp(10px, 1.8vw, 12px);
+    text-align: center;
+    width: 100%;
+  }
+
+  .bytespace-hero__card-metric-value {
+    font-size: clamp(18px, 3.8vw, 26px);
+    margin: 2px 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .bytespace-hero__card-progress-bar {
+    width: 100%;
+    max-width: 120px;
+    height: 5px;
+    margin: 0 auto;
+  }
+
+  /* Card 3: Happy Students in second line */
+  .bytespace-hero__card--students {
+    width: 100%;
+    /* Takes 100% of row 2 width which is clamp(270px, 80vw, 360px) */
+    max-width: 100%;
+  }
+
+  .bytespace-hero__students-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center header elements */
+    text-align: center;
+    gap: 2px;
+    margin-bottom: 6px;
+    width: 100%;
+  }
+
+  .bytespace-hero__card--students .bytespace-hero__card-title {
+    font-size: clamp(11px, 2vw, 14px);
+    text-align: center;
+    width: 100%;
+  }
+
+  .bytespace-hero__rating-row {
+    justify-content: center;
+  }
+
+  .bytespace-hero__avatar-stack {
+    justify-content: center;
+    /* Center avatars inside card */
+    width: 100%;
+  }
+
+  .bytespace-hero__avatar-img {
+    width: clamp(22px, 3.8vw, 30px);
+    height: clamp(22px, 3.8vw, 30px);
+    margin-left: -8px;
+  }
+
+  .bytespace-hero__avatar-badge {
+    width: clamp(22px, 3.8vw, 30px);
+    height: clamp(22px, 3.8vw, 30px);
+    margin-left: -8px;
+    font-size: clamp(8px, 1.5vw, 11px);
+  }
+}

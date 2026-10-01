@@ -1,0 +1,653 @@
+/**
+ * ByteSpace Authentication Pages (Login & Register) Styles
+ * Source of truth: design/Log-in/CSS.md & design/Register/CSS.md (Figma #49:195, #47:351)
+ * Breakpoints strictly restricted to max-width: 1024px and max-width: 768px.
+ */
+
+/* =========================================
+ * 1. Root Container & Grid Background
+ * ========================================= */
+.bytespace-auth {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--color-primary); /* #003BE2 */
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 120px 120px;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================
+ * 2. Top Header & Brand Logo
+ * ========================================= */
+.bytespace-auth__header {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: var(--space-32) var(--space-48);
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+.bytespace-auth__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-12);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.bytespace-auth__logo-icon {
+  width: 32px;
+  height: 32px;
+  filter: brightness(0) saturate(100%) invert(88%) sepia(43%) saturate(1472%) hue-rotate(24deg) brightness(104%) contrast(97%); /* #D4FB20 */
+}
+
+.bytespace-auth__brand-name {
+  font-family: var(--font-display, 'Poppins', sans-serif);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--color-white);
+  letter-spacing: -0.01em;
+}
+
+/* =========================================
+ * 3. Main Split Container
+ * ========================================= */
+.bytespace-auth__container {
+  flex: 1;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--space-48) var(--space-64);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-48);
+  position: relative;
+  z-index: 5;
+}
+
+/* =========================================
+ * 4. Left Column: Messaging & Visual Stage
+ * ========================================= */
+.bytespace-auth__left {
+  flex: 1;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  color: var(--color-white);
+}
+
+.bytespace-auth__heading {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  font-size: 32px;
+  line-height: 1.25;
+  color: var(--color-shuttle-gray-50);
+  margin-bottom: var(--space-12);
+}
+
+.bytespace-auth__subtitle {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-m);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: var(--space-40);
+  max-width: 460px;
+}
+
+/* Visual Stage with Overlapping Cards */
+.bytespace-auth__stage {
+  position: relative;
+  width: 480px;
+  height: 480px;
+  margin-top: var(--space-16);
+}
+
+/* Torus Ring Top-Left */
+.bytespace-auth__ornament-ring {
+  position: absolute;
+  top: -20px;
+  left: 30px;
+  width: 80px;
+  height: 80px;
+  z-index: 4;
+  filter: brightness(1.35) contrast(0.82) sepia(1) hue-rotate(25deg) saturate(7.5);
+  pointer-events: none;
+}
+
+/* Background Secondary Card (tilted) */
+.bytespace-auth__card-bg {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 320px;
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-16);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transform: rotate(-6deg);
+  opacity: 0.9;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bytespace-auth__card-bg-header {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: var(--space-12);
+}
+
+.bytespace-auth__card-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bytespace-auth__card-bg-title {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  font-size: 16px;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-8);
+}
+
+/* Primary Foreground Course Card */
+.bytespace-auth__card-fg {
+  position: absolute;
+  top: 10px;
+  left: 70px;
+  width: 360px;
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-16);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+  z-index: 3;
+}
+
+.bytespace-auth__card-fg-header {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: var(--space-12);
+}
+
+.bytespace-auth__card-fg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bytespace-auth__card-tags {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  display: flex;
+  gap: var(--space-8);
+}
+
+.bytespace-auth__tag {
+  background: rgba(246, 246, 246, 0.85);
+  backdrop-filter: blur(4px);
+  padding: 4px 8px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: var(--weight-medium);
+  color: var(--color-black-700);
+}
+
+.bytespace-auth__card-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.bytespace-auth__card-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bytespace-auth__card-title {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  font-size: 18px;
+  color: var(--color-text-primary);
+}
+
+.bytespace-auth__card-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  font-size: 13px;
+  color: var(--color-text-primary);
+}
+
+.bytespace-auth__card-rating-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.bytespace-auth__card-author {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--color-shuttle-gray-400);
+}
+
+.bytespace-auth__card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-8);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--color-shuttle-gray-100);
+}
+
+.bytespace-auth__card-price {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  font-size: 18px;
+  color: var(--color-primary);
+}
+
+.bytespace-auth__card-price-sub {
+  font-size: 12px;
+  font-weight: var(--weight-regular);
+  color: var(--color-shuttle-gray-400);
+}
+
+.bytespace-auth__avatar-stack {
+  display: flex;
+  align-items: center;
+}
+
+.bytespace-auth__avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--color-white);
+  margin-left: -8px;
+  object-fit: cover;
+}
+
+.bytespace-auth__avatar:first-child {
+  margin-left: 0;
+}
+
+.bytespace-auth__avatar-badge {
+  background: var(--color-shuttle-gray-950);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: var(--weight-semibold);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-white);
+  margin-left: -8px;
+}
+
+/* Happy Students Lime Pill Badge */
+.bytespace-auth__badge-students {
+  position: absolute;
+  bottom: 40px;
+  left: 100px;
+  background: var(--color-accent); /* #D4FB20 */
+  border-radius: var(--radius-lg);
+  padding: 10px 16px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bytespace-auth__badge-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.bytespace-auth__badge-title {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: var(--weight-semibold);
+  color: var(--color-shuttle-gray-950);
+}
+
+.bytespace-auth__badge-rating {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: var(--weight-semibold);
+  color: var(--color-shuttle-gray-950);
+}
+
+/* 3D Bottom Ornaments */
+.bytespace-auth__pyramid {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 70px;
+  height: 70px;
+  z-index: 6;
+  filter: brightness(1.35) contrast(0.82) sepia(1) hue-rotate(25deg) saturate(7.5);
+  pointer-events: none;
+}
+
+.bytespace-auth__squiggle {
+  position: absolute;
+  bottom: 60px;
+  right: -20px;
+  width: 90px;
+  height: 90px;
+  z-index: 4;
+  filter: brightness(1.8) contrast(0.85);
+  pointer-events: none;
+}
+
+/* =========================================
+ * 5. Right Column: White Auth Card
+ * ========================================= */
+.bytespace-auth__right {
+  flex: 0 0 540px;
+  display: flex;
+  justify-content: center;
+}
+
+.bytespace-auth__card {
+  width: 100%;
+  max-width: 520px;
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: 48px 48px;
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.bytespace-auth__card-eyebrow {
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: var(--font-size-body-l);
+  color: var(--color-primary);
+  margin-bottom: var(--space-8);
+}
+
+.bytespace-auth__card-title {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--color-shuttle-gray-950);
+  margin-bottom: var(--space-32);
+}
+
+/* Form Controls */
+.bytespace-auth__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+  width: 100%;
+}
+
+.bytespace-auth__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.bytespace-auth__label {
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: var(--font-size-label-s);
+  color: var(--color-shuttle-gray-950);
+}
+
+.bytespace-auth__input {
+  width: 100%;
+  height: 52px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-shuttle-gray-100);
+  border-radius: var(--radius-md);
+  padding: 12px 20px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-shuttle-gray-950);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.bytespace-auth__input::placeholder {
+  color: var(--color-shuttle-gray-400);
+}
+
+.bytespace-auth__input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 59, 226, 0.1);
+  outline: none;
+}
+
+/* Form Actions */
+.bytespace-auth__btn-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--space-12);
+}
+
+.bytespace-auth__submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 36px;
+  background-color: var(--color-accent);
+  color: var(--color-shuttle-gray-950);
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  font-size: var(--font-size-label-m);
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.bytespace-auth__submit-btn:hover {
+  background-color: var(--color-electric-lime-500);
+  transform: translateY(-1px);
+}
+
+.bytespace-auth__submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Divider */
+.bytespace-auth__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-28) 0;
+  position: relative;
+  width: 100%;
+}
+
+.bytespace-auth__divider-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--color-black-200);
+}
+
+.bytespace-auth__divider-text {
+  position: relative;
+  background: var(--color-white);
+  padding: 0 var(--space-16);
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-black-400);
+}
+
+/* Social Buttons */
+.bytespace-auth__socials {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-16);
+  margin-bottom: var(--space-24);
+}
+
+.bytespace-auth__social-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid var(--color-shuttle-gray-200);
+  background: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.bytespace-auth__social-btn:hover {
+  border-color: var(--color-primary);
+  background: var(--color-shuttle-gray-50);
+}
+
+.bytespace-auth__social-icon {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--color-shuttle-gray-950);
+}
+
+/* Bottom Nav Link */
+.bytespace-auth__footer-text {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-shuttle-gray-700);
+  margin-top: var(--space-16);
+}
+
+.bytespace-auth__footer-link {
+  color: var(--color-primary);
+  font-weight: var(--weight-semibold);
+  text-decoration: none;
+  margin-left: 4px;
+  transition: color var(--transition-fast);
+}
+
+.bytespace-auth__footer-link:hover {
+  text-decoration: underline;
+}
+
+/* =========================================
+ * 6. Responsive Styles (STRICTLY 1024px and 768px)
+ * ========================================= */
+
+/* Tablet (<= 1024px) */
+@media (max-width: 1024px) {
+  .bytespace-auth__container {
+    padding: 0 var(--space-24) var(--space-48);
+    gap: var(--space-32);
+  }
+
+  .bytespace-auth__left {
+    max-width: 440px;
+  }
+
+  .bytespace-auth__stage {
+    width: 400px;
+    height: 400px;
+    transform: scale(0.85);
+    transform-origin: top left;
+  }
+
+  .bytespace-auth__right {
+    flex: 0 0 460px;
+  }
+
+  .bytespace-auth__card {
+    padding: 36px 32px;
+  }
+
+  .bytespace-auth__card-title {
+    font-size: 32px;
+    margin-bottom: var(--space-24);
+  }
+}
+
+/* Mobile (<= 768px) */
+@media (max-width: 768px) {
+  .bytespace-auth__header {
+    padding: var(--space-20) var(--space-16);
+  }
+
+  .bytespace-auth__container {
+    flex-direction: column;
+    padding: 0 var(--space-16) var(--space-32);
+    align-items: stretch;
+  }
+
+  .bytespace-auth__left {
+    max-width: 100%;
+    margin-bottom: var(--space-24);
+    text-align: center;
+  }
+
+  .bytespace-auth__heading {
+    font-size: 26px;
+  }
+
+  .bytespace-auth__subtitle {
+    margin-bottom: var(--space-16);
+    max-width: 100%;
+  }
+
+  /* Hide the complex overlapping 3D stage on mobile to prevent overflow and keep UX fast */
+  .bytespace-auth__stage {
+    display: none;
+  }
+
+  .bytespace-auth__right {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .bytespace-auth__card {
+    max-width: 100%;
+    padding: var(--space-24) var(--space-20);
+    border-radius: var(--radius-lg);
+  }
+
+  .bytespace-auth__card-title {
+    font-size: 28px;
+    margin-bottom: var(--space-20);
+  }
+
+  .bytespace-auth__btn-wrapper {
+    justify-content: stretch;
+  }
+
+  .bytespace-auth__submit-btn {
+    width: 100%;
+  }
+}

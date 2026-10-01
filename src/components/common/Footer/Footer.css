@@ -1,0 +1,513 @@
+/**
+ * ByteSpace Footer Styles
+ * Source of truth: design/landing-page/design-context.md (Figma #34:1256)
+ */
+
+/* =========================================
+ * 1. Footer Container & Layout
+ * ========================================= */
+.bytespace-footer {
+  width: 100%;
+  background-color: var(--color-white);
+  padding-top: 71px;
+  padding-bottom: var(--space-48);
+  box-sizing: border-box;
+}
+
+.bytespace-footer__container {
+  width: 100%;
+  max-width: var(--container-max-width); /* 1200px */
+  margin: 0 auto;
+  padding: 0 var(--space-24);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* =========================================
+ * 2. Main Directory & Newsletter Row
+ * ========================================= */
+.bytespace-footer__main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: clamp(32px, 5vw, 80px);
+  margin-bottom: var(--space-64);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Newsletter Column (Left Part) */
+.bytespace-footer__newsletter {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 528px;
+  max-width: 528px;
+}
+
+.bytespace-footer__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  margin-bottom: var(--space-16);
+}
+
+.bytespace-footer__logo-icon {
+  width: 29px;
+  height: 32px;
+  display: block;
+}
+
+.bytespace-footer__brand-name {
+  font-family: var(--font-logo);
+  font-size: var(--font-size-logo); /* 24px */
+  font-weight: var(--weight-bold);
+  color: var(--color-shuttle-gray-950); /* #242528 */
+}
+
+.bytespace-footer__brand-description {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: var(--weight-regular);
+  line-height: 1.6;
+  color: var(--color-shuttle-gray-950); /* #242528 */
+  margin-bottom: var(--space-24);
+}
+
+.bytespace-footer__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  width: 100%;
+}
+
+.bytespace-footer__input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-24);
+  width: 100%;
+}
+
+.bytespace-footer__input {
+  width: 376px;
+  height: 52px !important;
+  border-radius: 100px;
+  border: 1px solid var(--color-shuttle-gray-200); /* #CED0D3 */
+  padding: 0 var(--space-24);
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-m); /* 16px */
+  color: var(--color-shuttle-gray-950); /* #242528 */
+  background-color: var(--color-white);
+  outline: none;
+  box-sizing: border-box !important;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.bytespace-footer__input:focus {
+  border-color: var(--color-electric-lime-400) !important;
+  outline: 2px solid var(--color-electric-lime-400) !important;
+  outline-offset: -1px;
+}
+
+.bytespace-footer__submit-btn {
+  width: 104px;
+  height: 46px !important;
+  min-height: 46px !important;
+  max-height: 46px !important;
+  padding: 12px 24px;
+  border-radius: 24px;
+  font-family: var(--font-body);
+  font-size: var(--font-size-label-l); /* 18px */
+  font-weight: var(--weight-medium);
+  color: var(--color-shuttle-gray-950); /* #242528 */
+  background-color: var(--color-electric-lime-400); /* #D4FB20 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-sizing: border-box !important;
+}
+
+.bytespace-footer__success {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-xs);
+  color: var(--color-persian-blue-800);
+  font-weight: var(--weight-medium);
+}
+
+.bytespace-footer__disclaimer {
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--color-shuttle-gray-950); /* #242528 in Figma */
+  max-width: 504px;
+  margin: 0;
+}
+
+/* Navigation Columns (Right Part) */
+.bytespace-footer__nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-40);
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.bytespace-footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  min-width: 130px;
+}
+
+/* Figma Footer Column Headers (#34:1283) */
+.bytespace-footer__col-title {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-m); /* 16px */
+  font-weight: var(--weight-medium);
+  line-height: 24px;
+  color: var(--color-shuttle-gray-950); /* #242528 */
+  margin: 0;
+}
+
+.bytespace-footer__col-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  padding: 0;
+  list-style: none;
+}
+
+.bytespace-footer__link {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-s); /* 14px */
+  font-weight: var(--weight-regular);
+  line-height: 22px;
+  color: var(--color-shuttle-gray-950); /* #242528 in Figma */
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.bytespace-footer__link:hover {
+  color: var(--color-persian-blue-800);
+  text-decoration: underline;
+}
+
+/* =========================================
+ * 3. Divider & Bottom Legal Bar
+ * ========================================= */
+.bytespace-footer__divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-shuttle-gray-200); /* #CED0D3 */
+  margin-top: 60px;
+  margin-bottom: var(--space-24);
+}
+
+.bytespace-footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-20);
+}
+
+.bytespace-footer__copyright {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-xs); /* 12px */
+  color: var(--color-shuttle-gray-950); /* #242528 */
+  margin: 0;
+}
+
+.bytespace-footer__legal-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-24);
+  padding: 0;
+  list-style: none;
+}
+
+.bytespace-footer__legal-link {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-xs); /* 12px */
+  color: var(--color-shuttle-gray-950); /* #242528 */
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.bytespace-footer__legal-link:hover {
+  color: var(--color-persian-blue-800);
+}
+
+/* =========================================
+ * 4. Responsive Breakpoints: 768 and 1024
+ * ========================================= */
+
+/* Tablet & Intermediate (<= 1024px) */
+@media (max-width: 1024px) {
+  .bytespace-footer {
+    padding-top: var(--space-40);
+    padding-bottom: var(--space-28);
+  }
+
+  .bytespace-footer__container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 var(--space-20);
+  }
+
+  .bytespace-footer__main {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px !important;
+    margin-bottom: 24px;
+    width: 100%;
+  }
+
+  .bytespace-footer__newsletter {
+    flex: 0 0 auto !important;
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .bytespace-footer__brand {
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+
+  /* Reduced font size of upper text */
+  .bytespace-footer__brand-description {
+    text-align: center;
+    max-width: 100%;
+    font-size: 13px;
+    line-height: 1.45;
+    margin-bottom: 12px;
+  }
+
+  .bytespace-footer__form {
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .bytespace-footer__input-wrapper {
+    width: 100%;
+    max-width: 600px;
+    justify-content: center;
+  }
+
+  .bytespace-footer__input {
+    height: 52px !important;
+    min-height: 52px !important;
+    max-height: 52px !important;
+    line-height: 50px;
+    box-sizing: border-box !important;
+  }
+
+  .bytespace-footer__submit-btn {
+    height: 52px !important;
+    min-height: 52px !important;
+    max-height: 52px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Reduced font size of upper disclaimer */
+  .bytespace-footer__disclaimer {
+    font-size: 10px;
+    max-width: 100%;
+    margin-top: 2px;
+    text-align: center;
+  }
+
+  .bytespace-footer__nav {
+    flex: 0 0 auto !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    gap: clamp(16px, 3vw, 32px);
+  }
+
+  .bytespace-footer__col {
+    flex: 1 1 0;
+    min-width: 0;
+    gap: 8px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .bytespace-footer__col-list {
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+  }
+
+  /* Increased font size of lower text a little */
+  .bytespace-footer__link {
+    font-size: 15px;
+    font-weight: var(--weight-medium);
+  }
+
+  .bytespace-footer__divider {
+    margin-bottom: var(--space-16);
+  }
+
+  .bytespace-footer__bottom {
+    justify-content: space-between;
+  }
+}
+
+/* Mobile (<= 768px) */
+@media (max-width: 768px) {
+  .bytespace-footer {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-20);
+  }
+
+  .bytespace-footer__container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: var(--space-16);
+    padding-right: var(--space-16);
+  }
+
+  .bytespace-footer__main {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px !important;
+    margin-bottom: 16px;
+    width: 100%;
+  }
+
+  .bytespace-footer__newsletter {
+    flex: 0 0 auto !important;
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .bytespace-footer__brand {
+    margin-bottom: 6px;
+    justify-content: center;
+  }
+
+  .bytespace-footer__brand-name {
+    font-size: 19px;
+  }
+
+  /* Reduced font size of upper text */
+  .bytespace-footer__brand-description {
+    font-size: 12px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .bytespace-footer__form {
+    gap: 8px;
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+  }
+
+  .bytespace-footer__input-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-8);
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Email box height matches search button height (52px) exactly */
+  .bytespace-footer__input {
+    width: 100%;
+    height: 52px !important;
+    min-height: 52px !important;
+    max-height: 52px !important;
+    line-height: 50px;
+    padding: 0 16px;
+    font-size: 14px;
+    box-sizing: border-box !important;
+    border-radius: var(--radius-lg);
+  }
+
+  .bytespace-footer__submit-btn {
+    width: 100%;
+    height: 52px !important;
+    min-height: 52px !important;
+    max-height: 52px !important;
+    font-size: 14px;
+    box-sizing: border-box !important;
+    border-radius: var(--radius-lg);
+  }
+
+  /* Reduced upper disclaimer text font size */
+  .bytespace-footer__disclaimer {
+    font-size: 9.5px;
+    line-height: 1.35;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  /* Navigation columns take full space across width without artificial narrow gutters */
+  .bytespace-footer__nav {
+    flex: 0 0 auto !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    gap: 12px;
+  }
+
+  .bytespace-footer__col {
+    flex: 1 1 0;
+    min-width: 0;
+    gap: 6px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .bytespace-footer__col-list {
+    gap: 6px;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Increased font size of lower text a little */
+  .bytespace-footer__link {
+    font-size: 14px;
+    font-weight: var(--weight-medium);
+  }
+
+  .bytespace-footer__divider {
+    margin-bottom: 12px;
+  }
+
+  .bytespace-footer__bottom {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .bytespace-footer__legal-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .bytespace-footer__legal-link,
+  .bytespace-footer__copyright {
+    font-size: 11px;
+  }
+}

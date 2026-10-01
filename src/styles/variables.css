@@ -1,0 +1,137 @@
+/**
+ * ByteSpace Design System Tokens
+ * Source of truth: design/landing-page/design-context.md (Figma node 0:1)
+ */
+
+:root {
+  /* =========================================
+   * 1. Brand Colors & Accents
+   * ========================================= */
+  --color-persian-blue-800: #003BE2;          /* Primary brand color, Hero bg, CTA bg */
+  --color-electric-lime-400: #D4FB20;         /* Primary brand accent, active tabs, buttons */
+  --color-electric-lime-500: #CBFC01;         /* Hero ring stroke (320px), glow stops */
+  --color-electric-violet-600: #7F30F7;       /* Category eyebrow text */
+  --color-electric-violet-950: #300B6A;       /* Deep dark violet stop */
+
+  /* =========================================
+   * 2. Neutrals & Grayscale
+   * ========================================= */
+  --color-white: #FFFFFF;
+  --color-bg-light: #FAFAFA;                  /* Section background (Testimonials, Growth) */
+  --color-shuttle-gray-50: #F5F5F6;           /* Partner logos bg, inactive tab pill bg */
+  --color-shuttle-gray-100: #E5E6E8;          /* Light borders, hero subtitle text */
+  --color-shuttle-gray-200: #CED0D3;          /* Card borders, input borders, dividers */
+  --color-shuttle-gray-400: #82868E;          /* Muted text, meta info, placeholders */
+  --color-shuttle-gray-700: #4B4C53;          /* Body copy, inactive tab labels */
+  --color-shuttle-gray-800: #424348;          /* Muted dark text */
+  --color-shuttle-gray-900: #3A3B3F;          /* Secondary dark text */
+  --color-shuttle-gray-950: #242528;          /* Primary dark text, dark buttons, headings */
+  --color-black-950: #000000;                 /* Pure black */
+  --color-black-700: #4F4F4F;                 /* Testimonial quotes, secondary dark */
+  --color-black-400: #888888;
+  --color-black-200: #D1D1D1;
+  --color-navy-dark: #040819;                 /* Heading deep dark fill (fill_e2bb289c) */
+  --color-soft-blue-tint: #F1F4FE;            /* Soft blue card tint */
+
+  /* =========================================
+   * 3. Semantic Aliases
+   * ========================================= */
+  --color-primary: var(--color-persian-blue-800);
+  --color-accent: var(--color-electric-lime-400);
+  --color-ring-stroke: var(--color-electric-lime-500);
+  --color-bg-surface: var(--color-white);
+  --color-bg-section: var(--color-bg-light);
+  --color-bg-pill: var(--color-shuttle-gray-50);
+  --color-border-card: var(--color-shuttle-gray-200);
+  --color-border-subtle: var(--color-shuttle-gray-100);
+  --color-text-primary: var(--color-shuttle-gray-950);
+  --color-text-secondary: var(--color-shuttle-gray-700);
+  --color-text-muted: var(--color-shuttle-gray-400);
+  --color-text-heading: var(--color-navy-dark);
+  --color-text-light: var(--color-shuttle-gray-50);
+
+  /* =========================================
+   * 4. Radial Gradients
+   * ========================================= */
+  --gradient-glow-lime: radial-gradient(circle at 50% 50%, rgba(203, 252, 1, 0.4) 0%, rgba(203, 252, 1, 0.09) 53%, rgba(203, 252, 1, 0.02) 75%, rgba(203, 252, 1, 0) 100%);
+  --gradient-glow-blue: radial-gradient(circle at 50% 50%, rgba(0, 59, 226, 0.24) 0%, rgba(0, 59, 226, 0.06) 53%, rgba(0, 59, 226, 0.01) 75%, rgba(0, 59, 226, 0) 100%);
+
+  /* =========================================
+   * 5. Border Radius
+   * ========================================= */
+  --radius-xs: 4px;
+  --radius-sm: 12px;                          /* Inner badges, small tags */
+  --radius-md: 16px;                          /* Cards, course cover, metric cards */
+  --radius-lg: 24px;                          /* Category tabs, category cards, buttons */
+  --radius-circle: 40px;                      /* Category card icon circle */
+  --radius-pill: 100px;                       /* Search bar, round buttons */
+  --radius-full: 9999px;                      /* Circular avatars */
+
+  /* =========================================
+   * 6. Shadows (Figma Multi-stop 'effects: A')
+   * ========================================= */
+  --shadow-ambient: 
+    0.52px 0.74px 3.04px 0px rgba(0, 0, 0, 0.04),
+    2.23px 3.19px 5.72px 0px rgba(0, 0, 0, 0.06),
+    5.38px 7.69px 9.57px 0px rgba(0, 0, 0, 0.07),
+    10.21px 14.58px 16.09px 0px rgba(0, 0, 0, 0.08),
+    16.95px 24.21px 24px 0px rgba(0, 0, 0, 0.09),
+    25.84px 36.91px 36px 0px rgba(0, 0, 0, 0.10),
+    37.12px 53.03px 56px 0px rgba(0, 0, 0, 0.11),
+    51.04px 72.91px 72px 0px rgba(0, 0, 0, 0.13);
+
+  --shadow-card: 0px 4px 20px 0px rgba(0, 0, 0, 0.04);
+  --shadow-dropdown: 0px 10px 30px 0px rgba(0, 0, 0, 0.10);
+
+  /* =========================================
+   * 7. Blur & Filter Effects
+   * ========================================= */
+  --blur-glass: blur(10px);                   /* Floating statistic cards (effect_72672f49) */
+  --blur-heavy: blur(20px);                   /* CTA / overlay backdrop (effect_d1590264) */
+  --blur-glow: blur(20px);                    /* Radial glow circles (effect_e36a6918) */
+  --blur-tag: blur(4px);                      /* Course cover meta badges */
+
+  /* =========================================
+   * 8. Spacing Scale (Exact Figma Gaps & Offsets)
+   * ========================================= */
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-56: 56px;
+  --space-60: 60px;
+  --space-64: 64px;
+  --space-72: 72px;
+  --space-80: 80px;
+  --space-96: 96px;
+  --space-120: 120px;                         /* Section padding vertical, desktop margin */
+
+  /* =========================================
+   * 9. Layout Widths & Metrics
+   * ========================================= */
+  --width-artboard: 1440px;                   /* Desktop canvas width */
+  --container-max-width: 1200px;              /* Main content container */
+  --container-courses: 1199px;                /* Course cards grid width */
+  --container-categories: 1202px;             /* Category paths grid width */
+  --container-hero-title: 935px;
+  --container-cta-heading: 710px;
+  --container-cta-desc: 964px;
+  --container-feature-col: 574px;
+  --width-search-input: 461px;
+  --height-header: 120px;
+  --section-padding-y: 120px;
+
+  /* =========================================
+   * 10. Transitions & Easing
+   * ========================================= */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}

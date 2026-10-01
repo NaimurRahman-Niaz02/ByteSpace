@@ -1,0 +1,461 @@
+/**
+ * ByteSpace Featured Courses Section Styles
+ * Source of truth: design/landing-page/design-context.md
+ * Figma nodes: #12:101 (Header), #21:33, #21:56, #21:63 (Tabs), #33:683 (Course Grid)
+ */
+
+/* =========================================
+ * 1. Section Container & Layout
+ * ========================================= */
+.bytespace-featured-courses {
+  width: 100%;
+  background-color: var(--color-white);
+  padding-top: var(--space-120);
+  padding-bottom: var(--space-120);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.bytespace-featured-courses__container {
+  width: 100%;
+  max-width: var(--container-max-width); /* 1200px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-24);
+  padding-right: var(--space-24);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* =========================================
+ * 2. Section Header (#12:101)
+ * ========================================= */
+.bytespace-featured-courses__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-16);
+  margin-bottom: var(--space-56);
+  max-width: 917px;
+}
+
+.bytespace-featured-courses__title {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  font-size: var(--font-size-heading-m); /* 44px */
+  line-height: var(--line-height-heading-m); /* 1.2 */
+  letter-spacing: var(--letter-spacing-heading-m); /* -0.01em */
+  color: var(--color-navy-dark); /* #040819 */
+  max-width: 588px;
+  margin: 0 auto;
+}
+
+.bytespace-featured-courses__description {
+  font-family: var(--font-body);
+  font-weight: var(--weight-regular);
+  font-size: var(--font-size-body-l); /* 18px */
+  line-height: var(--line-height-body-l); /* 1.6 */
+  color: var(--color-shuttle-gray-400); /* #82868E */
+  max-width: 917px;
+  margin: 0 auto;
+}
+
+/* =========================================
+ * 3. Category Tabs (#21:33, #21:56, #21:63)
+ * ========================================= */
+.bytespace-category-tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-16); /* 16px row gap */
+  width: 100%;
+  margin-bottom: var(--space-56);
+}
+
+.bytespace-category-tabs__row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-16); /* 16px col gap */
+  flex-wrap: wrap;
+}
+
+.bytespace-category-tab {
+  height: 44px;
+  padding: 12px var(--space-16);
+  border-radius: var(--radius-lg); /* 24px */
+  background-color: var(--color-shuttle-gray-50); /* #F5F5F6 */
+  color: var(--color-shuttle-gray-700); /* #4B4C53 */
+  font-family: var(--font-body);
+  font-size: var(--font-size-label-m); /* 16px */
+  font-weight: var(--weight-medium); /* 500 */
+  line-height: 1;
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color var(--transition-fast),
+              color var(--transition-fast),
+              transform var(--transition-fast);
+}
+
+.bytespace-category-tab:hover {
+  background-color: var(--color-shuttle-gray-100);
+  color: var(--color-shuttle-gray-950);
+}
+
+/* Active tab state */
+.bytespace-category-tab--active,
+.bytespace-category-tab--active:hover {
+  background-color: var(--color-electric-lime-400); /* #D4FB20 */
+  color: var(--color-shuttle-gray-950); /* #242528 */
+  font-weight: var(--weight-medium);
+}
+
+/* =========================================
+ * 4. Course Cards Grid (#33:683)
+ * ========================================= */
+.bytespace-featured-courses__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-40); /* 40px gap */
+  width: 100%;
+  max-width: var(--container-courses); /* 1199px */
+  margin: 0 auto;
+}
+
+/* =========================================
+ * 5. CourseCard Component
+ * ========================================= */
+.bytespace-course-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 373px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-shuttle-gray-200); /* #CED0D3 */
+  border-radius: var(--radius-lg); /* 24px */
+  padding: var(--space-16);
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.04);
+  transition: transform var(--transition-normal),
+              box-shadow var(--transition-normal),
+              border-color var(--transition-normal);
+  box-sizing: border-box;
+}
+
+.bytespace-course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 12px 30px 0px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-shuttle-gray-400);
+}
+
+/* Cover Image Wrapper with Floating Glass Pills */
+.bytespace-course-card__cover-wrapper {
+  position: relative;
+  width: 100%;
+  height: 195px; /* Exact Figma thumbnail height */
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--color-shuttle-gray-50);
+}
+
+.bytespace-course-card__cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-smooth);
+}
+
+.bytespace-course-card:hover .bytespace-course-card__cover {
+  transform: scale(1.03);
+}
+
+.bytespace-course-card__pills {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+}
+
+.bytespace-course-card__pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  background: rgba(246, 246, 246, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 24px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: #4F4F4F;
+  white-space: nowrap;
+}
+
+/* Content Area */
+.bytespace-course-card__content {
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--space-16);
+  gap: var(--space-16);
+  flex: 1;
+}
+
+/* Header Row: Title & Subtitle + Rating */
+.bytespace-course-card__header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.bytespace-course-card__title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.bytespace-course-card__title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  color: #000000;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bytespace-course-card__instructor {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 19px;
+  color: #4F4F4F;
+}
+
+.bytespace-course-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.bytespace-course-card__rating-value {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 29px;
+  color: #4F4F4F;
+}
+
+.bytespace-course-card__star-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* Middle Row: Difficulty + Avatars */
+.bytespace-course-card__middle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.bytespace-course-card__level-badge {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  gap: 4px;
+  background-color: #F5F5F6;
+  border-radius: 24px;
+}
+
+.bytespace-course-card__level-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.bytespace-course-card__level-text {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  color: #4B4C53;
+}
+
+.bytespace-course-card__students {
+  display: flex;
+  align-items: center;
+}
+
+.bytespace-course-card__avatar-stack {
+  display: flex;
+  align-items: center;
+}
+
+.bytespace-course-card__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--color-white);
+  margin-left: -8px;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+}
+
+.bytespace-course-card__avatar:first-child {
+  margin-left: 0;
+}
+
+.bytespace-course-card__avatar-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-electric-lime-400); /* #D4FB20 */
+  color: var(--color-shuttle-gray-950); /* #242528 */
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 32px;
+  text-align: center;
+  margin-left: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+/* Footer: Price Only */
+.bytespace-course-card__footer {
+  display: flex;
+  align-items: flex-end;
+  margin-top: auto;
+}
+
+.bytespace-course-card__pricing {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.bytespace-course-card__price {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  color: var(--color-persian-blue-800); /* #003BE2 */
+}
+
+.bytespace-course-card__period {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 19px;
+  color: #4F4F4F;
+}
+
+/* =========================================
+ * 6. Responsive Breakpoints
+ * ========================================= */
+
+/* Tablet (768px – 1024px) */
+@media (max-width: 1024px) {
+  .bytespace-featured-courses {
+    padding-top: var(--space-80);
+    padding-bottom: var(--space-80);
+  }
+
+  .bytespace-featured-courses__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-24);
+  }
+
+  .bytespace-category-tabs {
+    overflow-x: auto;
+    width: 100%;
+    padding-bottom: var(--space-8);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Hide scrollbar for clean UI */
+  }
+
+  .bytespace-category-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bytespace-category-tabs__row {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding: 0 var(--space-16);
+  }
+}
+
+/* Mobile (<= 767px, targeting 375px) */
+@media (max-width: 768px) {
+  .bytespace-featured-courses {
+    padding-top: var(--space-64);
+    padding-bottom: var(--space-64);
+  }
+
+  .bytespace-featured-courses__header {
+    margin-bottom: var(--space-32);
+    gap: var(--space-12);
+  }
+
+  .bytespace-featured-courses__title {
+    font-size: 28px;
+    line-height: 1.25;
+  }
+
+  .bytespace-featured-courses__description {
+    font-size: var(--font-size-body-m);
+    line-height: var(--line-height-body-m);
+  }
+
+  .bytespace-category-tabs {
+    margin-bottom: var(--space-32);
+    align-items: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .bytespace-category-tabs__row {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: var(--space-8);
+    padding: 0 var(--space-8);
+  }
+
+  .bytespace-category-tab {
+    height: 40px;
+    padding: 10px var(--space-12);
+    font-size: var(--font-size-label-s);
+  }
+
+  .bytespace-featured-courses__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-20);
+    max-width: 380px;
+  }
+
+  .bytespace-course-card__title {
+    min-height: auto;
+    font-size: 18px;
+  }
+}
