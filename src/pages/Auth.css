@@ -28,7 +28,7 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: var(--space-32) var(--space-48);
+  padding: 35px 120px;
   display: flex;
   align-items: center;
   z-index: 10;
@@ -64,9 +64,9 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 var(--space-48) var(--space-64);
+  padding: 0 120px var(--space-64);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: var(--space-48);
   position: relative;
@@ -78,7 +78,7 @@
  * ========================================= */
 .bytespace-auth__left {
   flex: 1;
-  max-width: 580px;
+  max-width: 480px;
   display: flex;
   flex-direction: column;
   color: var(--color-white);
@@ -86,20 +86,21 @@
 
 .bytespace-auth__heading {
   font-family: var(--font-heading);
-  font-weight: var(--weight-semibold);
-  font-size: 32px;
-  line-height: 1.25;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
   color: var(--color-shuttle-gray-50);
-  margin-bottom: var(--space-12);
+  margin-bottom: var(--space-16);
 }
 
 .bytespace-auth__subtitle {
   font-family: var(--font-body);
-  font-size: var(--font-size-body-m);
+  font-size: 18px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--color-shuttle-gray-50);
   margin-bottom: var(--space-40);
-  max-width: 460px;
+  max-width: 475px;
 }
 
 /* Visual Stage with Overlapping Cards */
@@ -368,17 +369,17 @@
  * 5. Right Column: White Auth Card
  * ========================================= */
 .bytespace-auth__right {
-  flex: 0 0 540px;
+  flex: 0 0 579px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .bytespace-auth__card {
   width: 100%;
-  max-width: 520px;
+  max-width: 579px;
   background: var(--color-white);
-  border-radius: var(--radius-xl);
-  padding: 48px 48px;
+  border-radius: 24px;
+  padding: 61px 63px;
   box-shadow: 0 32px 64px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
@@ -386,17 +387,18 @@
 
 .bytespace-auth__card-eyebrow {
   font-family: var(--font-body);
-  font-weight: var(--weight-medium);
-  font-size: var(--font-size-body-l);
+  font-weight: var(--weight-regular);
+  font-size: 18px;
+  line-height: 29px;
   color: var(--color-primary);
   margin-bottom: var(--space-8);
 }
 
 .bytespace-auth__card-title {
   font-family: var(--font-heading);
-  font-weight: var(--weight-semibold);
-  font-size: 40px;
-  line-height: 1.2;
+  font-weight: 600;
+  font-size: 44px;
+  line-height: 53px;
   letter-spacing: -0.01em;
   color: var(--color-shuttle-gray-950);
   margin-bottom: var(--space-32);
@@ -418,8 +420,9 @@
 
 .bytespace-auth__label {
   font-family: var(--font-body);
-  font-weight: var(--weight-medium);
-  font-size: var(--font-size-label-s);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
   color: var(--color-shuttle-gray-950);
 }
 
@@ -428,10 +431,11 @@
   height: 52px;
   background-color: var(--color-white);
   border: 1px solid var(--color-shuttle-gray-100);
-  border-radius: var(--radius-md);
-  padding: 12px 20px;
+  border-radius: 12px;
+  padding: 12px 24px;
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: 18px;
+  line-height: 29px;
   color: var(--color-shuttle-gray-950);
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }

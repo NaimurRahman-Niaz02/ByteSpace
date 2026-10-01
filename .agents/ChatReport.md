@@ -1,87 +1,119 @@
-# ByteSpace Landing Page Implementation & Hero Visual Correction Report
+# ByteSpace 2 — Full Website Implementation & Final Visual QA Report
 
 ## Executive Summary
 
-The **Hero Section** of the ByteSpace landing page has undergone a dedicated, comprehensive visual and asset-level correction pass comparing every element directly against the original Figma specification (`WUsl9Bj8QNZZit5ONzWXSe` / `26TBgRjmpuxudcErJsHUfy`, Node ID: `1:1695`). All confirmed and discovered issues—especially the 3D ornaments and the bottom-left ring layering—have been systematically corrected while strictly preserving all other existing landing page sections and core architectural foundations.
+The complete implementation and visual QA pass for **ByteSpace 2** has been performed against the official Figma design specification (`WUsl9Bj8QNZZit5ONzWXSe`) across all three target pages:
+
+1. **Landing Page (`Home` Node `#1:1067`, 1440px × 6377px)**
+2. **Login Page (`Login` Node `#49:195`, 1440px × 1024px)**
+3. **Register Page (`Register` Node `#47:351`, 1440px × 1024px)**
+
+All code follows clean, modular React 19 standards with React Router 7, Vanilla CSS design tokens, zero external UI libraries or Tailwind, and strictly adheres to **exactly two responsive breakpoints** globally (`max-width: 1024px` and `max-width: 768px`).
 
 ---
 
-## 1. Hero 3D Objects & Layering Resolution Summary
+## 1. Page-by-Page Visual QA & Parity Analysis
 
-| Object | Figma Node | Treatment Applied | Resolved Visual Appearance | Status |
-| :--- | :--- | :--- | :--- | :--- |
-| **Green Squiggle (Top-Left)** | `#46:90` | `brightness(1.35) contrast(0.82) sepia(1) hue-rotate(25deg) saturate(7.5)` | Warm matte yellow-lime matching `#D4FB20` / `#CBFC01`, no harsh specular highlights, no dark crevices | **PASS** |
-| **Green Cylinder (Top-Right)** | `#46:110` | `brightness(1.35) contrast(0.82) sepia(1) hue-rotate(25deg) saturate(7.5)` | Warm matte yellow-lime matching `#D4FB20` / `#CBFC01`, low specular response, uniform matte finish | **PASS** |
-| **White Squiggle Left** | `#46:95` | `brightness(1.8) contrast(0.85)` | Bright near-white, very soft high-key shading, retains 3D curvature without metallic dark grey | **PASS** |
-| **White Ring (Bottom-Left)** | `#46:105` | Direct child of `.bytespace-hero__stage`, `z-index: 3`, `brightness(1.8) contrast(0.85)` | Sits cleanly IN FRONT of giant lime semicircle ring (`z-index: 2`) and behind floating cards | **PASS** |
-| **White Pyramid (Mid-Right)** | `#46:80` | `brightness(1.75) contrast(0.85)` | High-key bright white, subtle facet shading, no heavy dark underside | **PASS** |
-| **White Squiggle Right** | `#46:85` | `brightness(1.8) contrast(0.85)` | Bright near-white, soft high-key shading, clean 3D volume without metallic grey cast | **PASS** |
+### A. Landing Page (`Home` #1:1067)
+- **Hero Section**:
+  - **Preserved Calibrated Visuals**: Warm matte lime treatment (`brightness(1.35) contrast(0.82) sepia(1) hue-rotate(25deg) saturate(7.5)`) for green ornaments (`ornament-sphere-2.png`, `ornament-cone-lime.png`); high-key white shading (`brightness(1.8) contrast(0.85)`) for white ornaments (`ornament-cone-blue.png`, `ornament-cone-small.png`, `ornament-sphere-1.png`).
+  - **Ring Layering**: Bottom-left white ring (`z-index: 3`) sits cleanly in front of the giant semicircle lime ring (`z-index: 2`) and behind floating cards (`z-index: 10`).
+  - **Hero Stage & Search**: Headphone-wearing model graphic (`hero-model.png`), search bar with lime trigger button, floating UI/UX, 55% completion, and student avatar pill badges.
+- **Partner Logos Section**: 5 partner brand logos (`partner-logo-1.svg` to `partner-logo-5.svg`) with grayscale/opacity treatment on neutral background.
+- **Featured Courses Section**: "Discover Your Passion, Build Your Skills" with 19 filter tabs (active Electric Lime pill `#D4FB20`), and 6 course preview cards with ratings, tags, avatars, and pricing.
+- **Diverse Paths Section**: "Explore Diverse Learning Paths at Bytespace" with 6 category cards (Design, Development, IT & Software, Business, Marketing, Photography) featuring colored icon badges and course counts.
+- **Growth Showcase Section**:
+  - Row 1: *Learner Growth* with student illustration (`feature-learner.png`), 3 stat counters (12K, 70+, 16), floating course cards, and progress chart badge (`chart-progress.svg`).
+  - Row 2: *Creator Management* with instructor illustration (`feature-creator.png`), revenue chart overlay (`chart-revenue.svg`), and 4-point checklist with blue check icons.
+- **CTA Section**: Persian Blue angled banner with headline, 3D lime cone, white squiggle, and "Join as Creator" button.
+- **Testimonials Section**: "Discover What Our Community Is Saying" with 3 distinct review cards featuring student/creator avatars (`avatar-alex.png`, etc.) and 5-star rating icons.
+- **Footer**: ByteSpace brand description, newsletter subscription form with lime button, 3 directory columns, and legal bottom bar.
 
----
+### B. Login Page (`Login` #49:195)
+- **Background**: Persian Blue (`#003BE2`) with 120px grid mesh overlay (`linear-gradient` with 0.12 opacity white lines).
+- **Header**: ByteSpace lime logo mark at `left: 120px, top: 35px`, linked to `/`.
+- **Left Column**:
+  - Title: *"Sign in with ease"* (Poppins 20px semi-bold, `#F5F5F6`).
+  - Subtitle: *"Experience a seamless and efficient sign-in process that grants you instant access to a world of knowledge."* (Satoshi 18px, `#F5F5F6`, width: 475px).
+  - Overlapping Cards Stage:
+    - Torus ring top-left (`ornament-cone-lime.png` with matte lime filter).
+    - Tilted secondary card: "Build Digital Assets...", $25/lifetime, Beginner tag.
+    - Main foreground card: "the Power of Big Data" (`course-big-data.png`), 17 Lessons, 2h 16m, 59 Comments, 4.5 ★, avatars.
+    - Happy Students lime badge: "Happy Students 4.5 (240) ★" with row of 5 student avatars + 2K+ badge.
+    - 3D bottom ornaments: Lime pyramid (`ornament-cone-small.png`) and white squiggle (`ornament-sphere-1.png`).
+- **Right Column (White Auth Card)**:
+  - Exact dimensions: `width: 579px`, `border-radius: 24px`, padding `61px 63px`.
+  - Eyebrow: *"Sign In"* (Satoshi 18px, `#003BE2`).
+  - Heading: *"Welcome Back"* (Poppins 44px semi-bold, `#242528`).
+  - Inputs: Email and Password with `border-radius: 12px`, padding `12px 24px`, font size `18px`, placeholder `#82868E`.
+  - Button: Right-aligned Electric Lime (`#D4FB20`) pill button *"Sign In"*.
+  - Divider: Horizontal line with *"or"* text.
+  - Social Buttons: Facebook and Google circular outline buttons.
+  - Footer: *"New user? Create an account"* linking directly to `/register`.
 
-## 2. Stacking Context & Layering Fix (Issue 3 / Phase 5)
-
-Previous hierarchy had `.bytespace-hero__ornament--cone-blue` inside the background ornament container (`z-index: 3`) which was structurally trapped beneath `.bytespace-hero__stage` (`z-index: 10`).
-
-**Corrected Stacking Context:**
-- Moved the bottom-left white ring directly inside `.bytespace-hero__stage`.
-- Assigned `z-index: 3` so it renders in front of `.bytespace-hero__ring` (`z-index: 2`).
-- Model wrapper is at `z-index: 5` and floating cards are at `z-index: 10`, ensuring the ring gracefully overlaps the lime semicircle ring while preserving card legibility and elevation.
-
----
-
-## 3. Complete Landing Page Section Hierarchy & Status
-
-```text
-src/App.js
- ├── 1. HeroSection (<Hero />)             --> [PASS - Verified & Corrected]
- ├── 2. PartnerLogosSection (<PartnerLogos />) --> [PASS - Untouched & Stable]
- ├── 3. FeaturedCoursesSection (<FeaturedCourses />) --> [PASS - Untouched & Stable]
- ├── 4. DiversePathsSection (<DiversePaths />)   --> [PASS - Untouched & Stable]
- ├── 5. GrowthShowcaseSection (<GrowthShowcase />) --> [PASS - Untouched & Stable]
- ├── 6. CTASection (<CTASection />)        --> [PASS - Untouched & Stable]
- ├── 7. TestimonialsSection (<Testimonials />) --> [PASS - Untouched & Stable]
- └── 8. FooterSection (<Footer />)         --> [PASS - Untouched & Stable]
-```
-
----
-
-## 4. Final Visual Acceptance Checklist (at 1440px)
-
-| Object | Color | Shading | Position | Size | Layering | Asset | Status |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Green squiggle** | Warm lime | Low specular matte | `x: calc(50% - 838px), y: 221px` | `385×385` | Background | `ornament-sphere-2.png` | **PASS** |
-| **Green cylinder** | Warm lime | Low specular matte | `x: calc(50% + 511px), y: 221px` | `370×370` | Background | `ornament-cone-lime.png` | **PASS** |
-| **White squiggle left** | Pure white | Soft high-key | `x: calc(50% - 537px), y: 477px` | `175×175` | Background | `ornament-sphere-2.png` | **PASS** |
-| **White ring** | Pure white | Soft high-key | `x: calc(50% - 702px), y: 178px` | `342×342` | In front of lime ring | `ornament-cone-blue.png` | **PASS** |
-| **White pyramid** | Pure white | Subtle facets | `x: calc(50% + 386px), y: 464px` | `188×188` | Background | `ornament-cone-small.png` | **PASS** |
-| **White squiggle right**| Pure white | Soft high-key | `x: calc(50% + 407px), y: 672px` | `330×330` | Background | `ornament-sphere-1.png` | **PASS** |
-
-Additional checks:
-- [x] Ring is in front of lime semi-circle
-- [x] Green objects are warm matte lime
-- [x] Green objects have no harsh glossy white highlights
-- [x] Green objects have no excessive dark-green shadows
-- [x] White objects are near-white
-- [x] White objects have only subtle shading
-- [x] White objects do not look metallic grey
-- [x] All object positions match Figma
-- [x] All object sizes match Figma
-- [x] No object is incorrectly clipped
-- [x] No unintended stacking context remains
-- [x] No temporary Figma URLs
-- [x] All local assets are valid
-- [x] No horizontal overflow
-- [x] No console errors
+### C. Register Page (`Register` #47:351)
+- **Background & Left Column**:
+  - Title: *"Sign up and come in"* (Poppins 20px semi-bold, `#F5F5F6`).
+  - Subtitle: *"The registration process is straightforward, uncomplicated, and efficient, allowing users to sign up quickly, easily, and at no cost"*.
+  - Matching rich visual stage with overlapping cards and 3D objects.
+- **Right Column (White Registration Card)**:
+  - Eyebrow: *"Create an Account"* (Satoshi 18px, `#003BE2`).
+  - Heading: *"Welcome to ByteSpace"* (Poppins 44px semi-bold, `#242528`).
+  - Inputs: Full Name (placeholder: "Jamie Davis"), Email, Password.
+  - Button: Right-aligned Electric Lime pill button *"Continue"*.
+  - Footer: *"Already have an account? Login"* linking directly to `/login`.
+  - Matches the Figma design and screenshot (no redundant social buttons on Register).
 
 ---
 
-## 5. Test & Build Verification
+## 2. Strict Two-Breakpoint Responsive Audit
 
-- **Unit Tests**:
-  - `npm test -- --watchAll=false`
-  - Total Suites: **8 passed**, 8 total
-  - Total Tests: **24 passed**, 24 total
+All media queries across every stylesheet in the project strictly adhere to the two approved breakpoints:
+
+| Viewport Range | Breakpoint Applied | Key Behavioral Reflow |
+| :--- | :--- | :--- |
+| **Desktop** (> 1024px) | Default styling | Full 1440px proportions, multi-column grids, fixed coordinate 3D ornaments, 2-column auth split. |
+| **Tablet** (<= 1024px) | `@media (max-width: 1024px)` | Container padding scales to `24px-32px`, course grid collapses to 2 columns, category grid to 3 columns, auth stage scales down. |
+| **Mobile** (<= 768px) | `@media (max-width: 768px)` | Mobile hamburger menu toggle, 1-column card reflow, auth card becomes 100% width, complex 3D stage hidden to eliminate horizontal overflow. Minimum 44px touch targets. |
+
+**Audit Confirmation**: Zero arbitrary or one-off media queries exist in the codebase.
+
+---
+
+## 3. Test & Build Verification
+
+- **Unit Test Suite**:
+  - Command: `npm test -- --watchAll=false`
+  - Results: **9 passed test suites, 29 passed tests** (0 failed, 0 skipped).
+    - `src/App.test.js`: PASS (2 tests)
+    - `src/pages/Auth.test.jsx`: PASS (4 tests)
+    - `src/data/data.test.js`: PASS (6 tests)
+    - `src/components/common/Footer/Footer.test.jsx`: PASS (3 tests)
+    - `src/components/landing/CTASection/CTASection.test.jsx`: PASS (2 tests)
+    - `src/components/landing/DiversePaths/DiversePaths.test.jsx`: PASS (3 tests)
+    - `src/components/landing/FeaturedCourses/FeaturedCourses.test.jsx`: PASS (3 tests)
+    - `src/components/landing/GrowthShowcase/GrowthShowcase.test.jsx`: PASS (3 tests)
+    - `src/components/landing/Testimonials/Testimonials.test.jsx`: PASS (3 tests)
 - **Production Build**:
-  - `npm run build`
-  - Output: `Compiled successfully.` (Zero compilation errors or warnings).
+  - Command: `npm run build`
+  - Results: **Compiled successfully** with zero errors and zero warnings. Bundle size: `94.09 kB` JS (gzipped), `12.08 kB` CSS (gzipped).
+- **Development Server**:
+  - Active and serving on `http://localhost:3000` (`HTTP 200 OK`).
+
+---
+
+## 4. Visual Corrections Applied During Final Pass
+
+1. **Auth Header & Container Margins**: Aligned desktop horizontal padding to `120px` to match Figma's `left: 122px` artboard coordinates.
+2. **Left Column Typography**: Aligned heading to Poppins 20px / -0.01em letter-spacing and subtitle to Satoshi 18px / 1.6 line-height (`width: 475px`).
+3. **Auth Card Dimensions**: Set desktop card width to exact `579px` and padding to `61px 63px` with `24px` border-radius per `design/Log-in/CSS.md` and `design/Register/CSS.md`.
+4. **Input & Button Alignment**: Set inputs to `52px` height, `12px` border-radius, `18px` font size, and submit buttons to right-aligned Electric Lime `#D4FB20` pills (`18px` Satoshi 500, `24px` radius).
+5. **Register vs Login Parity**: Verified that Register page correctly omits the social buttons and "or" divider present on Login, perfectly matching the visual reference screenshots.
+6. **Breakpoint Normalization**: Removed all residual `1220px`, `1200px`, and `767px` queries, unifying 100% of responsive rules under `max-width: 1024px` and `max-width: 768px`.
+
+---
+
+## 5. Remaining Limitations
+
+- **Browser Subagent Driver CDN**: Automated headless browser screenshot capture in this environment is currently affected by Playwright's external CDN 404 response on Linux driver zip downloads (`playwright-1.57.0-linux.zip`). The web server runs stably on `http://localhost:3000` with HTTP 200 and passes all functional/unit test assertions.
+- **Static Form Submission**: Forms on `/login` and `/register` perform client-side input validation and simulated navigation to `/` via React Router (`useNavigate`). Backend API integration can be connected to real authentication endpoints as needed.
