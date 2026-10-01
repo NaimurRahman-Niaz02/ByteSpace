@@ -11,6 +11,7 @@ import courseMoneyImg from '../assets/images/course-money.png';
 import courseStartupImg from '../assets/images/course-startup.png';
 
 import starIcon from '../assets/icons/star-icon.svg';
+import starGrayIcon from '../assets/icons/star-gray-icon.svg';
 import signalIcon from '../assets/icons/signal-icon.svg';
 import arrowForwardIcon from '../assets/icons/arrow-forward.svg';
 import student1Img from '../assets/images/student-1.png';
@@ -20,14 +21,17 @@ import student9Img from '../assets/images/student-9.png';
 
 export const coursesSectionHeader = {
   title: 'Discover Your Passion, Build Your Skills',
-  description: 'Explore courses designed to help you succeed in today’s tech-driven world.',
+  description:
+    'At Bytespace Courses, we bring you closer to life-changing knowledge. Explore a variety of courses across different fields, from technology to the arts, and make a difference in your career and life.',
 };
 
 export const courseSharedIcons = {
-  star: starIcon,
+  star: starGrayIcon,
   signal: signalIcon,
   arrowForward: arrowForwardIcon,
 };
+
+export const courseYellowGreenStarIcon = starIcon;
 
 export const featuredCoursesData = [
   {

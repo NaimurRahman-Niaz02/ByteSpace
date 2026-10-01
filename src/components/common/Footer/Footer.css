@@ -41,7 +41,7 @@
 .bytespace-footer__newsletter {
   display: flex;
   flex-direction: column;
-  flex: 0 0 528px;
+  flex: 1 1 380px;
   max-width: 528px;
 }
 
@@ -148,7 +148,7 @@
 .bytespace-footer__nav {
   display: flex;
   justify-content: flex-end;
-  gap: var(--space-40);
+  gap: clamp(20px, calc(20px + 20 * ((100vw - 1025px) / 415)), var(--space-40));
   flex-shrink: 0;
   margin-left: auto;
 }
@@ -157,7 +157,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-24);
-  min-width: 130px;
+  min-width: 0;
 }
 
 /* Figma Footer Column Headers (#34:1283) */

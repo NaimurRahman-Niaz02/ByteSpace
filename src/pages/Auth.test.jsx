@@ -36,6 +36,22 @@ describe('LoginPage Component', () => {
     expect(emailInput.value).toBe('user@example.com');
     expect(passwordInput.value).toBe('secretpass');
   });
+
+  test('renders logo without ByteSpace text label and visual stage elements', () => {
+    const { container } = render(
+      <BrowserRouter>
+        <LoginPage />
+      </BrowserRouter>
+    );
+
+    const brandLink = screen.getByRole('link', { name: /ByteSpace/i });
+    expect(brandLink.querySelector('.bytespace-auth__brand-name')).toBeNull();
+
+    expect(screen.getByText('Build Digital Asset')).toBeInTheDocument();
+    expect(screen.getByText('the Power of Big Data')).toBeInTheDocument();
+    expect(screen.getByText('Happy Students')).toBeInTheDocument();
+    expect(screen.getByText('2K+')).toBeInTheDocument();
+  });
 });
 
 describe('RegisterPage Component', () => {
@@ -73,5 +89,21 @@ describe('RegisterPage Component', () => {
     expect(nameInput.value).toBe('Jamie Davis');
     expect(emailInput.value).toBe('jamie@example.com');
     expect(passwordInput.value).toBe('mysecurepassword');
+  });
+
+  test('renders logo without ByteSpace text label and visual stage elements', () => {
+    render(
+      <BrowserRouter>
+        <RegisterPage />
+      </BrowserRouter>
+    );
+
+    const brandLink = screen.getByRole('link', { name: /ByteSpace/i });
+    expect(brandLink.querySelector('.bytespace-auth__brand-name')).toBeNull();
+
+    expect(screen.getByText('Build Digital Asset')).toBeInTheDocument();
+    expect(screen.getByText('the Power of Big Data')).toBeInTheDocument();
+    expect(screen.getByText('Happy Students')).toBeInTheDocument();
+    expect(screen.getByText('2K+')).toBeInTheDocument();
   });
 });

@@ -10,11 +10,65 @@
 .bytespace-showcase {
   width: 100%;
   background-color: var(--color-bg-light); /* #FAFAFA */
-  padding-top: var(--space-120);
-  padding-bottom: var(--space-120);
+  padding-top: var(--space-80);
+  padding-bottom: var(--space-80);
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
+}
+
+.bytespace-showcase__glows {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.bytespace-showcase__glow {
+  position: absolute;
+  border-radius: var(--radius-full);
+  filter: blur(40px);
+  -webkit-filter: blur(40px);
+}
+
+/* Row 1 Lime Glow (top left/center) */
+.bytespace-showcase__glow--row1-lime {
+  width: 800px;
+  height: 800px;
+  top: -150px;
+  left: -50px;
+  background: radial-gradient(circle at 50% 50%, rgba(203, 252, 1, 0.45) 0%, rgba(203, 252, 1, 0.12) 50%, rgba(203, 252, 1, 0) 75%);
+}
+
+/* Row 1 Blue Glow (top right) */
+.bytespace-showcase__glow--row1-blue {
+  width: 800px;
+  height: 800px;
+  top: -100px;
+  right: -100px;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 59, 226, 0.16) 0%, rgba(0, 59, 226, 0.04) 50%, rgba(0, 59, 226, 0) 75%);
+}
+
+/* Row 2 Lime Glow (bottom left) */
+.bytespace-showcase__glow--row2-lime {
+  width: 750px;
+  height: 750px;
+  bottom: 0px;
+  left: -150px;
+  background: radial-gradient(circle at 50% 50%, rgba(203, 252, 1, 0.55) 0%, rgba(203, 252, 1, 0.15) 50%, rgba(203, 252, 1, 0) 75%);
+}
+
+/* Row 2 Blue Glow (bottom right) */
+.bytespace-showcase__glow--row2-blue {
+  width: 850px;
+  height: 850px;
+  bottom: -50px;
+  right: -100px;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 59, 226, 0.22) 0%, rgba(0, 59, 226, 0.06) 50%, rgba(0, 59, 226, 0) 75%);
 }
 
 .bytespace-showcase__container {
@@ -26,7 +80,9 @@
   padding-right: var(--space-24);
   display: flex;
   flex-direction: column;
-  gap: var(--space-120); /* 120px gap between rows */
+  gap: var(--space-80); /* 80px gap between rows */
+  position: relative;
+  z-index: 1;
   box-sizing: border-box;
 }
 
@@ -49,6 +105,8 @@
   max-width: var(--container-feature-col); /* 574px */
   display: flex;
   flex-direction: column;
+  gap: 40px; /* Exact 40px gap in Figma */
+  box-sizing: border-box;
 }
 
 .bytespace-showcase-row__heading {
@@ -58,16 +116,26 @@
   line-height: var(--line-height-heading-m); /* 1.2 */
   letter-spacing: var(--letter-spacing-heading-m); /* -0.01em */
   color: var(--color-navy-dark); /* #040819 */
-  margin-bottom: var(--space-16);
+  margin: 0;
+}
+
+/* Learner title held in exactly 2 lines on desktop */
+.bytespace-showcase-row__heading--learner {
+  max-width: 530px;
 }
 
 .bytespace-showcase-row__description {
   font-family: var(--font-body);
   font-size: var(--font-size-body-l); /* 18px */
-  font-weight: var(--weight-regular);
+  font-weight: var(--weight-regular); /* 400 */
   line-height: var(--line-height-body-l); /* 1.6 */
-  color: var(--color-shuttle-gray-400); /* #82868E */
-  margin-bottom: 0;
+  color: var(--color-shuttle-gray-700); /* #4B4C53 */
+  margin: 0;
+}
+
+.bytespace-showcase-row__description--creator {
+  font-weight: var(--weight-regular); /* Regular, start ByteSpace is not bold */
+  color: var(--color-shuttle-gray-700); /* #4B4C53 */
 }
 
 /* Row 1: Metrics (12K Students | 70+ Courses | 16 Creators) */
@@ -75,8 +143,8 @@
   display: flex;
   align-items: flex-end;
   gap: var(--space-56); /* 56px in Figma */
-  margin-top: var(--space-36);
-  padding-top: 0;
+  margin: 0;
+  padding: 0;
   border-top: none;
 }
 
@@ -107,8 +175,8 @@
 .bytespace-showcase-bullets {
   display: flex;
   flex-direction: column;
-  gap: var(--space-20);
-  margin-top: var(--space-36);
+  gap: 16px;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -147,49 +215,148 @@
 .bytespace-showcase-visual-wrapper {
   position: relative;
   width: 100%;
-  max-width: 540px;
+  max-width: 580px;
+  height: 520px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .bytespace-showcase-visual-wrapper--creator {
-  max-width: 560px;
+  position: relative;
+  width: 541px;
+  height: 596px;
+  flex-shrink: 0;
+  max-width: 100%;
 }
 
-/* Base Image Frame */
+/* Base Image Frame - unboxed, transparent */
 .bytespace-showcase-image-frame {
   width: 100%;
   max-width: 480px;
-  border-radius: var(--radius-md); /* 16px */
-  overflow: hidden;
-  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.06);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
+.bytespace-showcase-image-frame--learner {
+  max-width: 440px;
+  margin-left: 70px;
+  margin-top: 10px;
+}
+
+/* Creator image frame (Layered in front of revenue cards & spiral, behind Happy Students) */
 .bytespace-showcase-image-frame--creator {
-  max-width: 435px;
+  position: absolute;
+  left: 75px;
+  top: 10px;
+  width: 350px;
+  height: 586px;
+  max-width: 350px;
+  margin: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+  z-index: 2;
 }
 
 .bytespace-showcase-image {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.12));
 }
 
-/* 3D Decorative Sphere */
-.bytespace-showcase-ornament--sphere {
-  position: absolute;
-  top: -30px;
-  right: -20px;
-  width: 120px;
-  height: 120px;
+.bytespace-showcase-image--creator {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+}
+
+/* 3D Lime Spiral Ornament in Creator row (Figma #34:1158 Frame) */
+.bytespace-showcase-ornament--spiral-lime {
+  position: absolute;
+  top: 115px;
+  left: 300px;
+  width: 170px;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.12));
+}
+
+/* Row 1: Background Course Card (Figma #34:1157 Course_Card_1) */
+.bytespace-showcase-card-course {
+  position: absolute;
+  top: 15px;
+  left: -20px;
+  width: 320px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bytespace-showcase-card-course .bytespace-course-card {
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+}
+
+/* Row 1: 3D Lime Cone Ornament */
+.bytespace-showcase-ornament--cone-lime {
+  position: absolute;
+  top: 30px;
+  right: 0px;
+  width: 130px;
+  height: auto;
   z-index: 3;
   pointer-events: none;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.12));
+}
+
+/* Row 1: Learning Progress Card (Matching Hero Section) */
+.bytespace-showcase-card--progress {
+  position: absolute;
+  bottom: 40px;
+  right: -20px;
+  left: auto;
+  width: 232px;
+  padding: 16px;
+  background-color: var(--color-white);
+  border-radius: var(--radius-md); /* 16px */
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  z-index: 4;
+}
+
+.bytespace-showcase-progress-card__label {
+  font-family: var(--font-body);
+  font-size: var(--font-size-label-s); /* 14px */
+  font-weight: var(--weight-medium);
+  color: var(--color-shuttle-gray-950);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.bytespace-showcase-progress-card__metric-value {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--color-shuttle-gray-950);
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+
+.bytespace-showcase-progress-card__bar {
+  width: 100%;
+  height: 8px;
+  display: block;
 }
 
 /* Base Floating Card Tweaks */
@@ -198,63 +365,41 @@
   z-index: 4;
 }
 
-/* Row 1: Learning Progress Card */
-.bytespace-showcase-card--progress {
-  bottom: 30px;
-  left: -20px;
-  min-width: 220px;
-  padding: var(--space-16) var(--space-20);
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: var(--blur-glass);
-  -webkit-backdrop-filter: var(--blur-glass);
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-}
-
-.bytespace-showcase-card__title {
-  font-family: var(--font-body);
-  font-size: var(--font-size-label-s); /* 14px */
-  font-weight: var(--weight-medium);
-  color: var(--color-shuttle-gray-950);
-  display: block;
-  margin-bottom: var(--space-12);
-}
-
-.bytespace-showcase-card__chart-wrapper {
-  width: 100%;
-}
-
-.bytespace-showcase-card__chart {
-  width: 100%;
-  height: 8px;
-  display: block;
-}
-
 /* Row 2: Revenue Cards (Total Revenue & Year to Date) */
+/* Floating Revenue Card 1: Total Revenue (Figma #34:1158: width 232px, left 0, top 44px, z-index 1) */
 .bytespace-showcase-card--revenue1 {
+  position: absolute;
   top: 44px;
-  left: -20px;
+  left: 0px;
   width: 232px;
-  padding: var(--space-16);
+  height: 119px;
+  padding: 16px;
   background-color: var(--color-persian-blue-800); /* #003BE2 in Figma */
   backdrop-filter: var(--blur-glass);
   -webkit-backdrop-filter: var(--blur-glass);
   border-radius: var(--radius-md); /* 16px */
   border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 12px 32px rgba(0, 59, 226, 0.25);
+  box-shadow: 0 16px 36px rgba(0, 59, 226, 0.28);
+  box-sizing: border-box;
+  z-index: 1;
 }
 
+/* Floating Revenue Card 2: Year to Date (Figma #34:1158: width 134px, left 0, top 194px, z-index 1) */
 .bytespace-showcase-card--revenue2 {
+  position: absolute;
   top: 194px;
-  left: -20px;
-  width: 150px;
-  padding: var(--space-16);
+  left: 0px;
+  width: 134px;
+  height: 135px;
+  padding: 16px;
   background-color: var(--color-persian-blue-800); /* #003BE2 in Figma */
   backdrop-filter: var(--blur-glass);
   -webkit-backdrop-filter: var(--blur-glass);
   border-radius: var(--radius-md); /* 16px */
   border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 12px 32px rgba(0, 59, 226, 0.25);
+  box-shadow: 0 16px 36px rgba(0, 59, 226, 0.28);
+  box-sizing: border-box;
+  z-index: 1;
 }
 
 .bytespace-revenue-card__meta {
@@ -298,6 +443,7 @@
 }
 
 .bytespace-revenue-card__badge {
+  display: inline-block;
   background-color: var(--color-ring-stroke); /* #CBFC01 */
   color: var(--color-shuttle-gray-950); /* #242528 */
   font-family: var(--font-body);
@@ -308,24 +454,40 @@
   line-height: 20px;
 }
 
-.bytespace-revenue-card__chart-img {
+.bytespace-revenue-card__progress-track {
   width: 100%;
   height: 8px;
-  display: block;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  overflow: hidden;
+  margin-top: 4px;
 }
 
-/* Row 2: Happy Students Card */
+.bytespace-revenue-card__progress-fill {
+  width: 56%;
+  height: 100%;
+  background-color: var(--color-electric-lime-400); /* #D4FB20 */
+  border-radius: 24px;
+}
+
+/* Row 2: Happy Students Card (Figma #34:1158: width 258px, left 283px, top 413px, z-index 3) */
 .bytespace-showcase-card--students {
-  bottom: 30px;
-  right: -20px;
+  position: absolute;
+  top: 413px;
+  left: 283px;
+  bottom: auto;
+  right: auto;
   width: 258px;
+  height: 123px;
   padding: var(--space-16);
   background-color: var(--color-white);
   backdrop-filter: var(--blur-glass);
   -webkit-backdrop-filter: var(--blur-glass);
   border-radius: var(--radius-md); /* 16px */
   border: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow: var(--shadow-ambient);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  z-index: 3;
 }
 
 .bytespace-students-card__header {
@@ -381,11 +543,11 @@
 }
 
 .bytespace-students-card__avatar {
-  width: 36px;
-  height: 36px;
+  width: 43px;
+  height: 43px;
   border-radius: var(--radius-full);
   border: 2px solid var(--color-white);
-  margin-left: -12px;
+  margin-left: -14px;
   object-fit: cover;
   display: block;
   flex-shrink: 0;
@@ -396,22 +558,23 @@
 }
 
 .bytespace-students-card__avatar-badge {
-  width: 36px;
-  height: 36px;
+  width: 43px;
+  height: 43px;
   border-radius: var(--radius-full);
   background-color: var(--color-electric-lime-400); /* #D4FB20 */
   color: var(--color-shuttle-gray-950); /* #242528 */
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 12px;
-  line-height: 36px;
+  line-height: 43px;
   text-align: center;
-  margin-left: -12px;
+  margin-left: -14px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
+
 /* =========================================
  * 5. Responsive Breakpoints
  * ========================================= */
@@ -432,7 +595,6 @@
     gap: var(--space-48);
   }
 
-  /* Keep visual first or clean stacked */
   .bytespace-showcase-row--creator .bytespace-showcase-row__visual {
     order: 2;
   }
@@ -445,19 +607,28 @@
     max-width: 100%;
   }
 
+  .bytespace-showcase-row__heading--learner {
+    max-width: 100%;
+  }
+
+  .bytespace-showcase-visual-wrapper--creator {
+    width: 541px;
+    height: 596px;
+    transform: scale(clamp(0.65, calc((100vw - 48px) / 541), 0.92));
+    transform-origin: top center;
+    margin: 0 auto;
+  }
+
+  .bytespace-showcase-card-course {
+    left: 0;
+    width: 280px;
+  }
+
+  .bytespace-showcase-image-frame--learner {
+    margin-left: 40px;
+  }
+
   .bytespace-showcase-card--progress {
-    left: 0;
-  }
-
-  .bytespace-showcase-card--revenue1 {
-    left: 0;
-  }
-
-  .bytespace-showcase-card--revenue2 {
-    left: 10px;
-  }
-
-  .bytespace-showcase-card--students {
     right: 0;
   }
 }
@@ -492,8 +663,8 @@
 
   .bytespace-showcase-metrics {
     gap: var(--space-20);
-    margin-top: var(--space-24);
-    padding-top: var(--space-20);
+    margin-top: 0;
+    padding-top: var(--space-12);
   }
 
   .bytespace-showcase-metric__value {
@@ -502,52 +673,88 @@
 
   .bytespace-showcase-visual-wrapper {
     max-width: 100%;
+    height: 380px;
+  }
+
+  .bytespace-showcase-card-course {
+    display: none;
   }
 
   .bytespace-showcase-image-frame {
-    max-width: 320px;
+    max-width: 300px;
+    margin-left: 0 !important;
   }
 
-  .bytespace-showcase-ornament--sphere {
+  .bytespace-showcase-ornament--cone-lime {
     width: 70px;
-    height: 70px;
-    top: -15px;
-    right: 0;
+    top: -10px;
+    right: 10px;
   }
 
-  /* Safe positioning for floating cards on mobile */
   .bytespace-showcase-card--progress {
-    bottom: -15px;
-    left: 10px;
-    min-width: 180px;
-    padding: var(--space-8) var(--space-12);
+    bottom: 0px;
+    right: 0px;
+    width: 180px;
+    padding: 12px;
+  }
+
+  .bytespace-showcase-progress-card__metric-value {
+    font-size: 32px;
+  }
+
+  .bytespace-showcase-image-frame--creator {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    margin: 0 auto !important;
   }
 
   .bytespace-showcase-card--revenue1 {
     top: 10px;
-    left: 5px;
-    min-width: 140px;
+    left: 0px;
+    width: 160px;
     padding: var(--space-8);
   }
 
   .bytespace-showcase-card--revenue2 {
-    bottom: -15px;
-    left: 10px;
-    min-width: 140px;
+    top: 140px;
+    left: 0px;
+    width: 120px;
     padding: var(--space-8);
   }
 
   .bytespace-showcase-card--students {
     top: auto;
-    bottom: 20px;
-    right: 5px;
-    min-width: 140px;
+    left: auto;
+    bottom: 0px;
+    right: 0px;
+    width: 200px;
     padding: var(--space-8);
+  }
+
+  .bytespace-students-card__avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .bytespace-students-card__avatar-badge {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+  }
+
+  .bytespace-showcase-ornament--spiral-lime {
+    width: 90px;
+    top: 60px;
+    right: 5px;
+    left: auto;
   }
 
   .bytespace-showcase-bullets {
     gap: var(--space-16);
-    margin-top: var(--space-24);
   }
 
   .bytespace-showcase-bullet__text {

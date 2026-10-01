@@ -10,8 +10,8 @@
 .bytespace-diverse-paths {
   width: 100%;
   background-color: var(--color-white);
-  padding-top: var(--space-120);
-  padding-bottom: var(--space-120);
+  padding-top: var(--space-80);
+  padding-bottom: var(--space-80);
   position: relative;
   box-sizing: border-box;
 }
@@ -45,11 +45,12 @@
 .bytespace-diverse-paths__title {
   font-family: var(--font-heading);
   font-weight: var(--weight-semibold);
-  font-size: var(--font-size-heading-s); /* 36px */
+  font-size: clamp(24px, calc(24px + 12 * ((100vw - 1025px) / 415)), var(--font-size-heading-s)); /* 36px */
   line-height: var(--line-height-heading-s); /* 1.2 */
   letter-spacing: var(--letter-spacing-heading-s); /* -0.01em */
   color: var(--color-navy-dark); /* #040819 */
-  max-width: 780px;
+  max-width: 100%;
+  white-space: nowrap;
   margin: 0 auto;
 }
 
@@ -66,16 +67,12 @@
 /* =========================================
  * 3. Categories Grid (#34:725)
  * ========================================= */
-/* =========================================
- * 3. Categories Grid (#34:725)
- * 1202px wide, 6 cards in a single row with 40px gap
- * ========================================= */
 .bytespace-diverse-paths__grid {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: var(--space-40); /* 40px gap */
+  gap: clamp(16px, calc(16px + 24 * ((100vw - 1025px) / 415)), var(--space-40));
   width: 100%;
   max-width: var(--container-categories); /* 1202px */
   margin: 0 auto;
@@ -83,20 +80,21 @@
 
 /* =========================================
  * 4. CategoryCard Component (#34:725)
- * Exact dimensions: 167px x 167px, border-radius: 24px, bg: #F5F5F6
+ * Exact dimensions: 167px x 167px, border-radius: 24px, clean white with border
  * ========================================= */
 .bytespace-category-card {
-  width: 167px;
-  height: 167px;
-  min-width: 167px;
-  background-color: var(--color-shuttle-gray-50); /* #F5F5F6 */
+  flex: 1 1 0;
+  max-width: 167px;
+  min-width: 0;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-white); /* clean white background */
   border-radius: var(--radius-lg); /* 24px */
-  border: 1px solid transparent;
+  border: 1px solid var(--color-shuttle-gray-200); /* clean subtle border #CED0D3 */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--space-4);
+  gap: var(--space-8);
   padding: 0;
   box-sizing: border-box;
   transition: transform var(--transition-normal),
@@ -110,10 +108,14 @@
   border-color: var(--color-electric-lime-400);
 }
 
-/* Icon Wrapper: 72px x 72px */
+/* Icon Wrapper: Electric Lime circular frame around category logo (#34:725), NO border */
 .bytespace-category-card__icon-wrapper {
-  width: 72px;
-  height: 72px;
+  width: clamp(50px, 4.5vw, 60px);
+  height: clamp(50px, 4.5vw, 60px);
+  border-radius: var(--radius-full);
+  background-color: var(--color-electric-lime-400); /* #D4FB20 */
+  border: none; /* removed border of circle */
+  box-shadow: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,8 +128,8 @@
 }
 
 .bytespace-category-card__icon {
-  width: 44px;
-  height: 44px;
+  width: clamp(24px, 2.2vw, 30px);
+  height: clamp(24px, 2.2vw, 30px);
   display: block;
 }
 
@@ -142,9 +144,9 @@
 /* Title: 18px Satoshi #242528 */
 .bytespace-category-card__title {
   font-family: var(--font-body);
-  font-size: var(--font-size-body-l); /* 18px */
+  font-size: clamp(14px, 1.3vw, 18px);
   font-weight: var(--weight-medium); /* 500 */
-  line-height: 28px;
+  line-height: 1.2;
   color: var(--color-shuttle-gray-950); /* #242528 */
   margin: 0;
   text-align: center;
@@ -166,9 +168,19 @@
     padding-bottom: var(--space-80);
   }
 
+  .bytespace-diverse-paths__title {
+    white-space: normal;
+  }
+
   .bytespace-diverse-paths__grid {
     flex-wrap: wrap;
     gap: var(--space-24);
+  }
+
+  .bytespace-category-card {
+    flex: 0 0 167px;
+    width: 167px;
+    height: 167px;
   }
 }
 

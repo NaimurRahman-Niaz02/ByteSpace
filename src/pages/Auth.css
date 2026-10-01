@@ -28,10 +28,11 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 35px 120px;
+  padding: 35px clamp(40px, calc(40px + 80 * ((100vw - 1025px) / 415)), 120px);
   display: flex;
   align-items: center;
   z-index: 10;
+  box-sizing: border-box;
 }
 
 .bytespace-auth__brand {
@@ -64,21 +65,22 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 120px var(--space-64);
+  padding: 0 clamp(40px, calc(40px + 80 * ((100vw - 1025px) / 415)), 120px) var(--space-64);
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: var(--space-48);
+  gap: clamp(24px, calc(24px + 24 * ((100vw - 1025px) / 415)), var(--space-48));
   position: relative;
   z-index: 5;
+  box-sizing: border-box;
 }
 
 /* =========================================
  * 4. Left Column: Messaging & Visual Stage
  * ========================================= */
 .bytespace-auth__left {
-  flex: 1;
-  max-width: 480px;
+  flex: 0 0 clamp(415px, calc(415px + 105 * ((100vw - 1025px) / 415)), 520px);
+  max-width: 520px;
   display: flex;
   flex-direction: column;
   color: var(--color-white);
@@ -87,7 +89,7 @@
 .bytespace-auth__heading {
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 20px;
+  font-size: clamp(18px, calc(18px + 2 * ((100vw - 1025px) / 415)), 20px);
   line-height: 1.2;
   letter-spacing: -0.01em;
   color: var(--color-shuttle-gray-50);
@@ -96,26 +98,28 @@
 
 .bytespace-auth__subtitle {
   font-family: var(--font-body);
-  font-size: 18px;
+  font-size: clamp(15px, calc(15px + 3 * ((100vw - 1025px) / 415)), 18px);
   line-height: 1.6;
   color: var(--color-shuttle-gray-50);
-  margin-bottom: var(--space-40);
+  margin-bottom: clamp(24px, calc(24px + 16 * ((100vw - 1025px) / 415)), var(--space-40));
   max-width: 475px;
 }
 
 /* Visual Stage with Overlapping Cards */
 .bytespace-auth__stage {
   position: relative;
-  width: 480px;
-  height: 480px;
+  width: 500px;
+  height: clamp(470px, calc(470px + 100 * ((100vw - 1025px) / 415)), 570px);
   margin-top: var(--space-16);
+  transform: scale(clamp(0.82, calc(0.82 + 0.18 * ((100vw - 1025px) / 415)), 1));
+  transform-origin: top left;
 }
 
 /* Torus Ring Top-Left */
 .bytespace-auth__ornament-ring {
   position: absolute;
-  top: -20px;
-  left: 30px;
+  top: -25px;
+  left: 20px;
   width: 80px;
   height: 80px;
   z-index: 4;
@@ -123,153 +127,102 @@
   pointer-events: none;
 }
 
-/* Background Secondary Card (tilted) */
+/* Background Secondary Course Card (Build Digital Asset) */
 .bytespace-auth__card-bg {
   position: absolute;
-  top: 40px;
+  top: 95px;
   left: 0;
-  width: 320px;
-  background: var(--color-white);
-  border-radius: var(--radius-xl);
-  padding: var(--space-16);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  transform: rotate(-6deg);
-  opacity: 0.9;
+  width: 360px;
   z-index: 1;
   pointer-events: none;
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.16));
 }
 
-.bytespace-auth__card-bg-header {
-  position: relative;
-  width: 100%;
-  height: 120px;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  margin-bottom: var(--space-12);
-}
-
-.bytespace-auth__card-bg-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.bytespace-auth__card-bg-title {
-  font-family: var(--font-heading);
-  font-weight: var(--weight-semibold);
-  font-size: 16px;
-  color: var(--color-text-primary);
-  margin-bottom: var(--space-8);
-}
-
-/* Primary Foreground Course Card */
+/* Primary Foreground Course Card (the Power of Big Data) */
 .bytespace-auth__card-fg {
   position: absolute;
-  top: 10px;
-  left: 70px;
+  top: 15px;
+  left: 110px;
   width: 360px;
-  background: var(--color-white);
-  border-radius: var(--radius-xl);
-  padding: var(--space-16);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
   z-index: 3;
+  pointer-events: none;
+  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.22));
 }
 
-.bytespace-auth__card-fg-header {
-  position: relative;
-  width: 100%;
-  height: 160px;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  margin-bottom: var(--space-12);
+/* Stage CourseCard overrides for non-interactive display */
+.bytespace-auth__stage .bytespace-course-card {
+  max-width: 100%;
+  pointer-events: none;
+  user-select: none;
 }
 
-.bytespace-auth__card-fg-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.bytespace-auth__stage .bytespace-course-card:hover {
+  transform: none;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.04);
 }
 
-.bytespace-auth__card-tags {
+.bytespace-auth__stage .bytespace-course-card:hover .bytespace-course-card__cover {
+  transform: none;
+}
+
+/* Auth page course cards: 26+ circle is black with white font */
+.bytespace-auth__stage .bytespace-course-card__avatar-badge {
+  background-color: var(--color-shuttle-gray-950); /* #242528 */
+  color: var(--color-white);                      /* #FFFFFF */
+}
+
+/* Happy Students Floating Card on Auth Page */
+.bytespace-auth__happy-students {
   position: absolute;
-  bottom: 8px;
-  left: 8px;
-  right: 8px;
-  display: flex;
-  gap: var(--space-8);
-}
-
-.bytespace-auth__tag {
-  background: rgba(246, 246, 246, 0.85);
-  backdrop-filter: blur(4px);
-  padding: 4px 8px;
-  border-radius: var(--radius-full);
-  font-family: var(--font-body);
-  font-size: 10px;
-  font-weight: var(--weight-medium);
-  color: var(--color-black-700);
-}
-
-.bytespace-auth__card-body {
+  top: 415px;
+  left: 175px;
+  width: 258px;
+  background-color: var(--color-accent); /* #D4FB20 Yellow-green / Electric Lime */
+  border-radius: 20px;
+  padding: 16px 18px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
+  z-index: 5;
   display: flex;
   flex-direction: column;
-  gap: var(--space-8);
+  gap: 12px;
+  box-sizing: border-box;
+  pointer-events: none;
+  user-select: none;
 }
 
-.bytespace-auth__card-title-row {
+.bytespace-auth__students-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.bytespace-auth__card-title {
-  font-family: var(--font-heading);
-  font-weight: var(--weight-semibold);
-  font-size: 18px;
-  color: var(--color-text-primary);
-}
-
-.bytespace-auth__card-rating {
-  display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 4px;
+}
+
+.bytespace-auth__students-title {
   font-family: var(--font-body);
-  font-weight: var(--weight-semibold);
-  font-size: 13px;
-  color: var(--color-text-primary);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #242528;
 }
 
-.bytespace-auth__card-rating-icon {
-  width: 14px;
-  height: 14px;
-}
-
-.bytespace-auth__card-author {
-  font-family: var(--font-body);
-  font-size: 12px;
-  color: var(--color-shuttle-gray-400);
-}
-
-.bytespace-auth__card-footer {
+.bytespace-auth__students-rating {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-top: var(--space-8);
-  padding-top: var(--space-8);
-  border-top: 1px solid var(--color-shuttle-gray-100);
+  gap: 6px;
 }
 
-.bytespace-auth__card-price {
-  font-family: var(--font-heading);
-  font-weight: var(--weight-bold);
-  font-size: 18px;
-  color: var(--color-primary);
+.bytespace-auth__students-rating-text {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: #242528;
+  line-height: 1;
 }
 
-.bytespace-auth__card-price-sub {
-  font-size: 12px;
-  font-weight: var(--weight-regular);
-  color: var(--color-shuttle-gray-400);
+.bytespace-auth__students-star {
+  width: 16px;
+  height: 16px;
+  display: block;
 }
 
 .bytespace-auth__avatar-stack {
@@ -277,78 +230,45 @@
   align-items: center;
 }
 
-.bytespace-auth__avatar {
-  width: 24px;
-  height: 24px;
+.bytespace-auth__avatar-stack .bytespace-auth__avatar {
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: 2px solid var(--color-white);
-  margin-left: -8px;
+  margin-left: -10px;
   object-fit: cover;
+  flex-shrink: 0;
+  display: block;
 }
 
-.bytespace-auth__avatar:first-child {
+.bytespace-auth__avatar-stack .bytespace-auth__avatar:first-child {
   margin-left: 0;
 }
 
-.bytespace-auth__avatar-badge {
-  background: var(--color-shuttle-gray-950);
-  color: var(--color-white);
-  font-family: var(--font-body);
-  font-size: 10px;
-  font-weight: var(--weight-semibold);
-  width: 24px;
-  height: 24px;
+.bytespace-auth__avatar-stack .bytespace-auth__avatar-badge {
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
+  border: 2px solid var(--color-white);
+  margin-left: -10px;
+  background-color: var(--color-shuttle-gray-950); /* #242528 Black */
+  color: var(--color-white);                      /* #FFFFFF White text */
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid var(--color-white);
-  margin-left: -8px;
-}
-
-/* Happy Students Lime Pill Badge */
-.bytespace-auth__badge-students {
-  position: absolute;
-  bottom: 40px;
-  left: 100px;
-  background: var(--color-accent); /* #D4FB20 */
-  border-radius: var(--radius-lg);
-  padding: 10px 16px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.bytespace-auth__badge-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.bytespace-auth__badge-title {
-  font-family: var(--font-heading);
-  font-size: 12px;
-  font-weight: var(--weight-semibold);
-  color: var(--color-shuttle-gray-950);
-}
-
-.bytespace-auth__badge-rating {
   font-family: var(--font-body);
+  font-weight: 700;
   font-size: 11px;
-  font-weight: var(--weight-semibold);
-  color: var(--color-shuttle-gray-950);
+  flex-shrink: 0;
 }
 
 /* 3D Bottom Ornaments */
 .bytespace-auth__pyramid {
   position: absolute;
-  bottom: 0px;
-  left: 0px;
-  width: 70px;
-  height: 70px;
+  top: 450px;
+  left: -20px;
+  width: 85px;
+  height: 85px;
   z-index: 6;
   filter: brightness(1.35) contrast(0.82) sepia(1) hue-rotate(25deg) saturate(7.5);
   pointer-events: none;
@@ -356,10 +276,10 @@
 
 .bytespace-auth__squiggle {
   position: absolute;
-  bottom: 60px;
-  right: -20px;
-  width: 90px;
-  height: 90px;
+  top: 390px;
+  right: -25px;
+  width: 100px;
+  height: 100px;
   z-index: 4;
   filter: brightness(1.8) contrast(0.85);
   pointer-events: none;
@@ -369,7 +289,9 @@
  * 5. Right Column: White Auth Card
  * ========================================= */
 .bytespace-auth__right {
-  flex: 0 0 579px;
+  flex: 1 1 auto;
+  max-width: 579px;
+  min-width: 360px;
   display: flex;
   justify-content: flex-end;
 }
@@ -379,10 +301,11 @@
   max-width: 579px;
   background: var(--color-white);
   border-radius: 24px;
-  padding: 61px 63px;
+  padding: clamp(36px, calc(36px + 25 * ((100vw - 1025px) / 415)), 61px) clamp(32px, calc(32px + 31 * ((100vw - 1025px) / 415)), 63px);
   box-shadow: 0 32px 64px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .bytespace-auth__card-eyebrow {
@@ -397,11 +320,15 @@
 .bytespace-auth__card-title {
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 44px;
-  line-height: 53px;
+  font-size: clamp(32px, calc(32px + 12 * ((100vw - 1025px) / 415)), 44px);
+  line-height: 1.2;
   letter-spacing: -0.01em;
   color: var(--color-shuttle-gray-950);
-  margin-bottom: var(--space-32);
+  margin-bottom: clamp(20px, calc(20px + 12 * ((100vw - 1025px) / 415)), var(--space-32));
+}
+
+.bytespace-auth__card-title--register {
+  max-width: 260px;
 }
 
 /* Form Controls */
@@ -487,7 +414,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: var(--space-28) 0;
+  margin: 44px 0 36px;
   position: relative;
   width: 100%;
 }
@@ -503,60 +430,66 @@
 .bytespace-auth__divider-text {
   position: relative;
   background: var(--color-white);
-  padding: 0 var(--space-16);
+  padding: 0 var(--space-20);
   font-family: var(--font-body);
-  font-size: 14px;
-  color: var(--color-black-400);
+  font-size: 18px;
+  font-weight: var(--weight-regular);
+  color: var(--color-shuttle-gray-400);
 }
 
-/* Social Buttons */
+/* Social Buttons (Rounded Box Design) */
 .bytespace-auth__socials {
   display: flex;
   justify-content: center;
-  gap: var(--space-16);
-  margin-bottom: var(--space-24);
+  gap: var(--space-20);
+  margin-bottom: var(--space-32);
 }
 
 .bytespace-auth__social-btn {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
   border: 1px solid var(--color-shuttle-gray-200);
   background: var(--color-white);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+  color: var(--color-shuttle-gray-950);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .bytespace-auth__social-btn:hover {
-  border-color: var(--color-primary);
+  border-color: var(--color-shuttle-gray-950);
   background: var(--color-shuttle-gray-50);
+  transform: translateY(-1px);
 }
 
 .bytespace-auth__social-icon {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 20px;
-  color: var(--color-shuttle-gray-950);
+  display: block;
 }
 
 /* Bottom Nav Link */
 .bytespace-auth__footer-text {
   text-align: center;
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 17px;
+  line-height: 1.5;
   color: var(--color-shuttle-gray-700);
-  margin-top: var(--space-16);
+  margin-top: var(--space-20);
+}
+
+.bytespace-auth__footer-text--register {
+  margin-top: 56px;
 }
 
 .bytespace-auth__footer-link {
   color: var(--color-primary);
-  font-weight: var(--weight-semibold);
+  font-weight: 400; /* normal font weight as requested */
+  font-size: 17px;  /* increased font size */
   text-decoration: none;
-  margin-left: 4px;
-  transition: color var(--transition-fast);
+  margin-left: 6px;
+  transition: color var(--transition-fast), text-decoration var(--transition-fast);
 }
 
 .bytespace-auth__footer-link:hover {
@@ -569,24 +502,42 @@
 
 /* Tablet (<= 1024px) */
 @media (max-width: 1024px) {
+  .bytespace-auth__header {
+    padding: 24px var(--space-24);
+  }
+
   .bytespace-auth__container {
     padding: 0 var(--space-24) var(--space-48);
     gap: var(--space-32);
   }
 
   .bytespace-auth__left {
-    max-width: 440px;
+    flex: 0 0 390px;
+    width: 390px;
+    max-width: 390px;
+  }
+
+  .bytespace-auth__heading {
+    font-size: 18px;
+    margin-bottom: var(--space-12);
+  }
+
+  .bytespace-auth__subtitle {
+    font-size: 15px;
+    margin-bottom: var(--space-24);
   }
 
   .bytespace-auth__stage {
-    width: 400px;
-    height: 400px;
-    transform: scale(0.85);
+    width: 500px;
+    height: 440px;
+    transform: scale(0.74);
     transform-origin: top left;
   }
 
   .bytespace-auth__right {
-    flex: 0 0 460px;
+    flex: 1 1 auto;
+    max-width: 520px;
+    min-width: 320px;
   }
 
   .bytespace-auth__card {
@@ -645,6 +596,10 @@
   .bytespace-auth__card-title {
     font-size: 28px;
     margin-bottom: var(--space-20);
+  }
+
+  .bytespace-auth__card-title--register {
+    max-width: 200px;
   }
 
   .bytespace-auth__btn-wrapper {

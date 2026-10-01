@@ -46,7 +46,7 @@ describe('GrowthShowcase Section', () => {
 
     // Happy students card
     expect(screen.getByText('Happy Students')).toBeInTheDocument();
-    expect(screen.getByText('4.5')).toBeInTheDocument();
+    expect(screen.getAllByText('4.5').length).toBeGreaterThanOrEqual(1);
     expect(screen.getByText('(240)')).toBeInTheDocument();
     expect(screen.getByText('2K+')).toBeInTheDocument();
   });

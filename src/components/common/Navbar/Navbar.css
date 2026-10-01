@@ -12,7 +12,7 @@
   width: 100%;
   max-width: var(--width-artboard); /* 1440px */
   margin: 0 auto;
-  padding: 0 var(--space-120); /* Desktop 120px margin matching Figma */
+  padding: 0 clamp(40px, calc(40px + 80 * ((100vw - 1025px) / 415)), var(--space-120));
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -26,7 +26,9 @@ describe('Footer Component', () => {
   test('renders 3 directory columns and bottom bar links', () => {
     render(<Footer />);
     footerData.columns.forEach((col) => {
-      expect(screen.getByRole('heading', { level: 4, name: col.title })).toBeInTheDocument();
+      col.links.forEach((link) => {
+        expect(screen.getByRole('link', { name: link.label })).toBeInTheDocument();
+      });
     });
 
     expect(screen.getByText(footerData.bottomBar.copyright)).toBeInTheDocument();

@@ -20,6 +20,17 @@ export default function GrowthShowcase() {
       className="bytespace-showcase"
       aria-label="Professional Growth & Creator Showcase"
     >
+      {/* Ambient Aurora Glows (#34:1159) */}
+      <div className="bytespace-showcase__glows" aria-hidden="true">
+        {/* Row 1 Aurora Glows */}
+        <div className="bytespace-showcase__glow bytespace-showcase__glow--row1-lime" />
+        <div className="bytespace-showcase__glow bytespace-showcase__glow--row1-blue" />
+
+        {/* Row 2 Aurora Glows */}
+        <div className="bytespace-showcase__glow bytespace-showcase__glow--row2-lime" />
+        <div className="bytespace-showcase__glow bytespace-showcase__glow--row2-blue" />
+      </div>
+
       <div className="bytespace-showcase__container">
         {/* Row 1: Learner Growth */}
         <LearnerGrowthRow data={learnerGrowth} />

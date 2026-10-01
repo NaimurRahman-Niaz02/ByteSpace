@@ -15,6 +15,19 @@ export default function CategoryTabs({ tabs = [], activeTabId, onSelectTab }) {
 
   const renderTab = (tab) => {
     const isActive = activeTabId === tab.id;
+    if (tab.id === 'cat-more') {
+      return (
+        <button
+          key={tab.id}
+          type="button"
+          className="bytespace-category-tab--more"
+          onClick={() => onSelectTab && onSelectTab(tab.id)}
+        >
+          {tab.label}
+        </button>
+      );
+    }
+
     return (
       <button
         key={tab.id}

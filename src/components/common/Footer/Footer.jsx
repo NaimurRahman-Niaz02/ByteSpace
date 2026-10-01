@@ -83,11 +83,10 @@ export default function Footer() {
             </form>
           </div>
 
-          {/* 3 Navigation Columns (Right) */}
+          {/* 3 Navigation Columns (Right, headers removed) */}
           <div className="bytespace-footer__nav" role="navigation" aria-label="Footer links">
             {columns.map((column) => (
               <div key={column.id} className="bytespace-footer__col">
-                <h4 className="bytespace-footer__col-title">{column.title}</h4>
                 <ul className="bytespace-footer__col-list">
                   {column.links.map((link, idx) => (
                     <li key={idx} className="bytespace-footer__col-item">

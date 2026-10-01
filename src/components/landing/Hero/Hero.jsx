@@ -10,11 +10,12 @@ import starIcon from '../../../assets/icons/star-icon.svg';
 import heroModel from '../../../assets/images/hero-model.png';
 
 // 3D Ornaments
-import coneLime from '../../../assets/images/ornament-cone-lime.png';
+import cylinderLime from '../../../assets/images/ornament-cylinder-lime.png';
 import coneBlue from '../../../assets/images/ornament-cone-blue.png';
 import coneSmall from '../../../assets/images/ornament-cone-small.png';
 import sphere1 from '../../../assets/images/ornament-sphere-1.png';
 import sphere2 from '../../../assets/images/ornament-sphere-2.png';
+import sphere2Lime from '../../../assets/images/ornament-sphere-2-lime.png';
 
 // Student Avatars
 import student1 from '../../../assets/images/student-1.png';
@@ -62,35 +63,41 @@ export default function Hero() {
 
       {/* 3D Ornament Cluster (#46:79) */}
       <div className="bytespace-hero__ornaments" aria-hidden="true">
-        {/* Lime Cone - Top Right (#46:110) */}
+        {/* Lime Cylinder - Top Right (#46:110) */}
         <img
-          src={coneLime}
+          src={cylinderLime}
           alt=""
           className="bytespace-hero__ornament bytespace-hero__ornament--cone-lime"
         />
-        {/* Sphere 1 - Right (#46:85) */}
+        {/* White Squiggle - Bottom Right (#46:85) */}
         <img
           src={sphere1}
           alt=""
           className="bytespace-hero__ornament bytespace-hero__ornament--sphere-1"
         />
-        {/* Small Cone - Right (#46:80) */}
+        {/* White Pyramid - Middle Right (#46:80) */}
         <img
           src={coneSmall}
           alt=""
           className="bytespace-hero__ornament bytespace-hero__ornament--cone-small"
         />
-        {/* Sphere 2 (Large) - Top Left (#46:90) */}
+        {/* Lime Spiral (Large) - Top Left (#46:90) */}
         <img
-          src={sphere2}
+          src={sphere2Lime}
           alt=""
           className="bytespace-hero__ornament bytespace-hero__ornament--sphere-2-large"
         />
-        {/* Sphere 2 (Small) - Left (#46:95) */}
+        {/* White Squiggle (Small) - Middle Left (#46:95) */}
         <img
           src={sphere2}
           alt=""
           className="bytespace-hero__ornament bytespace-hero__ornament--sphere-2-small"
+        />
+        {/* White Torus Ring - Bottom Left (#46:105) */}
+        <img
+          src={coneBlue}
+          alt=""
+          className="bytespace-hero__ornament bytespace-hero__ornament--cone-blue"
         />
       </div>
 
@@ -114,14 +121,6 @@ export default function Hero() {
       <div className="bytespace-hero__stage">
         {/* Giant Lime Circular Ring (#1:1866) */}
         <div className="bytespace-hero__ring" aria-hidden="true" />
-
-        {/* 3D Ring Ornament - In front of lime circle (#46:105) */}
-        <img
-          src={coneBlue}
-          alt=""
-          aria-hidden="true"
-          className="bytespace-hero__ornament bytespace-hero__ornament--cone-blue"
-        />
 
         {/* Central Hero Model (#1:1796) */}
         <div className="bytespace-hero__model-wrapper">

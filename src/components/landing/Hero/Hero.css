@@ -32,15 +32,18 @@
  * 3D Ornament Cluster (#46:79)
  * Exact Figma positioning relative to 1440px canvas
  * ========================================= */
-/* 3D Ornament Cluster (#46:79)
- * Dynamically scaled and positioned based on viewport width
- */
+/* =========================================
+ * 3D Ornament Cluster (#46:79)
+ * Exact Figma positioning scaled fluidly for PC screen (1025px - 1440px)
+ * ========================================= */
 .bytespace-hero__ornaments {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
-  height: 100%;
+  max-width: 1440px;
+  height: 1024px;
   pointer-events: none;
   z-index: 3;
 }
@@ -52,63 +55,67 @@
   pointer-events: none;
 }
 
-/* Green 3D Ornaments: Matcap 3D elements */
+/* Green 3D Ornaments: Electric Lime (#D4FB20) */
+/* Top-Right Lime Cylinder (#46:110) */
 .bytespace-hero__ornament--cone-lime {
-  left: calc(50% - 370px/2 + 696px);
-  top: 394px;
-  width: 370px;
+  right: clamp(-160px, calc(-20px - 140 * ((100vw - 1025px) / 415)), -20px);
+  top: clamp(140px, calc(140px + 81 * ((100vw - 1025px) / 415)), 221px);
+  width: clamp(260px, calc(260px + 110 * ((100vw - 1025px) / 415)), 370px);
   height: auto;
   aspect-ratio: 1 / 1;
-  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
+  filter: drop-shadow(0 14px 32px rgba(0, 0, 0, 0.22));
 }
 
+/* Top-Left Lime Spiral (#46:90) */
 .bytespace-hero__ornament--sphere-2-large {
-  left: calc(50% - 385px/2 - 645.5px);
-  top: 394px;
-  width: 385px;
+  left: clamp(-118px, calc(-30px - 88 * ((100vw - 1025px) / 415)), -30px);
+  top: clamp(140px, calc(140px + 81 * ((100vw - 1025px) / 415)), 221px);
+  width: clamp(270px, calc(270px + 115 * ((100vw - 1025px) / 415)), 385px);
   height: auto;
   aspect-ratio: 1 / 1;
-  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
+  filter: drop-shadow(0 14px 32px rgba(0, 0, 0, 0.22));
 }
 
-/* White 3D Ornaments */
+/* White 3D Ornaments: Crisp White (#F5F5F6) */
+/* Bottom-Right White Squiggle (#46:85) */
 .bytespace-hero__ornament--sphere-1 {
-  left: calc(50% - 330px/2 + 572px);
-  top: 747px;
-  width: 330px;
+  right: clamp(-18px, calc(20px - 38 * ((100vw - 1025px) / 415)), 20px);
+  top: clamp(550px, calc(550px + 122 * ((100vw - 1025px) / 415)), 672px);
+  width: clamp(250px, calc(250px + 80 * ((100vw - 1025px) / 415)), 330px);
   height: auto;
   aspect-ratio: 1 / 1;
-  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
+  filter: brightness(1.75) contrast(0.9) drop-shadow(0 14px 32px rgba(0, 0, 0, 0.2));
 }
 
+/* Middle-Right White Pyramid (#46:80) */
 .bytespace-hero__ornament--cone-small {
-  left: calc(50% - 188px/2 + 480px);
-  top: 584px;
-  width: 188px;
+  right: clamp(120px, calc(120px + 26 * ((100vw - 1025px) / 415)), 146px);
+  top: clamp(370px, calc(370px + 94 * ((100vw - 1025px) / 415)), 464px);
+  width: clamp(140px, calc(140px + 48 * ((100vw - 1025px) / 415)), 188px);
   height: auto;
   aspect-ratio: 1 / 1;
-  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
+  filter: brightness(1.75) contrast(0.9) drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
 }
 
+/* Middle-Left Small White Squiggle (#46:95) */
 .bytespace-hero__ornament--sphere-2-small {
-  left: calc(50% - 175px/2 - 449.5px);
-  top: 595px;
-  width: 175px;
+  left: clamp(130px, calc(130px + 53 * ((100vw - 1025px) / 415)), 183px);
+  top: clamp(380px, calc(380px + 97 * ((100vw - 1025px) / 415)), 477px);
+  width: clamp(135px, calc(135px + 40 * ((100vw - 1025px) / 415)), 175px);
   height: auto;
   aspect-ratio: 1 / 1;
   transform: scaleX(-1);
-  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
+  filter: brightness(1.75) contrast(0.9) drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
 }
 
-/* Bottom-Left 3D Ring Ornament */
+/* Bottom-Left White Torus Ring (#46:105) */
 .bytespace-hero__ornament--cone-blue {
-  left: calc(50% - 342px/2 - 531px);
-  top: 243px;
-  width: 342px;
+  left: clamp(15px, calc(30px - 12 * ((100vw - 1025px) / 415)), 30px);
+  top: clamp(560px, calc(560px + 122 * ((100vw - 1025px) / 415)), 682px);
+  width: clamp(260px, calc(260px + 82 * ((100vw - 1025px) / 415)), 342px);
   height: auto;
   aspect-ratio: 1 / 1;
-  z-index: 3;
-  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
+  filter: brightness(1.75) contrast(0.9) drop-shadow(0 14px 32px rgba(0, 0, 0, 0.2));
 }
 
 /* =========================================
@@ -121,8 +128,7 @@
   max-width: var(--container-max-width);
   /* 1200px */
   margin: 0 auto;
-  padding: 49px var(--space-24) 0;
-  /* y: 169 in Figma */
+  padding: clamp(28px, calc(28px + 21 * ((100vw - 1025px) / 415)), 49px) var(--space-24) 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -133,8 +139,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-32);
-  /* 32px */
+  gap: clamp(16px, calc(16px + 16 * ((100vw - 1025px) / 415)), 32px);
   max-width: var(--container-hero-title);
   /* 935px */
 }
@@ -145,15 +150,13 @@
   /* Poppins */
   font-weight: var(--weight-semibold);
   /* 600 */
-  font-size: var(--font-size-heading-l);
-  /* 72px */
-  line-height: var(--line-height-heading-l);
-  /* 1.2em / 86.4px */
-  letter-spacing: var(--letter-spacing-heading-l);
-  /* -0.01em */
+  font-size: clamp(48px, calc(48px + 24 * ((100vw - 1025px) / 415)), 72px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
   color: var(--color-white);
   text-align: center;
   margin: 0;
+  max-width: 935px;
 }
 
 /* Subtitle (#1:1771 - Body L) */
@@ -162,10 +165,8 @@
   /* Satoshi */
   font-weight: var(--weight-regular);
   /* 400 */
-  font-size: var(--font-size-body-l);
-  /* 18px */
-  line-height: var(--line-height-body-l);
-  /* 1.6em / 28.8px */
+  font-size: clamp(15px, calc(15px + 3 * ((100vw - 1025px) / 415)), 18px);
+  line-height: 1.6;
   color: var(--color-shuttle-gray-100);
   /* #E5E6E8 */
   text-align: center;
@@ -175,8 +176,7 @@
 
 /* Search Bar Container (#1:1772) */
 .bytespace-hero__search {
-  margin-top: 60px;
-  /* 60px */
+  margin-top: clamp(28px, calc(28px + 32 * ((100vw - 1025px) / 415)), 60px);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -189,8 +189,8 @@
   position: relative;
   width: 100%;
   max-width: 1440px;
-  height: clamp(380px, 36.1vw, 520px);
-  margin-top: auto;
+  height: clamp(440px, calc(440px + 80 * ((100vw - 1025px) / 415)), 520px);
+  margin-top: clamp(24px, calc(24px + 16 * ((100vw - 1025px) / 415)), 40px);
   z-index: 10;
 }
 
@@ -201,10 +201,10 @@
   position: absolute;
   left: 50%;
   bottom: 0;
-  width: clamp(600px, 79.8vw, 1149px);
-  height: clamp(600px, 79.8vw, 1149px);
+  width: clamp(860px, calc(860px + 289 * ((100vw - 1025px) / 415)), 1149px);
+  height: clamp(860px, calc(860px + 289 * ((100vw - 1025px) / 415)), 1149px);
   transform: translate(-50%, 50%);
-  border: clamp(140px, 22.2vw, 320px) solid var(--color-ring-stroke);
+  border: clamp(240px, calc(240px + 80 * ((100vw - 1025px) / 415)), 320px) solid var(--color-ring-stroke);
   /* #CBFC01 */
   border-radius: 50%;
   box-sizing: border-box;
@@ -220,8 +220,8 @@
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
-  width: clamp(340px, 40.1vw, 578px);
-  height: clamp(318px, 37.6vw, 541px);
+  width: clamp(450px, calc(450px + 128 * ((100vw - 1025px) / 415)), 578px);
+  height: clamp(420px, calc(420px + 121 * ((100vw - 1025px) / 415)), 541px);
   z-index: 5;
 }
 
@@ -246,10 +246,9 @@
 
 /* Card 1: UI/UX Design (#46:126) */
 .bytespace-hero__card--uiux {
-  left: calc(50% - 316px);
-  /* x = 404px */
-  top: 127px;
-  /* y = 639px */
+  left: 50%;
+  margin-left: clamp(-316px, calc(-245px - 71 * ((100vw - 1025px) / 415)), -245px);
+  top: clamp(85px, calc(85px + 42 * ((100vw - 1025px) / 415)), 127px);
   padding: var(--space-16);
   white-space: nowrap;
 }
@@ -292,11 +291,10 @@
 
 /* Card 2: Learning Progress (#1:1797) */
 .bytespace-hero__card--progress {
-  left: calc(50% + 122px);
-  /* x = 842px */
-  top: 139px;
-  /* y = 651px */
-  width: 232px;
+  left: 50%;
+  margin-left: clamp(95px, calc(95px + 27 * ((100vw - 1025px) / 415)), 122px);
+  top: clamp(95px, calc(95px + 44 * ((100vw - 1025px) / 415)), 139px);
+  width: clamp(195px, calc(195px + 37 * ((100vw - 1025px) / 415)), 232px);
   padding: var(--space-16);
 }
 
@@ -332,10 +330,9 @@
  * Issue 4: Vertically stacked header (Title on line 1, Rating on line 2)
  */
 .bytespace-hero__card--students {
-  left: calc(50% - 392px);
-  /* x = 328px */
-  top: 325px;
-  /* y = 837px */
+  left: 50%;
+  margin-left: clamp(-392px, calc(-310px - 82 * ((100vw - 1025px) / 415)), -310px);
+  top: clamp(255px, calc(255px + 70 * ((100vw - 1025px) / 415)), 325px);
   width: 258px;
   padding: var(--space-16);
 }
@@ -421,23 +418,47 @@
     min-height: clamp(800px, 85vw, 1024px);
   }
 
+  .bytespace-hero__ornaments {
+    display: none;
+  }
+
   .bytespace-hero__title {
-    font-size: clamp(44px, 5vw, 64px);
+    font-size: clamp(38px, 4.8vw, 52px);
+  }
+
+  .bytespace-hero__stage {
+    height: clamp(360px, 42vw, 440px);
+    margin-top: clamp(16px, 2.5vw, 24px);
+  }
+
+  .bytespace-hero__model-wrapper {
+    width: clamp(360px, 42vw, 450px);
+    height: clamp(340px, 40vw, 420px);
+  }
+
+  .bytespace-hero__ring {
+    width: clamp(650px, 75vw, 860px);
+    height: clamp(650px, 75vw, 860px);
+    border-width: clamp(160px, 20vw, 240px);
   }
 
   .bytespace-hero__card--uiux {
-    left: calc(50% - min(316px, 32vw));
+    left: 50%;
+    margin-left: calc(-1 * min(260px, 30vw));
     top: 60px;
   }
 
   .bytespace-hero__card--progress {
-    left: calc(50% + min(113px, 12vw));
+    left: 50%;
+    margin-left: min(100px, 11vw);
     top: 70px;
+    width: 200px;
   }
 
   .bytespace-hero__card--students {
-    left: calc(50% - min(355px, 35vw));
-    top: 240px;
+    left: 50%;
+    margin-left: calc(-1 * min(320px, 33vw));
+    top: 220px;
   }
 }
 
@@ -589,7 +610,8 @@
     text-align: center;
     /* Centered text */
     padding: clamp(8px, 1.8vw, 12px);
-    margin: 0;
+    margin: 0 !important;
+    margin-left: 0 !important;
   }
 
   /* Card 1: UI/UX Design */

@@ -1,24 +1,34 @@
 import React from 'react';
 import FloatingCard from '../../common/FloatingCard/FloatingCard';
-import ornamentSphereImg from '../../../assets/images/ornament-sphere-1.png';
+import CourseCard from '../FeaturedCourses/CourseCard';
+import { featuredCoursesData, courseSharedIcons } from '../../../data/courses';
+import chartProgress from '../../../assets/icons/chart-progress.svg';
+import coneLime from '../../../assets/images/ornament-cone-lime.png';
 import './GrowthShowcase.css';
 
 /**
  * LearnerGrowthRow Component
- * Source of truth: Figma #34:1157
+ * Source of truth: Figma #34:1157, Frame 11
  * Desktop layout: [Text Content Left] [Visual Composition Right]
+ * Visual composition: CourseCard in background-left, Student cutout in foreground,
+ * Lime spiral ornament on right, Learning Progress 55% floating card on bottom-right.
  */
 export default function LearnerGrowthRow({ data }) {
   if (!data) return null;
 
-  const { heading, description, image, metrics = [], floatingCard } = data;
+  const { heading, description, image, metrics = [] } = data;
+  const sampleCourse = featuredCoursesData[0];
 
   return (
     <div className="bytespace-showcase-row bytespace-showcase-row--learner">
       {/* Left: Text & Metrics */}
-      <div className="bytespace-showcase-row__text">
-        <h2 className="bytespace-showcase-row__heading">{heading}</h2>
-        <p className="bytespace-showcase-row__description">{description}</p>
+      <div className="bytespace-showcase-row__text bytespace-showcase-row__text--learner">
+        <h2 className="bytespace-showcase-row__heading bytespace-showcase-row__heading--learner">
+          {heading}
+        </h2>
+        <p className="bytespace-showcase-row__description bytespace-showcase-row__description--learner">
+          {description}
+        </p>
 
         {metrics.length > 0 && (
           <div className="bytespace-showcase-metrics" role="list" aria-label="Learner achievements">
@@ -34,41 +44,46 @@ export default function LearnerGrowthRow({ data }) {
 
       {/* Right: Visual Composition */}
       <div className="bytespace-showcase-row__visual bytespace-showcase-row__visual--learner">
-        <div className="bytespace-showcase-visual-wrapper">
-          {/* Main Learner Image */}
-          <div className="bytespace-showcase-image-frame">
+        <div className="bytespace-showcase-visual-wrapper bytespace-showcase-visual-wrapper--learner">
+          {/* Background Course Card (Figma #34:1157 Course_Card_1) */}
+          <div className="bytespace-showcase-card-course">
+            <CourseCard course={sampleCourse} icons={courseSharedIcons} />
+          </div>
+
+          {/* Main Learner Cutout Image (no box/shadow) */}
+          <div className="bytespace-showcase-image-frame bytespace-showcase-image-frame--learner">
             <img
               src={image}
               alt="Professional learner with laptop"
-              className="bytespace-showcase-image"
+              className="bytespace-showcase-image bytespace-showcase-image--learner"
               loading="lazy"
             />
           </div>
 
-          {/* 3D Decorative Sphere */}
+          {/* 3D Decorative Lime Cone Ornament */}
           <img
-            src={ornamentSphereImg}
+            src={coneLime}
             alt=""
-            className="bytespace-showcase-ornament bytespace-showcase-ornament--sphere"
+            className="bytespace-showcase-ornament bytespace-showcase-ornament--cone-lime"
             aria-hidden="true"
           />
 
-          {/* Floating Card: Learning Progress */}
-          {floatingCard && (
-            <FloatingCard className="bytespace-showcase-card bytespace-showcase-card--progress">
-              <div className="bytespace-showcase-card__header">
-                <span className="bytespace-showcase-card__title">{floatingCard.title}</span>
-              </div>
-              <div className="bytespace-showcase-card__chart-wrapper">
-                <img
-                  src={floatingCard.chart}
-                  alt=""
-                  className="bytespace-showcase-card__chart"
-                  aria-hidden="true"
-                />
-              </div>
-            </FloatingCard>
-          )}
+          {/* Floating Card: Learning Progress (exact Hero card) */}
+          <FloatingCard
+            className="bytespace-showcase-card bytespace-showcase-card--progress"
+            ariaLabel="Learning Progress metric"
+          >
+            <span className="bytespace-showcase-progress-card__label">Learning Progress</span>
+            <div className="bytespace-showcase-progress-card__metric-value">55%</div>
+            <img
+              src={chartProgress}
+              alt=""
+              aria-hidden="true"
+              className="bytespace-showcase-progress-card__bar"
+              width="200"
+              height="8"
+            />
+          </FloatingCard>
         </div>
       </div>
     </div>

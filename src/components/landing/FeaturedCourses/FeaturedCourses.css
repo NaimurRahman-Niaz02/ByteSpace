@@ -10,8 +10,8 @@
 .bytespace-featured-courses {
   width: 100%;
   background-color: var(--color-white);
-  padding-top: var(--space-120);
-  padding-bottom: var(--space-120);
+  padding-top: var(--space-80);
+  padding-bottom: var(--space-80);
   position: relative;
   box-sizing: border-box;
 }
@@ -79,18 +79,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-16); /* 16px col gap */
+  gap: clamp(8px, calc(8px + 8 * ((100vw - 1025px) / 415)), var(--space-16));
   flex-wrap: wrap;
 }
 
 .bytespace-category-tab {
   height: 44px;
-  padding: 12px var(--space-16);
+  padding: 12px clamp(10px, calc(10px + 6 * ((100vw - 1025px) / 415)), var(--space-16));
   border-radius: var(--radius-lg); /* 24px */
   background-color: var(--color-shuttle-gray-50); /* #F5F5F6 */
   color: var(--color-shuttle-gray-700); /* #4B4C53 */
   font-family: var(--font-body);
-  font-size: var(--font-size-label-m); /* 16px */
+  font-size: clamp(13px, calc(13px + 3 * ((100vw - 1025px) / 415)), 16px);
   font-weight: var(--weight-medium); /* 500 */
   line-height: 1;
   border: 1px solid transparent;
@@ -106,6 +106,28 @@
   color: var(--color-shuttle-gray-950);
 }
 
+/* + More button: plain text, blue color, no box */
+.bytespace-category-tab--more {
+  height: 44px;
+  background: none;
+  border: none;
+  padding: 0 6px;
+  color: var(--color-primary); /* #003BE2 */
+  font-family: var(--font-body);
+  font-size: clamp(14px, calc(14px + 2 * ((100vw - 1025px) / 415)), 16px);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  transition: opacity var(--transition-fast);
+}
+
+.bytespace-category-tab--more:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
 /* Active tab state */
 .bytespace-category-tab--active,
 .bytespace-category-tab--active:hover {
@@ -119,8 +141,8 @@
  * ========================================= */
 .bytespace-featured-courses__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-40); /* 40px gap */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, calc(16px + 24 * ((100vw - 1025px) / 415)), var(--space-40));
   width: 100%;
   max-width: var(--container-courses); /* 1199px */
   margin: 0 auto;
@@ -134,10 +156,11 @@
   flex-direction: column;
   width: 100%;
   max-width: 373px;
+  min-width: 0;
   background-color: var(--color-white);
   border: 1px solid var(--color-shuttle-gray-200); /* #CED0D3 */
   border-radius: var(--radius-lg); /* 24px */
-  padding: var(--space-16);
+  padding: clamp(12px, calc(12px + 4 * ((100vw - 1025px) / 415)), var(--space-16));
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.04);
   transition: transform var(--transition-normal),
               box-shadow var(--transition-normal),
@@ -175,26 +198,28 @@
 
 .bytespace-course-card__pills {
   position: absolute;
-  left: 12px;
-  bottom: 12px;
+  left: 8px;
+  bottom: 8px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   z-index: 2;
+  flex-wrap: wrap;
+  max-width: calc(100% - 16px);
 }
 
 .bytespace-course-card__pill {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px 12px;
-  background: rgba(246, 246, 246, 0.6);
+  padding: 4px clamp(6px, 0.8vw, 10px);
+  background: rgba(246, 246, 246, 0.7);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 24px;
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: 12px;
+  font-size: clamp(10px, 0.9vw, 12px);
   line-height: 14px;
   color: #4F4F4F;
   white-space: nowrap;
@@ -243,6 +268,16 @@
   font-weight: 400;
   line-height: 19px;
   color: #4F4F4F;
+}
+
+.bytespace-course-card__instructor span {
+  color: var(--color-primary); /* #003BE2 link blue */
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.bytespace-course-card__instructor span:hover {
+  text-decoration: underline;
 }
 
 .bytespace-course-card__rating {

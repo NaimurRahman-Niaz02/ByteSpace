@@ -16,11 +16,11 @@ import './Testimonials.css';
 export default function Testimonials() {
   return (
     <section className="bytespace-testimonials" aria-labelledby="testimonials-heading">
-      {/* 3 Ambient Radial Gradient Glows (#34:1175) */}
+      {/* 3 Ambient Radial Gradient Glows (#34:1175: 2 Lime, 1 Blue) */}
       <div className="bytespace-testimonials__glows" aria-hidden="true">
         <div className="bytespace-testimonials__glow bytespace-testimonials__glow--lime-1" />
-        <div className="bytespace-testimonials__glow bytespace-testimonials__glow--blue-1" />
-        <div className="bytespace-testimonials__glow bytespace-testimonials__glow--blue-2" />
+        <div className="bytespace-testimonials__glow bytespace-testimonials__glow--lime-2" />
+        <div className="bytespace-testimonials__glow bytespace-testimonials__glow--blue" />
       </div>
 
       <div className="bytespace-testimonials__container">
