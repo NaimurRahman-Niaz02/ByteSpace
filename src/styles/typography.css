@@ -1,0 +1,333 @@
+/**
+ * ByteSpace Typography System
+ * Source of truth: design/landing-page/design-context.md (Section 4)
+ *
+ * Font Families & Required Weights:
+ *   1. Poppins (Google Fonts):
+ *      - Medium (500)   -> Display S (44px), Display XS (36px)
+ *      - SemiBold (600) -> Heading L (72px), Heading M (44px), Heading S (36px, 24px), Heading XS (20px)
+ *      - Regular (400) & Bold (700) supported
+ *   2. Satoshi (Fontshare):
+ *      - Regular (400)  -> Body L (18px), Body M (16px), Body S (14px), Body XS (12px), Micro (10px)
+ *      - Medium (500)   -> Label XL (20px), Label L (18px), Label M (16px), Label S (14px), Label XS (12px), Micro (10px)
+ *      - Bold (700)     -> Emphasized numbers, strong tags, metric highlights
+ *   3. Clash Display (Fontshare):
+ *      - Bold (700)     -> Brand Logo (24px)
+ */
+
+/* Import from CDNs */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@700&display=swap');
+
+/* Bulletproof direct @font-face declarations for Satoshi */
+@font-face {
+  font-family: 'Satoshi';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://cdn.fontshare.com/wf/TTX2Z3BF3P6Y5BQT3IV2VNOK6FL22KUT/7QYRJOI3JIMYHGY6CH7SOIFRQLZOLNJ6/KFIAZD4RUMEZIYV6FQ3T3GP5PDBDB6JY.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://cdn.fontshare.com/wf/P2LQKHE6KA6ZP4AAGN72KDWMHH6ZH3TA/ZC32TK2P7FPS5GFTL46EU6KQJA24ZYDB/7AHDUZ4A7LFLVFUIFSARGIWCRQJHISQP.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://cdn.fontshare.com/wf/LAFFD4SDUCDVQEXFPDC7C53EQ4ZELWQI/PXCT3G6LO6ICM5I3NTYENYPWJAECAWDD/GHM6WVH6MILNYOOCXHXB5GTSGNTMGXZR.woff2') format('woff2');
+}
+
+/* Bulletproof direct @font-face declaration for Clash Display */
+@font-face {
+  font-family: 'Clash Display';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://cdn.fontshare.com/wf/BFBSY7LX5W2U2EROCLVVTQP4VS7S4PC3/IIUX4FGTMD2LK2VWD3RVTAS4SSMUN7B5/53RZKGODFYDW3QHTIL7IPOWTBCSUEZK7.woff2') format('woff2');
+}
+
+:root {
+  /* =========================================
+   * 1. Font Family Tokens
+   * ========================================= */
+  --font-family-display: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-body: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-logo: 'Clash Display', 'Poppins', sans-serif;
+
+  /* Aliases */
+  --font-display: var(--font-family-display);
+  --font-heading: var(--font-family-heading);
+  --font-body: var(--font-family-body);
+  --font-logo: var(--font-family-logo);
+
+  /* =========================================
+   * 2. Font Weights
+   * ========================================= */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* =========================================
+   * 3. Font Size Tokens (Desktop)
+   * ========================================= */
+  --font-size-heading-l: 72px;
+  --line-height-heading-l: 1.2;
+  --letter-spacing-heading-l: -0.01em;
+
+  --font-size-heading-m: 44px;
+  --line-height-heading-m: 1.2;
+  --letter-spacing-heading-m: -0.01em;
+
+  --font-size-display-s: 44px;
+  --line-height-display-s: 52px;
+  --letter-spacing-display-s: -0.01em;
+
+  --font-size-heading-s: 36px;
+  --line-height-heading-s: 1.2;
+  --letter-spacing-heading-s: -0.01em;
+
+  --font-size-display-xs: 36px;
+  --line-height-display-xs: 44px;
+  --letter-spacing-display-xs: -0.01em;
+
+  --font-size-heading-s-sub: 24px;
+  --line-height-heading-s-sub: 32px;
+  --letter-spacing-heading-s-sub: -0.01em;
+
+  --font-size-heading-xs: 20px;
+  --line-height-heading-xs: 1.4;
+  --letter-spacing-heading-xs: -0.01em;
+
+  --font-size-logo: 24px;
+  --line-height-logo: 1.2;
+  --letter-spacing-logo: 0;
+
+  --font-size-label-xl: 20px;
+  --line-height-label-xl: 1.2;
+  --letter-spacing-label-xl: 0;
+
+  --font-size-label-l: 18px;
+  --line-height-label-l: 1.2;
+  --letter-spacing-label-l: 0;
+
+  --font-size-body-l: 18px;
+  --line-height-body-l: 1.6;
+  --letter-spacing-body-l: 0;
+
+  --font-size-label-m: 16px;
+  --line-height-label-m: 1.2;
+  --letter-spacing-label-m: 0;
+
+  --font-size-body-m: 16px;
+  --line-height-body-m: 1.6;
+  --letter-spacing-body-m: 0;
+
+  --font-size-label-s: 14px;
+  --line-height-label-s: 1.2;
+  --letter-spacing-label-s: 0;
+
+  --font-size-body-s: 14px;
+  --line-height-body-s: 1.6;
+  --letter-spacing-body-s: 0;
+
+  --font-size-label-xs: 12px;
+  --line-height-label-xs: 1.2;
+  --letter-spacing-label-xs: 0;
+
+  --font-size-body-xs: 12px;
+  --line-height-body-xs: 1.6;
+  --letter-spacing-body-xs: 0;
+
+  --font-size-micro: 10px;
+  --line-height-micro: 1.2;
+  --letter-spacing-micro: 0;
+}
+
+/* =========================================
+ * 4. Typography Utility Classes
+ * ========================================= */
+
+.text-heading-l {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-heading-l);
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-height-heading-l);
+  letter-spacing: var(--letter-spacing-heading-l);
+}
+
+.text-heading-m {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-heading-m);
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-height-heading-m);
+  letter-spacing: var(--letter-spacing-heading-m);
+}
+
+.text-display-s {
+  font-family: var(--font-display);
+  font-size: var(--font-size-display-s);
+  font-weight: var(--weight-medium);
+  line-height: var(--line-height-display-s);
+  letter-spacing: var(--letter-spacing-display-s);
+}
+
+.text-heading-s {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-heading-s);
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-height-heading-s);
+  letter-spacing: var(--letter-spacing-heading-s);
+}
+
+.text-display-xs {
+  font-family: var(--font-display);
+  font-size: var(--font-size-display-xs);
+  font-weight: var(--weight-medium);
+  line-height: var(--line-height-display-xs);
+  letter-spacing: var(--letter-spacing-display-xs);
+}
+
+.text-heading-sub {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-heading-s-sub);
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-height-heading-s-sub);
+  letter-spacing: var(--letter-spacing-heading-s-sub);
+}
+
+.text-heading-xs {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-heading-xs);
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-height-heading-xs);
+  letter-spacing: var(--letter-spacing-heading-xs);
+}
+
+.text-logo {
+  font-family: var(--font-logo);
+  font-size: var(--font-size-logo);
+  font-weight: var(--weight-bold);
+  line-height: var(--line-height-logo);
+  letter-spacing: var(--letter-spacing-logo);
+}
+
+.text-label-xl {
+  font-family: var(--font-body);
+  font-size: var(--font-size-label-xl);
+  font-weight: var(--weight-medium);
+  line-height: var(--line-height-label-xl);
+  letter-spacing: var(--letter-spacing-label-xl);
+}
+
+.text-label-l {
+  font-family: var(--font-body);
+  font-size: var(--font-size-label-l);
+  font-weight: var(--weight-medium);
+  line-height: var(--line-height-label-l);
+  letter-spacing: var(--letter-spacing-label-l);
+}
+
+.text-body-l {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-l);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-height-body-l);
+  letter-spacing: var(--letter-spacing-body-l);
+}
+
+.text-label-m {
+  font-family: var(--font-body);
+  font-size: var(--font-size-label-m);
+  font-weight: var(--weight-medium);
+  line-height: var(--line-height-label-m);
+  letter-spacing: var(--letter-spacing-label-m);
+}
+
+.text-body-m {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-m);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-height-body-m);
+  letter-spacing: var(--letter-spacing-body-m);
+}
+
+.text-label-s {
+  font-family: var(--font-body);
+  font-size: var(--font-size-label-s);
+  font-weight: var(--weight-medium);
+  line-height: var(--line-height-label-s);
+  letter-spacing: var(--letter-spacing-label-s);
+}
+
+.text-body-s {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-s);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-height-body-s);
+  letter-spacing: var(--letter-spacing-body-s);
+}
+
+.text-label-xs {
+  font-family: var(--font-body);
+  font-size: var(--font-size-label-xs);
+  font-weight: var(--weight-medium);
+  line-height: var(--line-height-label-xs);
+  letter-spacing: var(--letter-spacing-label-xs);
+}
+
+.text-body-xs {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-xs);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-height-body-xs);
+  letter-spacing: var(--letter-spacing-body-xs);
+}
+
+.text-micro {
+  font-family: var(--font-body);
+  font-size: var(--font-size-micro);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-height-micro);
+  letter-spacing: var(--letter-spacing-micro);
+}
+
+/* =========================================
+ * 5. Responsive Typography Breakpoints
+ * ========================================= */
+
+@media (max-width: 1024px) {
+  :root {
+    --font-size-heading-l: 52px;
+    --font-size-heading-m: 36px;
+    --font-size-display-s: 36px;
+    --font-size-heading-s: 30px;
+    --font-size-display-xs: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --font-size-heading-l: 36px;
+    --font-size-heading-m: 28px;
+    --font-size-display-s: 28px;
+    --font-size-heading-s: 24px;
+    --font-size-display-xs: 24px;
+    --font-size-heading-xs: 18px;
+    --font-size-body-l: 16px;
+  }
+}

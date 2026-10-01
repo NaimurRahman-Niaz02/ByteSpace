@@ -1,0 +1,202 @@
+/**
+ * ByteSpace Global Styles & Design Foundation
+ * Incorporates tokens from variables.css and typography.css
+ */
+
+@import './styles/variables.css';
+@import './styles/typography.css';
+
+/* =========================================
+ * 1. Global Box-Sizing & Reset
+ * ========================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 4;
+  tab-size: 4;
+  scroll-behavior: smooth;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-m);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-height-body-m);
+  color: var(--color-text-secondary);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* =========================================
+ * 2. Base Typography Elements
+ * ========================================= */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-heading);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--letter-spacing-heading-l);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: var(--font-size-heading-l);
+  line-height: var(--line-height-heading-l);
+  letter-spacing: var(--letter-spacing-heading-l);
+}
+
+h2 {
+  font-size: var(--font-size-heading-m);
+  line-height: var(--line-height-heading-m);
+  letter-spacing: var(--letter-spacing-heading-m);
+}
+
+h3 {
+  font-size: var(--font-size-heading-s);
+  line-height: var(--line-height-heading-s);
+  letter-spacing: var(--letter-spacing-heading-s);
+}
+
+h4 {
+  font-size: var(--font-size-heading-xs);
+  line-height: var(--line-height-heading-xs);
+  letter-spacing: var(--letter-spacing-heading-xs);
+}
+
+p {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-body-m);
+  line-height: var(--line-height-body-m);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* =========================================
+ * 3. Media & Image Defaults
+ * ========================================= */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* =========================================
+ * 4. Form Elements & Normalization
+ * ========================================= */
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: var(--font-size-label-m);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  outline: none;
+  transition: background-color var(--transition-fast),
+              color var(--transition-fast),
+              border-color var(--transition-fast),
+              transform var(--transition-fast),
+              box-shadow var(--transition-fast);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-m);
+  color: var(--color-text-primary);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-sm);
+  outline: none;
+  padding: var(--space-12) var(--space-16);
+  transition: border-color var(--transition-fast),
+              box-shadow var(--transition-fast);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-primary);
+}
+
+/* =========================================
+ * 5. Layout Container & Section Utilities
+ * ========================================= */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-24);
+  padding-right: var(--space-24);
+}
+
+.section {
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: var(--space-16);
+    padding-right: var(--space-16);
+  }
+
+  .section {
+    padding-top: var(--space-64);
+    padding-bottom: var(--space-64);
+  }
+}

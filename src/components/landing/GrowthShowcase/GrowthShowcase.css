@@ -1,0 +1,556 @@
+/**
+ * ByteSpace Professional Growth & Creator Showcase Styles
+ * Source of truth: design/landing-page/design-context.md
+ * Figma nodes: #34:1159 (Section), #34:1157 (Row 1), #34:1158 (Row 2)
+ */
+
+/* =========================================
+ * 1. Section Container & Layout
+ * ========================================= */
+.bytespace-showcase {
+  width: 100%;
+  background-color: var(--color-bg-light); /* #FAFAFA */
+  padding-top: var(--space-120);
+  padding-bottom: var(--space-120);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.bytespace-showcase__container {
+  width: 100%;
+  max-width: var(--container-max-width); /* 1200px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-24);
+  padding-right: var(--space-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-120); /* 120px gap between rows */
+  box-sizing: border-box;
+}
+
+/* =========================================
+ * 2. Shared Showcase Row Structure
+ * ========================================= */
+.bytespace-showcase-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: var(--space-48);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* =========================================
+ * 3. Text & Metrics Column
+ * ========================================= */
+.bytespace-showcase-row__text {
+  max-width: var(--container-feature-col); /* 574px */
+  display: flex;
+  flex-direction: column;
+}
+
+.bytespace-showcase-row__heading {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-heading-m); /* 44px */
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-height-heading-m); /* 1.2 */
+  letter-spacing: var(--letter-spacing-heading-m); /* -0.01em */
+  color: var(--color-navy-dark); /* #040819 */
+  margin-bottom: var(--space-16);
+}
+
+.bytespace-showcase-row__description {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-l); /* 18px */
+  font-weight: var(--weight-regular);
+  line-height: var(--line-height-body-l); /* 1.6 */
+  color: var(--color-shuttle-gray-400); /* #82868E */
+  margin-bottom: 0;
+}
+
+/* Row 1: Metrics (12K Students | 70+ Courses | 16 Creators) */
+.bytespace-showcase-metrics {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-56); /* 56px in Figma */
+  margin-top: var(--space-36);
+  padding-top: 0;
+  border-top: none;
+}
+
+.bytespace-showcase-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.bytespace-showcase-metric__value {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  font-weight: 500; /* Poppins 500 in Figma */
+  color: var(--color-persian-blue-800); /* #003BE2 */
+  line-height: 44px;
+  letter-spacing: -0.01em;
+}
+
+.bytespace-showcase-metric__label {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-l); /* 18px */
+  font-weight: var(--weight-regular);
+  color: var(--color-shuttle-gray-700); /* #4B4C53 */
+  line-height: 1.6;
+}
+
+/* Row 2: Feature Bullets */
+.bytespace-showcase-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+  margin-top: var(--space-36);
+  padding: 0;
+  list-style: none;
+}
+
+.bytespace-showcase-bullet {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+.bytespace-showcase-bullet__icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: block;
+}
+
+.bytespace-showcase-bullet__text {
+  font-family: var(--font-body);
+  font-size: var(--font-size-label-l); /* 18px */
+  font-weight: var(--weight-medium); /* 500 */
+  color: var(--color-shuttle-gray-950); /* #242528 */
+  line-height: 1.4;
+}
+
+/* =========================================
+ * 4. Visual Column & Floating Elements
+ * ========================================= */
+.bytespace-showcase-row__visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.bytespace-showcase-visual-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bytespace-showcase-visual-wrapper--creator {
+  max-width: 560px;
+}
+
+/* Base Image Frame */
+.bytespace-showcase-image-frame {
+  width: 100%;
+  max-width: 480px;
+  border-radius: var(--radius-md); /* 16px */
+  overflow: hidden;
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.06);
+  position: relative;
+  z-index: 1;
+}
+
+.bytespace-showcase-image-frame--creator {
+  max-width: 435px;
+}
+
+.bytespace-showcase-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* 3D Decorative Sphere */
+.bytespace-showcase-ornament--sphere {
+  position: absolute;
+  top: -30px;
+  right: -20px;
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  z-index: 3;
+  pointer-events: none;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+}
+
+/* Base Floating Card Tweaks */
+.bytespace-showcase-card {
+  position: absolute;
+  z-index: 4;
+}
+
+/* Row 1: Learning Progress Card */
+.bytespace-showcase-card--progress {
+  bottom: 30px;
+  left: -20px;
+  min-width: 220px;
+  padding: var(--space-16) var(--space-20);
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.bytespace-showcase-card__title {
+  font-family: var(--font-body);
+  font-size: var(--font-size-label-s); /* 14px */
+  font-weight: var(--weight-medium);
+  color: var(--color-shuttle-gray-950);
+  display: block;
+  margin-bottom: var(--space-12);
+}
+
+.bytespace-showcase-card__chart-wrapper {
+  width: 100%;
+}
+
+.bytespace-showcase-card__chart {
+  width: 100%;
+  height: 8px;
+  display: block;
+}
+
+/* Row 2: Revenue Cards (Total Revenue & Year to Date) */
+.bytespace-showcase-card--revenue1 {
+  top: 44px;
+  left: -20px;
+  width: 232px;
+  padding: var(--space-16);
+  background-color: var(--color-persian-blue-800); /* #003BE2 in Figma */
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  border-radius: var(--radius-md); /* 16px */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 32px rgba(0, 59, 226, 0.25);
+}
+
+.bytespace-showcase-card--revenue2 {
+  top: 194px;
+  left: -20px;
+  width: 150px;
+  padding: var(--space-16);
+  background-color: var(--color-persian-blue-800); /* #003BE2 in Figma */
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  border-radius: var(--radius-md); /* 16px */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 32px rgba(0, 59, 226, 0.25);
+}
+
+.bytespace-revenue-card__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: var(--space-8);
+  gap: 2px;
+}
+
+.bytespace-revenue-card__title {
+  font-family: var(--font-body);
+  font-size: var(--font-size-label-m); /* 16px */
+  font-weight: var(--weight-medium);
+  color: var(--color-shuttle-gray-50); /* #F5F5F6 */
+  line-height: 1.2;
+}
+
+.bytespace-revenue-card__period {
+  font-family: var(--font-body);
+  font-size: 10px;
+  color: var(--color-shuttle-gray-50); /* #F5F5F6 */
+  line-height: 1.2;
+}
+
+.bytespace-revenue-card__amount-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+  margin-bottom: var(--space-8);
+}
+
+.bytespace-revenue-card__amount {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-shuttle-gray-50); /* #F5F5F6 */
+  line-height: 32px;
+  letter-spacing: -0.01em;
+}
+
+.bytespace-revenue-card__badge {
+  background-color: var(--color-ring-stroke); /* #CBFC01 */
+  color: var(--color-shuttle-gray-950); /* #242528 */
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 24px;
+  line-height: 20px;
+}
+
+.bytespace-revenue-card__chart-img {
+  width: 100%;
+  height: 8px;
+  display: block;
+}
+
+/* Row 2: Happy Students Card */
+.bytespace-showcase-card--students {
+  bottom: 30px;
+  right: -20px;
+  width: 258px;
+  padding: var(--space-16);
+  background-color: var(--color-white);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  border-radius: var(--radius-md); /* 16px */
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow-ambient);
+}
+
+.bytespace-students-card__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin-bottom: var(--space-12);
+}
+
+.bytespace-students-card__title {
+  font-family: var(--font-body);
+  font-size: var(--font-size-label-m); /* 16px */
+  font-weight: var(--weight-medium);
+  color: var(--color-shuttle-gray-950); /* #242528 */
+  line-height: 1.2;
+}
+
+.bytespace-students-card__rating {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.bytespace-students-card__score {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-shuttle-gray-950);
+}
+
+.bytespace-students-card__reviews {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-shuttle-gray-950);
+}
+
+.bytespace-students-card__star {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.bytespace-students-card__avatars-row {
+  display: flex;
+  align-items: center;
+}
+
+.bytespace-students-card__avatar-stack {
+  display: flex;
+  align-items: center;
+}
+
+.bytespace-students-card__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-white);
+  margin-left: -12px;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+}
+
+.bytespace-students-card__avatar:first-child {
+  margin-left: 0;
+}
+
+.bytespace-students-card__avatar-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-electric-lime-400); /* #D4FB20 */
+  color: var(--color-shuttle-gray-950); /* #242528 */
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 36px;
+  text-align: center;
+  margin-left: -12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+/* =========================================
+ * 5. Responsive Breakpoints
+ * ========================================= */
+
+/* Tablet (768px – 1024px) */
+@media (max-width: 1024px) {
+  .bytespace-showcase {
+    padding-top: var(--space-80);
+    padding-bottom: var(--space-80);
+  }
+
+  .bytespace-showcase__container {
+    gap: var(--space-80);
+  }
+
+  .bytespace-showcase-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-48);
+  }
+
+  /* Keep visual first or clean stacked */
+  .bytespace-showcase-row--creator .bytespace-showcase-row__visual {
+    order: 2;
+  }
+
+  .bytespace-showcase-row--creator .bytespace-showcase-row__text {
+    order: 1;
+  }
+
+  .bytespace-showcase-row__text {
+    max-width: 100%;
+  }
+
+  .bytespace-showcase-card--progress {
+    left: 0;
+  }
+
+  .bytespace-showcase-card--revenue1 {
+    left: 0;
+  }
+
+  .bytespace-showcase-card--revenue2 {
+    left: 10px;
+  }
+
+  .bytespace-showcase-card--students {
+    right: 0;
+  }
+}
+
+/* Mobile (<= 767px, targeting 375px) */
+@media (max-width: 768px) {
+  .bytespace-showcase {
+    padding-top: var(--space-64);
+    padding-bottom: var(--space-64);
+  }
+
+  .bytespace-showcase__container {
+    gap: var(--space-64);
+    padding-left: var(--space-16);
+    padding-right: var(--space-16);
+  }
+
+  .bytespace-showcase-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-36);
+  }
+
+  .bytespace-showcase-row__heading {
+    font-size: 28px;
+    line-height: 1.25;
+  }
+
+  .bytespace-showcase-row__description {
+    font-size: var(--font-size-body-m);
+    line-height: var(--line-height-body-m);
+  }
+
+  .bytespace-showcase-metrics {
+    gap: var(--space-20);
+    margin-top: var(--space-24);
+    padding-top: var(--space-20);
+  }
+
+  .bytespace-showcase-metric__value {
+    font-size: 28px;
+  }
+
+  .bytespace-showcase-visual-wrapper {
+    max-width: 100%;
+  }
+
+  .bytespace-showcase-image-frame {
+    max-width: 320px;
+  }
+
+  .bytespace-showcase-ornament--sphere {
+    width: 70px;
+    height: 70px;
+    top: -15px;
+    right: 0;
+  }
+
+  /* Safe positioning for floating cards on mobile */
+  .bytespace-showcase-card--progress {
+    bottom: -15px;
+    left: 10px;
+    min-width: 180px;
+    padding: var(--space-8) var(--space-12);
+  }
+
+  .bytespace-showcase-card--revenue1 {
+    top: 10px;
+    left: 5px;
+    min-width: 140px;
+    padding: var(--space-8);
+  }
+
+  .bytespace-showcase-card--revenue2 {
+    bottom: -15px;
+    left: 10px;
+    min-width: 140px;
+    padding: var(--space-8);
+  }
+
+  .bytespace-showcase-card--students {
+    top: auto;
+    bottom: 20px;
+    right: 5px;
+    min-width: 140px;
+    padding: var(--space-8);
+  }
+
+  .bytespace-showcase-bullets {
+    gap: var(--space-16);
+    margin-top: var(--space-24);
+  }
+
+  .bytespace-showcase-bullet__text {
+    font-size: var(--font-size-label-m);
+  }
+}

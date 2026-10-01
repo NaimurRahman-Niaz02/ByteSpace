@@ -1,0 +1,224 @@
+/**
+ * ByteSpace Creator CTA Section Styles
+ * Source of truth: design/landing-page/design-context.md (Figma #34:1161)
+ */
+
+/* =========================================
+ * 1. Section Container & Background
+ * ========================================= */
+.bytespace-cta {
+  width: 100%;
+  min-height: 488px; /* Approximate Figma height */
+  background-color: var(--color-persian-blue-800); /* #003BE2 */
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-80) 0;
+  box-sizing: border-box;
+}
+
+.bytespace-cta__container {
+  width: 100%;
+  max-width: var(--container-max-width); /* 1200px */
+  margin: 0 auto;
+  padding: 0 var(--space-24);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+/* =========================================
+ * 2. Decorative 3D Ornaments
+ * ========================================= */
+.bytespace-cta__ornaments {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.bytespace-cta__ornament {
+  position: absolute;
+  object-fit: contain;
+  opacity: 0.85;
+}
+
+.bytespace-cta__ornament--cone-lime {
+  top: -40px;
+  right: -30px;
+  width: 240px;
+  height: 240px;
+  transform: rotate(-15deg);
+}
+
+.bytespace-cta__ornament--sphere {
+  bottom: -40px;
+  left: -30px;
+  width: 180px;
+  height: 180px;
+}
+
+.bytespace-cta__ornament--cone-small {
+  top: 40px;
+  left: 10%;
+  width: 90px;
+  height: 90px;
+  opacity: 0.6;
+}
+
+/* =========================================
+ * 3. Typography & Highlight
+ * ========================================= */
+.bytespace-cta__heading {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-heading-m); /* 44px */
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-height-heading-m); /* 1.2 */
+  letter-spacing: var(--letter-spacing-heading-m); /* -0.01em */
+  color: var(--color-white);
+  max-width: var(--container-cta-heading); /* 710px */
+  margin: 0 auto var(--space-20);
+}
+
+.bytespace-cta__highlight {
+  color: var(--color-electric-lime-400); /* #D4FB20 */
+  display: inline-block;
+  font-weight: var(--weight-bold);
+  padding: 0 4px;
+}
+
+.bytespace-cta__description {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-l); /* 18px */
+  font-weight: var(--weight-regular);
+  line-height: var(--line-height-body-l); /* 1.6 */
+  color: var(--color-shuttle-gray-100); /* Light readable neutral on blue */
+  max-width: var(--container-cta-desc); /* 964px */
+  margin: 0 auto var(--space-40);
+}
+
+.bytespace-cta__mesh {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* =========================================
+ * 4. Action Button (#34:1181)
+ * 172px x 46px, padding 12px 24px, 18px font
+ * ========================================= */
+.bytespace-cta__action {
+  display: flex;
+  justify-content: center;
+}
+
+.bytespace-cta__button {
+  width: 172px;
+  height: 46px;
+  padding: 12px 24px;
+  font-family: var(--font-body);
+  font-size: var(--font-size-label-l); /* 18px */
+  font-weight: var(--weight-medium);
+  border-radius: var(--radius-lg); /* 24px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(212, 251, 32, 0.35);
+}
+
+/* =========================================
+ * 5. Responsive Behavior
+ * ========================================= */
+
+/* Tablet (768px – 1024px) */
+@media (max-width: 1024px) {
+  .bytespace-cta {
+    padding: var(--space-64) 0;
+    min-height: auto;
+  }
+
+  .bytespace-cta__heading {
+    font-size: var(--font-size-heading-s); /* 36px */
+    max-width: 600px;
+  }
+
+  .bytespace-cta__description {
+    font-size: var(--font-size-body-m);
+    max-width: 720px;
+    margin-bottom: var(--space-32);
+  }
+
+  .bytespace-cta__ornament--cone-lime {
+    width: 160px;
+    height: 160px;
+  }
+
+  .bytespace-cta__ornament--sphere {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Mobile (<= 767px, targeting 375px) */
+@media (max-width: 768px) {
+  .bytespace-cta {
+    padding: var(--space-48) var(--space-16);
+    min-height: auto;
+  }
+
+  .bytespace-cta__container {
+    padding: 0;
+  }
+
+  .bytespace-cta__heading {
+    font-size: 26px;
+    line-height: 1.25;
+    margin-bottom: var(--space-16);
+  }
+
+  .bytespace-cta__description {
+    font-size: var(--font-size-body-s);
+    line-height: var(--line-height-body-s);
+    margin-bottom: var(--space-24);
+  }
+
+  .bytespace-cta__button {
+    width: 100%;
+    max-width: 280px;
+    padding: 12px 20px;
+  }
+
+  .bytespace-cta__ornament--cone-lime {
+    width: 100px;
+    height: 100px;
+    right: -20px;
+    top: -20px;
+  }
+
+  .bytespace-cta__ornament--sphere {
+    width: 80px;
+    height: 80px;
+    left: -20px;
+    bottom: -20px;
+  }
+
+  .bytespace-cta__ornament--cone-small {
+    display: none;
+  }
+}
