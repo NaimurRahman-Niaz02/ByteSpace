@@ -1,346 +1,280 @@
-/**
- * ByteSpace Creator CTA Section Styles
- * Source of truth: Figma #34:1161 & Ground Truth Actual Design
- */
-
-/* =========================================
- * 1. Section Container & Background
- * ========================================= */
-.bytespace-cta {
+.cta-section {
   width: 100%;
-  min-height: 488px;
-  background-color: var(--color-persian-blue-800, #003BE2);
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.14) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.14) 1px, transparent 1px);
-  background-size: 115px 115px;
+  background-color: var(--color-persian-blue-700);
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
   background-position: center center;
+  padding: 100px 0;
   position: relative;
   overflow: hidden;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 84px 0 80px;
-  box-sizing: border-box;
+  align-items: center;
+  color: var(--color-pure-white);
 }
 
-.bytespace-cta__container {
+.cta-container {
   width: 100%;
   max-width: var(--container-max-width, 1200px);
   margin: 0 auto;
-  padding: 0 var(--space-24, 24px);
+  padding: 0 var(--space-24);
+  position: relative;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  position: relative;
-  z-index: 3;
-  box-sizing: border-box;
 }
 
-/* =========================================
- * 2. Decorative 3D Ornaments (Desktop)
- * ========================================= */
-.bytespace-cta__ornaments {
+.cta-ornaments {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
-  overflow: hidden;
   z-index: 1;
 }
 
-.bytespace-cta__ornament {
+.cta-ornament {
   position: absolute;
-  object-fit: contain;
-  pointer-events: none;
+  display: block;
   user-select: none;
+  pointer-events: none;
+}
+
+.cta-ornament-spiral-tl {
+  width: clamp(100px, 9.5vw, 137px);
+  top: clamp(-45px, -3.5vw, -30px);
+  left: clamp(-45px, -2.5vw, -20px);
+  transform: rotate(-15deg);
   filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
 }
 
-/* 1. Top-Left Lime Spiral */
-.bytespace-cta__ornament--spiral-top-left {
-  top: clamp(-50px, -3vw, -25px);
-  left: clamp(-45px, -2.5vw, -20px);
-  width: clamp(150px, 14.5vw, 210px);
-  height: auto;
-  transform: rotate(-25deg);
-}
-
-/* 2. Top-Left White Squiggle */
-.bytespace-cta__ornament--squiggle-top-left {
-  top: clamp(25px, 3.5vw, 55px);
-  left: clamp(130px, 15.5vw, 225px);
-  width: clamp(80px, 8vw, 115px);
-  height: auto;
-  transform: rotate(-35deg);
-}
-
-/* 3. Bottom-Left White Cone */
-.bytespace-cta__ornament--cone-bottom-left {
-  bottom: clamp(-20px, -1.5vw, -10px);
-  left: clamp(-30px, -1.5vw, -15px);
-  width: clamp(105px, 10.5vw, 155px);
-  height: auto;
+.cta-ornament-squiggle-tl {
+  width: clamp(75px, 6.8vw, 98px);
+  top: clamp(110px, 9vw, 130px);
+  left: clamp(80px, 8.5vw, 120px);
   transform: rotate(25deg);
-  z-index: 1;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.15));
 }
 
-/* 4. Bottom-Left Lime Torus Ring */
-.bytespace-cta__ornament--torus-bottom-left {
-  bottom: clamp(-95px, -8vw, -65px);
-  left: clamp(40px, 5vw, 75px);
-  width: clamp(180px, 18.5vw, 270px);
-  height: auto;
-  transform: rotate(0deg);
-  z-index: 2;
+.cta-ornament-cone-bl {
+  width: clamp(85px, 7.8vw, 112px);
+  bottom: clamp(65px, 5.5vw, 80px);
+  left: clamp(20px, 2.8vw, 40px);
+  transform: rotate(45deg);
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.16));
 }
 
-/* 5. Top-Right Lime Pyramid */
-.bytespace-cta__ornament--pyramid-top-right {
-  top: clamp(25px, 3.5vw, 55px);
-  right: clamp(180px, 24vw, 355px);
-  width: clamp(85px, 8.5vw, 125px);
-  height: auto;
-  transform: rotate(0deg);
+.cta-ornament-torus-bl {
+  width: clamp(85px, 7.8vw, 112px);
+  bottom: clamp(-35px, -2vw, -15px);
+  left: clamp(90px, 9vw, 130px);
+  transform: rotate(-20deg);
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.2));
 }
 
-/* 6. Top-Right White Cylinder */
-.bytespace-cta__ornament--cylinder-top-right {
-  top: clamp(-70px, -4vw, -40px);
-  right: clamp(-80px, -5vw, -45px);
-  width: clamp(170px, 18vw, 260px);
-  height: auto;
+.cta-ornament-pyramid-tr {
+  width: clamp(80px, 7.2vw, 104px);
+  top: clamp(10px, 1.5vw, 25px);
+  right: clamp(100px, 10.5vw, 150px);
+  transform: rotate(15deg);
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.16));
+}
+
+.cta-ornament-cylinder-tr {
+  width: clamp(85px, 7.5vw, 108px);
+  top: clamp(120px, 9.5vw, 140px);
+  right: clamp(30px, 3.5vw, 50px);
   transform: rotate(-35deg);
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.15));
 }
 
-/* 7. Bottom-Right Lime Spiral */
-.bytespace-cta__ornament--spiral-bottom-right {
-  bottom: clamp(-85px, -6vw, -55px);
-  right: clamp(15px, 4vw, 60px);
-  width: clamp(140px, 15vw, 215px);
-  height: auto;
-  transform: rotate(25deg);
+.cta-ornament-spiral-br {
+  width: clamp(100px, 9.5vw, 137px);
+  bottom: clamp(-45px, -3.5vw, -30px);
+  right: clamp(-45px, -2.5vw, -20px);
+  transform: rotate(40deg);
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
 }
 
-/* =========================================
- * 3. Typography & Action Button
- * ========================================= */
-.bytespace-cta__heading {
+.cta-heading {
   font-family: var(--font-heading);
   font-size: clamp(34px, 3.2vw, 46px);
-  font-weight: var(--weight-bold, 700);
+  font-weight: var(--weight-bold);
   line-height: 1.25;
   letter-spacing: -0.015em;
-  color: var(--color-white, #FFFFFF);
-  max-width: 620px;
-  margin: 0 auto 20px;
-  text-align: center;
+  color: var(--color-pure-white);
+  max-width: 710px;
+  margin: 0 auto var(--space-20);
 }
 
-.bytespace-cta__highlight {
-  color: var(--color-white, #FFFFFF);
-  font-weight: inherit;
-  display: inline;
+.cta-highlight {
+  color: var(--color-electric-lime-400);
 }
 
-.bytespace-cta__description {
+.cta-description {
   font-family: var(--font-body);
   font-size: clamp(15px, 1.25vw, 18px);
-  font-weight: var(--weight-regular, 400);
-  line-height: 1.62;
+  font-weight: var(--weight-regular);
+  line-height: 1.6;
   color: rgba(255, 255, 255, 0.85);
-  max-width: 900px;
-  margin: 0 auto 34px;
-  text-align: center;
+  max-width: 574px;
+  margin: 0 auto var(--space-32);
+  text-wrap: balance;
 }
 
-.bytespace-cta__action {
+.cta-action {
   display: flex;
   justify-content: center;
 }
 
-.bytespace-cta__button {
-  min-width: 172px;
-  height: 46px;
-  padding: 12px 28px;
+.cta-btn {
+  background-color: var(--color-electric-lime-400);
+  color: var(--color-navy-dark);
   font-family: var(--font-body);
-  font-size: 16px;
-  font-weight: var(--weight-semibold, 600);
-  border-radius: 9999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-electric-lime-400, #D4FB20);
-  color: #0F172A;
-  box-shadow: 0 4px 18px rgba(212, 251, 32, 0.35);
+  font-weight: var(--weight-medium);
+  font-size: var(--font-size-label-l);
+  padding: 14px 32px;
+  border-radius: var(--radius-full);
+  border: none;
   cursor: pointer;
-  transition: transform var(--transition-fast, 0.2s ease), box-shadow var(--transition-fast, 0.2s ease);
+  box-shadow: 0 4px 18px rgba(212, 251, 32, 0.35);
+  transition: all var(--transition-fast);
 }
 
-.bytespace-cta__button:hover {
+.cta-btn:hover {
+  background-color: #c4fa10;
+  box-shadow: 0 6px 22px rgba(212, 251, 32, 0.5);
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(212, 251, 32, 0.5);
 }
 
-/* =========================================
- * 4. Responsive Behavior
- * ========================================= */
-
-/* Tablet (769px – 1024px) */
 @media (max-width: 1024px) {
-  .bytespace-cta {
-    min-height: 440px;
-    padding: var(--space-64, 64px) 0;
-    background-size: 90px 90px;
+  .cta-section {
+    padding: 80px 0;
   }
 
-  .bytespace-cta__heading {
-    font-size: var(--font-size-heading-s, 36px);
-    max-width: 580px;
-    margin-bottom: var(--space-16, 16px);
+  .cta-heading {
+    font-size: 38px;
+    max-width: 620px;
   }
 
-  .bytespace-cta__description {
-    font-size: var(--font-size-body-m, 16px);
-    max-width: 660px;
-    margin-bottom: var(--space-32, 32px);
+  .cta-description {
+    font-size: 16px;
+    max-width: 520px;
   }
 
-  .bytespace-cta__ornament--spiral-top-left {
-    top: -30px;
-    left: -25px;
-    width: 140px;
-    transform: rotate(-25deg);
-  }
-
-  .bytespace-cta__ornament--squiggle-top-left {
-    top: 25px;
-    left: 110px;
-    width: 75px;
-    transform: rotate(-35deg);
-  }
-
-  .bytespace-cta__ornament--cone-bottom-left {
-    bottom: -15px;
-    left: -15px;
+  .cta-ornament-spiral-tl {
     width: 100px;
-    transform: rotate(25deg);
-    z-index: 1;
-  }
-
-  .bytespace-cta__ornament--torus-bottom-left {
-    bottom: -55px;
-    left: 40px;
-    width: 175px;
-    z-index: 2;
-  }
-
-  .bytespace-cta__ornament--pyramid-top-right {
-    top: 25px;
-    right: 170px;
-    width: 80px;
-  }
-
-  .bytespace-cta__ornament--cylinder-top-right {
-    top: -35px;
-    right: -40px;
-    width: 165px;
-    transform: rotate(-35deg);
-  }
-
-  .bytespace-cta__ornament--spiral-bottom-right {
-    bottom: -50px;
-    right: 20px;
-    width: 140px;
-    transform: rotate(25deg);
-  }
-}
-
-/* Mobile (<= 768px, down to 320px) */
-@media (max-width: 768px) {
-  .bytespace-cta {
-    min-height: auto;
-    padding: var(--space-48, 48px) var(--space-16, 16px);
-    background-size: 70px 70px;
-  }
-
-  .bytespace-cta__container {
-    padding: 0;
-  }
-
-  .bytespace-cta__heading {
-    font-size: clamp(22px, 6.2vw, 28px);
-    line-height: 1.25;
-    max-width: 320px;
-    margin-bottom: var(--space-16, 16px);
-  }
-
-  .bytespace-cta__description {
-    font-size: clamp(13px, 3.8vw, 15px);
-    line-height: 1.55;
-    max-width: 320px;
-    margin-bottom: var(--space-24, 24px);
-  }
-
-  .bytespace-cta__button {
-    min-width: 160px;
-    max-width: 220px;
-    height: 44px;
-    padding: 10px 24px;
-    font-size: var(--font-size-label-m, 16px);
-  }
-
-  .bytespace-cta__ornament--spiral-top-left {
     top: -20px;
     left: -20px;
+  }
+
+  .cta-ornament-squiggle-tl {
+    width: 70px;
+    top: 90px;
+    left: 40px;
+  }
+
+  .cta-ornament-cone-bl {
+    width: 80px;
+    bottom: 50px;
+    left: 15px;
+  }
+
+  .cta-ornament-torus-bl {
+    width: 80px;
+    bottom: -15px;
+    left: 60px;
+  }
+
+  .cta-ornament-pyramid-tr {
     width: 75px;
-    transform: rotate(-25deg);
-  }
-
-  .bytespace-cta__ornament--squiggle-top-left {
-    top: 10px;
-    left: 45px;
-    width: 42px;
-    transform: rotate(-35deg);
-    opacity: 0.9;
-  }
-
-  .bytespace-cta__ornament--cone-bottom-left {
-    bottom: -10px;
-    left: -10px;
-    width: 55px;
-    transform: rotate(25deg);
-    z-index: 1;
-  }
-
-  .bytespace-cta__ornament--torus-bottom-left {
-    bottom: -30px;
-    left: 20px;
-    width: 95px;
-    z-index: 2;
-  }
-
-  .bytespace-cta__ornament--pyramid-top-right {
     top: 15px;
-    right: 55px;
-    width: 45px;
-    opacity: 0.9;
+    right: 60px;
   }
 
-  .bytespace-cta__ornament--cylinder-top-right {
-    top: -20px;
-    right: -25px;
-    width: 85px;
-    transform: rotate(-35deg);
-  }
-
-  .bytespace-cta__ornament--spiral-bottom-right {
-    bottom: -25px;
-    right: -10px;
+  .cta-ornament-cylinder-tr {
     width: 75px;
-    transform: rotate(25deg);
+    top: 95px;
+    right: 20px;
+  }
+
+  .cta-ornament-spiral-br {
+    width: 100px;
+    bottom: -20px;
+    right: -20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-section {
+    padding: 60px 0;
+  }
+
+  .cta-container {
+    padding: 0 var(--space-16);
+  }
+
+  .cta-heading {
+    font-size: 26px;
+    line-height: 1.3;
+    margin-bottom: var(--space-16);
+  }
+
+  .cta-description {
+    font-size: clamp(13px, 3.8vw, 15px);
+    line-height: 1.55;
+    margin-bottom: var(--space-24);
+  }
+
+  .cta-btn {
+    padding: 12px 28px;
+    font-size: 16px;
+  }
+
+  .cta-ornament-spiral-tl {
+    width: 65px;
+    top: -15px;
+    left: -15px;
+  }
+
+  .cta-ornament-squiggle-tl {
+    width: 45px;
+    top: 60px;
+    left: 10px;
+  }
+
+  .cta-ornament-cone-bl {
+    width: 50px;
+    bottom: 40px;
+    left: 5px;
+  }
+
+  .cta-ornament-torus-bl {
+    width: 55px;
+    bottom: -10px;
+    left: 30px;
+  }
+
+  .cta-ornament-pyramid-tr {
+    width: 50px;
+    top: 10px;
+    right: 25px;
+  }
+
+  .cta-ornament-cylinder-tr {
+    width: 50px;
+    top: 65px;
+    right: 10px;
+  }
+
+  .cta-ornament-spiral-br {
+    width: 65px;
+    bottom: -15px;
+    right: -15px;
   }
 }

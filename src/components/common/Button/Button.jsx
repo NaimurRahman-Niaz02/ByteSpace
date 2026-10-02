@@ -1,14 +1,6 @@
 import React from 'react';
 import './Button.css';
 
-/**
- * Reusable Button Component for ByteSpace
- * Variants:
- *  - 'primary' (Electric Lime #D4FB20 background, Shuttle Gray #242528 text, radius 24px)
- *  - 'ghost' (transparent with light text, hover effect)
- *  - 'link' (subtle link style)
- *  - 'icon' (circular or compact icon-only action)
- */
 export default function Button({
   children,
   variant = 'primary',
@@ -23,9 +15,9 @@ export default function Button({
   ...props
 }) {
   const buttonClasses = [
-    'bytespace-btn',
-    `bytespace-btn--${variant}`,
-    `bytespace-btn--${size}`,
+    'btn',
+    `btn-${variant}`,
+    size && size !== 'default' ? `btn-${size}` : '',
     className,
   ]
     .filter(Boolean)
@@ -41,15 +33,11 @@ export default function Button({
       {...props}
     >
       {icon && iconPosition === 'left' && (
-        <span className="bytespace-btn__icon bytespace-btn__icon--left" aria-hidden="true">
-          {icon}
-        </span>
+        <span className="btn-icon-wrap btn-icon-left" aria-hidden="true">{icon}</span>
       )}
-      {children && <span className="bytespace-btn__text">{children}</span>}
+      {children && <span className="btn-text">{children}</span>}
       {icon && iconPosition === 'right' && (
-        <span className="bytespace-btn__icon bytespace-btn__icon--right" aria-hidden="true">
-          {icon}
-        </span>
+        <span className="btn-icon-wrap btn-icon-right" aria-hidden="true">{icon}</span>
       )}
     </button>
   );

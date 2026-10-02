@@ -7,7 +7,7 @@
 /* =========================================
  * 1. Section Container & Layout
  * ========================================= */
-.bytespace-featured-courses {
+.featured-courses {
   width: 100%;
   background-color: var(--color-white);
   padding-top: var(--space-80);
@@ -16,9 +16,9 @@
   box-sizing: border-box;
 }
 
-.bytespace-featured-courses__container {
+.featured-courses-container {
   width: 100%;
-  max-width: var(--container-max-width); /* 1200px */
+  max-width: var(--container-max-width); 
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--space-24);
@@ -32,7 +32,7 @@
 /* =========================================
  * 2. Section Header (#12:101)
  * ========================================= */
-.bytespace-featured-courses__header {
+.featured-courses-header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,23 +42,23 @@
   max-width: 917px;
 }
 
-.bytespace-featured-courses__title {
+.featured-courses-title {
   font-family: var(--font-heading);
   font-weight: var(--weight-semibold);
-  font-size: var(--font-size-heading-m); /* 44px */
+  font-size: var(--font-size-heading-m); 
   line-height: var(--line-height-heading-m); /* 1.2 */
   letter-spacing: var(--letter-spacing-heading-m); /* -0.01em */
-  color: var(--color-navy-dark); /* #040819 */
+  color: var(--color-navy-dark); 
   max-width: 588px;
   margin: 0 auto;
 }
 
-.bytespace-featured-courses__description {
+.featured-courses-desc {
   font-family: var(--font-body);
   font-weight: var(--weight-regular);
-  font-size: var(--font-size-body-l); /* 18px */
+  font-size: var(--font-size-body-l); 
   line-height: var(--line-height-body-l); /* 1.6 */
-  color: var(--color-shuttle-gray-400); /* #82868E */
+  color: var(--color-shuttle-gray-400); 
   max-width: 917px;
   margin: 0 auto;
 }
@@ -66,7 +66,7 @@
 /* =========================================
  * 3. Category Tabs (#21:33, #21:56, #21:63)
  * ========================================= */
-.bytespace-category-tabs {
+.category-tabs {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,7 +75,7 @@
   margin-bottom: var(--space-56);
 }
 
-.bytespace-category-tabs__row {
+.category-tabs-row {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,12 +83,12 @@
   flex-wrap: wrap;
 }
 
-.bytespace-category-tab {
+.category-tab {
   height: 44px;
   padding: 12px clamp(10px, calc(10px + 6 * ((100vw - 1025px) / 415)), var(--space-16));
-  border-radius: var(--radius-lg); /* 24px */
-  background-color: var(--color-shuttle-gray-50); /* #F5F5F6 */
-  color: var(--color-shuttle-gray-700); /* #4B4C53 */
+  border-radius: var(--radius-lg); 
+  background-color: var(--color-shuttle-gray-50); 
+  color: var(--color-shuttle-gray-700); 
   font-family: var(--font-body);
   font-size: clamp(13px, calc(13px + 3 * ((100vw - 1025px) / 415)), 16px);
   font-weight: var(--weight-medium); /* 500 */
@@ -101,18 +101,18 @@
               transform var(--transition-fast);
 }
 
-.bytespace-category-tab:hover {
+.category-tab:hover {
   background-color: var(--color-shuttle-gray-100);
   color: var(--color-shuttle-gray-950);
 }
 
 /* + More button: plain text, blue color, no box */
-.bytespace-category-tab--more {
+.category-tab-more {
   height: 44px;
   background: none;
   border: none;
   padding: 0 6px;
-  color: var(--color-primary); /* #003BE2 */
+  color: var(--color-primary); 
   font-family: var(--font-body);
   font-size: clamp(14px, calc(14px + 2 * ((100vw - 1025px) / 415)), 16px);
   font-weight: var(--weight-medium);
@@ -123,43 +123,43 @@
   transition: opacity var(--transition-fast);
 }
 
-.bytespace-category-tab--more:hover {
+.category-tab-more:hover {
   opacity: 0.8;
   text-decoration: underline;
 }
 
 /* Active tab state */
-.bytespace-category-tab--active,
-.bytespace-category-tab--active:hover {
-  background-color: var(--color-electric-lime-400); /* #D4FB20 */
-  color: var(--color-shuttle-gray-950); /* #242528 */
+.category-tab-active,
+.category-tab-active:hover {
+  background-color: var(--color-electric-lime-400); 
+  color: var(--color-shuttle-gray-950); 
   font-weight: var(--weight-medium);
 }
 
 /* =========================================
  * 4. Course Cards Grid (#33:683)
  * ========================================= */
-.bytespace-featured-courses__grid {
+.featured-courses-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(16px, calc(16px + 24 * ((100vw - 1025px) / 415)), var(--space-40));
   width: 100%;
-  max-width: var(--container-courses); /* 1199px */
+  max-width: var(--container-courses); 
   margin: 0 auto;
 }
 
 /* =========================================
  * 5. CourseCard Component
  * ========================================= */
-.bytespace-course-card {
+.course-card {
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 373px;
   min-width: 0;
   background-color: var(--color-white);
-  border: 1px solid var(--color-shuttle-gray-200); /* #CED0D3 */
-  border-radius: var(--radius-lg); /* 24px */
+  border: 1px solid var(--color-shuttle-gray-200); 
+  border-radius: var(--radius-lg); 
   padding: clamp(12px, calc(12px + 4 * ((100vw - 1025px) / 415)), var(--space-16));
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.04);
   transition: transform var(--transition-normal),
@@ -168,14 +168,14 @@
   box-sizing: border-box;
 }
 
-.bytespace-course-card:hover {
+.course-card:hover {
   transform: translateY(-4px);
   box-shadow: 0px 12px 30px 0px rgba(0, 0, 0, 0.08);
   border-color: var(--color-shuttle-gray-400);
 }
 
 /* Cover Image Wrapper with Floating Glass Pills */
-.bytespace-course-card__cover-wrapper {
+.course-card-cover-wrap {
   position: relative;
   width: 100%;
   height: 195px; /* Exact Figma thumbnail height */
@@ -184,7 +184,7 @@
   background-color: var(--color-shuttle-gray-50);
 }
 
-.bytespace-course-card__cover {
+.course-card-cover {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -192,11 +192,11 @@
   transition: transform var(--transition-smooth);
 }
 
-.bytespace-course-card:hover .bytespace-course-card__cover {
+.course-card:hover .course-card-cover {
   transform: scale(1.03);
 }
 
-.bytespace-course-card__pills {
+.course-card-pills {
   position: absolute;
   left: 8px;
   bottom: 8px;
@@ -208,7 +208,7 @@
   max-width: calc(100% - 16px);
 }
 
-.bytespace-course-card__pill {
+.course-card-pill {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -226,7 +226,7 @@
 }
 
 /* Content Area */
-.bytespace-course-card__content {
+.course-card-content {
   display: flex;
   flex-direction: column;
   padding-top: var(--space-16);
@@ -235,21 +235,21 @@
 }
 
 /* Header Row: Title & Subtitle + Rating */
-.bytespace-course-card__header-row {
+.course-card-header-row {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 8px;
 }
 
-.bytespace-course-card__title-group {
+.course-card-title-group {
   display: flex;
   flex-direction: column;
   gap: 2px;
   min-width: 0;
 }
 
-.bytespace-course-card__title {
+.course-card-title {
   font-family: var(--font-heading);
   font-size: 20px;
   font-weight: 600;
@@ -262,7 +262,7 @@
   text-overflow: ellipsis;
 }
 
-.bytespace-course-card__instructor {
+.course-card-instructor {
   font-family: var(--font-body);
   font-size: 12px;
   font-weight: 400;
@@ -270,24 +270,24 @@
   color: #4F4F4F;
 }
 
-.bytespace-course-card__instructor span {
+.course-card-instructor span {
   color: var(--color-primary); /* #003BE2 link blue */
   cursor: pointer;
   transition: color var(--transition-fast);
 }
 
-.bytespace-course-card__instructor span:hover {
+.course-card-instructor span:hover {
   text-decoration: underline;
 }
 
-.bytespace-course-card__rating {
+.course-card-rating {
   display: flex;
   align-items: center;
   gap: 4px;
   flex-shrink: 0;
 }
 
-.bytespace-course-card__rating-value {
+.course-card-rating-value {
   font-family: var(--font-body);
   font-size: 18px;
   font-weight: 400;
@@ -295,21 +295,21 @@
   color: #4F4F4F;
 }
 
-.bytespace-course-card__star-icon {
+.course-card-star-icon {
   width: 24px;
   height: 24px;
   display: block;
 }
 
 /* Middle Row: Difficulty + Avatars */
-.bytespace-course-card__middle-row {
+.course-card__middle-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
 }
 
-.bytespace-course-card__level-badge {
+.course-card-level-badge {
   display: flex;
   align-items: center;
   padding: 6px 12px;
@@ -318,13 +318,13 @@
   border-radius: 24px;
 }
 
-.bytespace-course-card__level-icon {
+.course-card__level-icon {
   width: 20px;
   height: 20px;
   display: block;
 }
 
-.bytespace-course-card__level-text {
+.course-card__level-text {
   font-family: var(--font-body);
   font-size: 12px;
   font-weight: 500;
@@ -332,17 +332,17 @@
   color: #4B4C53;
 }
 
-.bytespace-course-card__students {
+.course-card__students {
   display: flex;
   align-items: center;
 }
 
-.bytespace-course-card__avatar-stack {
+.course-card-avatar-stack {
   display: flex;
   align-items: center;
 }
 
-.bytespace-course-card__avatar {
+.course-card-avatar {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -353,16 +353,16 @@
   flex-shrink: 0;
 }
 
-.bytespace-course-card__avatar:first-child {
+.course-card-avatar:first-child {
   margin-left: 0;
 }
 
-.bytespace-course-card__avatar-badge {
+.course-card-avatar-badge {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: var(--color-electric-lime-400); /* #D4FB20 */
-  color: var(--color-shuttle-gray-950); /* #242528 */
+  background-color: var(--color-electric-lime-400); 
+  color: var(--color-shuttle-gray-950); 
   font-family: var(--font-body);
   font-weight: 500;
   font-size: 12px;
@@ -377,28 +377,28 @@
 }
 
 /* Footer: Price Only */
-.bytespace-course-card__footer {
+.course-card__footer {
   display: flex;
   align-items: flex-end;
   margin-top: auto;
 }
 
-.bytespace-course-card__pricing {
+.course-card__pricing {
   display: flex;
   align-items: baseline;
   gap: 4px;
 }
 
-.bytespace-course-card__price {
+.course-card-price {
   font-family: var(--font-heading);
   font-size: 20px;
   font-weight: 600;
   line-height: 24px;
   letter-spacing: -0.01em;
-  color: var(--color-persian-blue-800); /* #003BE2 */
+  color: var(--color-persian-blue-800); 
 }
 
-.bytespace-course-card__period {
+.course-card-period {
   font-family: var(--font-body);
   font-size: 12px;
   font-weight: 400;
@@ -412,24 +412,24 @@
 
 /* Tablet (768px – 1024px) */
 @media (max-width: 1024px) {
-  .bytespace-featured-courses {
+  .featured-courses {
     padding-top: var(--space-80);
     padding-bottom: var(--space-80);
   }
 
-  .bytespace-featured-courses__grid {
+  .featured-courses-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-24);
     width: 100%;
     max-width: 100%;
   }
 
-  .bytespace-course-card {
+  .course-card {
     max-width: 100%;
     width: 100%;
   }
 
-  .bytespace-category-tabs {
+  .category-tabs {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -443,18 +443,18 @@
     padding-bottom: 0;
   }
 
-  .bytespace-category-tabs__row {
+  .category-tabs-row {
     display: contents;
   }
 
-  .bytespace-category-tab {
+  .category-tab {
     height: 38px;
     padding: 8px 14px;
     font-size: 13.5px;
     flex-shrink: 0;
   }
 
-  .bytespace-category-tab--more {
+  .category-tab-more {
     height: 38px;
     font-size: 14px;
     flex-shrink: 0;
@@ -465,27 +465,27 @@
 
 /* Mobile (<= 767px, targeting 375px) */
 @media (max-width: 768px) {
-  .bytespace-featured-courses {
+  .featured-courses {
     padding-top: var(--space-64);
     padding-bottom: var(--space-64);
   }
 
-  .bytespace-featured-courses__header {
+  .featured-courses-header {
     margin-bottom: var(--space-32);
     gap: var(--space-12);
   }
 
-  .bytespace-featured-courses__title {
+  .featured-courses-title {
     font-size: 28px;
     line-height: 1.25;
   }
 
-  .bytespace-featured-courses__description {
+  .featured-courses-desc {
     font-size: var(--font-size-body-m);
     line-height: var(--line-height-body-m);
   }
 
-  .bytespace-category-tabs {
+  .category-tabs {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -500,29 +500,29 @@
     max-width: 100%;
   }
 
-  .bytespace-category-tabs__row {
+  .category-tabs-row {
     display: contents;
   }
 
-  .bytespace-category-tab {
+  .category-tab {
     height: 40px;
     padding: 10px var(--space-12);
     font-size: var(--font-size-label-s);
     flex-shrink: 0;
   }
 
-  .bytespace-category-tab--more {
+  .category-tab-more {
     font-size: var(--font-size-label-s);
     flex-shrink: 0;
   }
 
-  .bytespace-featured-courses__grid {
+  .featured-courses-grid {
     grid-template-columns: 1fr;
     gap: var(--space-20);
     max-width: 380px;
   }
 
-  .bytespace-course-card__title {
+  .course-card-title {
     min-height: auto;
     font-size: 18px;
   }

@@ -1,17 +1,6 @@
 import React from 'react';
 import './FeaturedCourses.css';
 
-/**
- * CourseCard Component
- * Source of truth: design/landing-page/design-context.md (Figma #33:683, #13:249)
- * Card elements:
- * - Cover image
- * - Metadata row (lessons, duration, comments)
- * - Course title
- * - Instructor & difficulty/level
- * - Student avatar stack + count & rating (star icon)
- * - Price & lifetime billing & arrow action button
- */
 export default function CourseCard({ course, icons = {} }) {
   if (!course) return null;
 
@@ -31,84 +20,53 @@ export default function CourseCard({ course, icons = {} }) {
   } = course;
 
   return (
-    <article className="bytespace-course-card">
-      {/* Course Cover Image with floating metadata pills */}
-      <div className="bytespace-course-card__cover-wrapper">
-        <img
-          src={coverImage}
-          alt={title}
-          className="bytespace-course-card__cover"
-          loading="lazy"
-        />
-        {/* Floating Metadata Pills inside cover at bottom */}
-        <div className="bytespace-course-card__pills">
-          <span className="bytespace-course-card__pill">{lessons}</span>
-          <span className="bytespace-course-card__pill">{duration}</span>
-          <span className="bytespace-course-card__pill">{comments}</span>
+    <article className="course-card">
+      <div className="course-card-cover-wrap">
+        <img src={coverImage} alt={title} className="course-card-cover" loading="lazy" />
+        <div className="course-card-pills">
+          <span className="course-card-pill">{lessons}</span>
+          <span className="course-card-pill">{duration}</span>
+          <span className="course-card-pill">{comments}</span>
         </div>
       </div>
 
-      <div className="bytespace-course-card__content">
-        {/* Row 1: Title & Subtitle on left, Rating on right */}
-        <div className="bytespace-course-card__header-row">
-          <div className="bytespace-course-card__title-group">
-            <h3 className="bytespace-course-card__title" title={title}>
-              {title}
-            </h3>
-            <span className="bytespace-course-card__instructor">
-              by <span>{instructor}</span>
-            </span>
+      <div className="course-card-content">
+        <div className="course-card-header-row">
+          <div className="course-card-title-group">
+            <h3 className="course-card-title" title={title}>{title}</h3>
+            <span className="course-card-instructor">by <span>{instructor}</span></span>
           </div>
 
-          <div className="bytespace-course-card__rating">
-            <span className="bytespace-course-card__rating-value">{rating}</span>
+          <div className="course-card-rating">
+            <span className="course-card-rating-value">{rating}</span>
             {icons.star && (
-              <img
-                src={icons.star}
-                alt=""
-                className="bytespace-course-card__star-icon"
-                aria-hidden="true"
-              />
+              <img src={icons.star} alt="" className="course-card-star-icon" aria-hidden="true" />
             )}
           </div>
         </div>
 
-        {/* Row 2: Difficulty badge & Student avatar stack */}
-        <div className="bytespace-course-card__middle-row">
-          <div className="bytespace-course-card__level-badge">
+        <div className="course-card-middle-row">
+          <div className="course-card-level-badge">
             {icons.signal && (
-              <img
-                src={icons.signal}
-                alt=""
-                className="bytespace-course-card__level-icon"
-                aria-hidden="true"
-              />
+              <img src={icons.signal} alt="" className="course-card-level-icon" aria-hidden="true" />
             )}
-            <span className="bytespace-course-card__level-text">{level}</span>
+            <span className="course-card-level-text">{level}</span>
           </div>
 
-          <div className="bytespace-course-card__students">
-            <div className="bytespace-course-card__avatar-stack">
+          <div className="course-card-students">
+            <div className="course-card-avatar-stack">
               {enrolledAvatars.map((avatar, idx) => (
-                <img
-                  key={idx}
-                  src={avatar}
-                  alt="Enrolled student"
-                  className="bytespace-course-card__avatar"
-                />
+                <img key={idx} src={avatar} alt="Enrolled student" className="course-card-avatar" />
               ))}
-              <div className="bytespace-course-card__avatar-badge">
-                {enrolledCount}
-              </div>
+              <div className="course-card-avatar-badge">{enrolledCount}</div>
             </div>
           </div>
         </div>
 
-        {/* Row 3: Price */}
-        <div className="bytespace-course-card__footer">
-          <div className="bytespace-course-card__pricing">
-            <span className="bytespace-course-card__price">{price}</span>
-            <span className="bytespace-course-card__period">{billingPeriod}</span>
+        <div className="course-card-footer">
+          <div className="course-card-pricing">
+            <span className="course-card-price">{price}</span>
+            <span className="course-card-period">{billingPeriod}</span>
           </div>
         </div>
       </div>

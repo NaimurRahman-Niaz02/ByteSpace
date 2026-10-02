@@ -4,11 +4,6 @@ import starIcon from '../../../assets/icons/star-icon.svg';
 import ornamentSpiralLime from '../../../assets/images/ornament-spiral-lime.png';
 import './GrowthShowcase.css';
 
-/**
- * CreatorManagementRow Component
- * Source of truth: Figma #34:1158, Frame 12
- * Desktop layout: [Visual Composition Left] [Text Content Right]
- */
 export default function CreatorManagementRow({ data }) {
   if (!data) return null;
 
@@ -24,89 +19,76 @@ export default function CreatorManagementRow({ data }) {
   const { revenue1, revenue2, happyStudents } = floatingStats;
 
   return (
-    <div className="bytespace-showcase-row bytespace-showcase-row--creator">
-      {/* Left: Visual Composition */}
-      <div className="bytespace-showcase-row__visual bytespace-showcase-row__visual--creator">
-        <div className="bytespace-showcase-visual-wrapper bytespace-showcase-visual-wrapper--creator">
-          {/* Floating Revenue Card 1: Total Revenue (Figma #34:1158 - Layered behind creator head) */}
+    <div className="showcase-row showcase-row-creator">
+      <div className="showcase-row-visual showcase-visual-creator">
+        <div className="showcase-visual-wrap showcase-visual-wrap-creator">
           {revenue1 && (
-            <FloatingCard className="bytespace-showcase-card bytespace-showcase-card--revenue1">
-              <div className="bytespace-revenue-card__meta">
-                <span className="bytespace-revenue-card__title">{revenue1.title}</span>
-                <span className="bytespace-revenue-card__period">{revenue1.period}</span>
+            <FloatingCard className="showcase-card showcase-card-revenue1">
+              <div className="revenue-card-meta">
+                <span className="revenue-card-title">{revenue1.title}</span>
+                <span className="revenue-card-period">{revenue1.period}</span>
               </div>
-              <div className="bytespace-revenue-card__amount-row">
-                <span className="bytespace-revenue-card__amount">{revenue1.amount}</span>
+              <div className="revenue-card-amount-row">
+                <span className="revenue-card-amount">{revenue1.amount}</span>
               </div>
-              <div className="bytespace-revenue-card__progress-track">
-                <div className="bytespace-revenue-card__progress-fill" />
+              <div className="revenue-card-progress-track">
+                <div className="revenue-card-progress-fill" />
               </div>
             </FloatingCard>
           )}
 
-          {/* Floating Revenue Card 2: Year to Date (Figma #34:1158 - Layered behind creator body) */}
           {revenue2 && (
-            <FloatingCard className="bytespace-showcase-card bytespace-showcase-card--revenue2">
-              <div className="bytespace-revenue-card__meta">
-                <span className="bytespace-revenue-card__title">{revenue2.title}</span>
-                <span className="bytespace-revenue-card__period">{revenue2.period}</span>
+            <FloatingCard className="showcase-card showcase-card-revenue2">
+              <div className="revenue-card-meta">
+                <span className="revenue-card-title">{revenue2.title}</span>
+                <span className="revenue-card-period">{revenue2.period}</span>
               </div>
-              <div className="bytespace-revenue-card__amount-row">
-                <span className="bytespace-revenue-card__amount">{revenue2.amount}</span>
+              <div className="revenue-card-amount-row">
+                <span className="revenue-card-amount">{revenue2.amount}</span>
               </div>
-              <span className="bytespace-revenue-card__badge">{revenue2.badge}</span>
+              <span className="revenue-card-badge">{revenue2.badge}</span>
             </FloatingCard>
           )}
 
-          {/* 3D Lime Spiral Ornament (Figma #34:1158 Frame - Layered behind creator body/hair) */}
           <img
             src={ornamentSpiralLime}
             alt=""
             aria-hidden="true"
-            className="bytespace-showcase-ornament--spiral-lime"
+            className="showcase-ornament-spiral"
           />
 
-          {/* Main Creator Image (Layered in front of blue revenue cards & spiral, behind Happy Students) */}
-          <div className="bytespace-showcase-image-frame bytespace-showcase-image-frame--creator">
+          <div className="showcase-image-frame showcase-creator">
             <img
               src={image}
               alt="Course creator"
-              className="bytespace-showcase-image bytespace-showcase-image--creator"
+              className="showcase-img showcase-img-creator"
               loading="lazy"
             />
           </div>
 
-          {/* Floating Card: Happy Students (Matching Hero Section - Layered in front of creator) */}
           {happyStudents && (
-            <FloatingCard className="bytespace-showcase-card bytespace-showcase-card--students">
-              <div className="bytespace-students-card__header">
-                <span className="bytespace-students-card__title">{happyStudents.title}</span>
-                <div className="bytespace-students-card__rating">
-                  <span className="bytespace-students-card__score">{happyStudents.rating}</span>
-                  <span className="bytespace-students-card__reviews">{happyStudents.reviewsCount}</span>
-                  <img
-                    src={starIcon}
-                    alt=""
-                    className="bytespace-students-card__star"
-                    aria-hidden="true"
-                    width="16"
-                    height="16"
-                  />
+            <FloatingCard className="showcase-card showcase-card-students">
+              <div className="students-card-header">
+                <span className="students-card-title">{happyStudents.title}</span>
+                <div className="students-card-rating">
+                  <span className="students-card-score">{happyStudents.rating}</span>
+                  <span className="students-card-reviews">{happyStudents.reviewsCount}</span>
+                  <img src={starIcon} alt="" className="students-card-star" aria-hidden="true" width="16" height="16" />
                 </div>
               </div>
-              <div className="bytespace-students-card__avatars-row">
-                <div className="bytespace-students-card__avatar-stack" role="group" aria-label="Student avatars">
+              <div className="students-card-avatars-row">
+                <div className="students-card-avatar-stack" role="group" aria-label="Student avatars">
                   {happyStudents.avatars?.map((avatar, idx) => (
                     <img
                       key={idx}
                       src={avatar}
                       alt="Student"
-                      className="bytespace-students-card__avatar"
+                      className="students-card-avatar"
                       width="43"
                       height="43"
                     />
                   ))}
-                  <div className="bytespace-students-card__avatar-badge">
+                  <div className="students-card-avatar-badge">
                     {happyStudents.totalStudents}
                   </div>
                 </div>
@@ -116,26 +98,20 @@ export default function CreatorManagementRow({ data }) {
         </div>
       </div>
 
-      {/* Right: Text & Bullet Points */}
-      <div className="bytespace-showcase-row__text bytespace-showcase-row__text--creator">
-        <h2 className="bytespace-showcase-row__heading bytespace-showcase-row__heading--creator">
+      <div className="showcase-row-text showcase-text-creator">
+        <h2 className="showcase-row-heading showcase-heading-creator">
           {heading}
         </h2>
-        <p className="bytespace-showcase-row__description bytespace-showcase-row__description--creator">
+        <p className="showcase-row-desc showcase-desc-creator">
           {description}
         </p>
 
         {bulletPoints.length > 0 && (
-          <ul className="bytespace-showcase-bullets" aria-label="Creator benefits">
+          <ul className="showcase-bullets" aria-label="Creator benefits">
             {bulletPoints.map((bullet) => (
-              <li key={bullet.id} className="bytespace-showcase-bullet">
-                <img
-                  src={checkIcon}
-                  alt=""
-                  className="bytespace-showcase-bullet__icon"
-                  aria-hidden="true"
-                />
-                <span className="bytespace-showcase-bullet__text">{bullet.text}</span>
+              <li key={bullet.id} className="showcase-bullet">
+                <img src={checkIcon} alt="" className="showcase-bullet-icon" aria-hidden="true" />
+                <span className="showcase-bullet-text">{bullet.text}</span>
               </li>
             ))}
           </ul>

@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import FeaturedCourses from './FeaturedCourses';
-import { featuredCoursesData, coursesSectionHeader } from '../../../data/courses';
-import { categoryTabs } from '../../../data/categories';
+import FeaturedCourses from '../../components/landing/FeaturedCourses/FeaturedCourses';
+import { featuredCoursesData, coursesSectionHeader } from '../../data/courses';
+import { categoryTabs } from '../../data/categories';
 
 describe('FeaturedCourses Section', () => {
   test('renders section heading and description accurately', () => {
@@ -21,7 +21,7 @@ describe('FeaturedCourses Section', () => {
 
     const featuredTab = screen.getByRole('button', { name: 'Featured' });
     expect(featuredTab).toHaveAttribute('aria-pressed', 'true');
-    expect(featuredTab).toHaveClass('bytespace-category-tab--active');
+    expect(featuredTab).toHaveClass('category-tab-active');
   });
 
   test('updates active category tab state on click', () => {
@@ -31,9 +31,9 @@ describe('FeaturedCourses Section', () => {
 
     fireEvent.click(webDevTab);
     expect(webDevTab).toHaveAttribute('aria-pressed', 'true');
-    expect(webDevTab).toHaveClass('bytespace-category-tab--active');
+    expect(webDevTab).toHaveClass('category-tab-active');
     expect(featuredTab).toHaveAttribute('aria-pressed', 'false');
-    expect(featuredTab).not.toHaveClass('bytespace-category-tab--active');
+    expect(featuredTab).not.toHaveClass('category-tab-active');
   });
 
   test('renders exactly 6 course cards with titles, pricing, and instructors', () => {

@@ -9,19 +9,6 @@ import ctaPyramidLime from '../../../assets/images/cta-pyramid-lime.png';
 import ctaCylinderWhite from '../../../assets/images/cta-cylinder-white.png';
 import './CTASection.css';
 
-/**
- * CTASection Component
- * Source of truth: Figma #34:1161 & Reference Design
- * Background: Persian Blue/800 (#003BE2) with subtle white mesh grid
- * 7 Decorative 3D ornaments:
- * 1. Top-Left Lime Spiral
- * 2. Top-Left White Squiggle
- * 3. Bottom-Left White Cone
- * 4. Bottom-Left Lime Torus Ring
- * 5. Top-Right Lime Pyramid
- * 6. Top-Right White Cylinder
- * 7. Bottom-Right Lime Spiral
- */
 export default function CTASection() {
   const {
     headlinePrefix,
@@ -39,71 +26,32 @@ export default function CTASection() {
   };
 
   return (
-    <section className="bytespace-cta" aria-labelledby="cta-heading">
-      {/* Decorative 3D ornaments */}
-      <div className="bytespace-cta__ornaments" aria-hidden="true">
-        {/* 1. Top-Left Lime Spiral */}
-        <img
-          src={ctaSpiralLime}
-          alt=""
-          className="bytespace-cta__ornament bytespace-cta__ornament--spiral-top-left"
-        />
-        {/* 2. Top-Left White Squiggle */}
-        <img
-          src={ctaSquiggleWhite}
-          alt=""
-          className="bytespace-cta__ornament bytespace-cta__ornament--squiggle-top-left"
-        />
-        {/* 3. Bottom-Left White Cone */}
-        <img
-          src={ctaConeWhite}
-          alt=""
-          className="bytespace-cta__ornament bytespace-cta__ornament--cone-bottom-left"
-        />
-        {/* 4. Bottom-Left Lime Torus Ring */}
-        <img
-          src={ctaTorusLime}
-          alt=""
-          className="bytespace-cta__ornament bytespace-cta__ornament--torus-bottom-left"
-        />
-        {/* 5. Top-Right Lime Pyramid */}
-        <img
-          src={ctaPyramidLime}
-          alt=""
-          className="bytespace-cta__ornament bytespace-cta__ornament--pyramid-top-right"
-        />
-        {/* 6. Top-Right White Cylinder */}
-        <img
-          src={ctaCylinderWhite}
-          alt=""
-          className="bytespace-cta__ornament bytespace-cta__ornament--cylinder-top-right"
-        />
-        {/* 7. Bottom-Right Lime Spiral */}
-        <img
-          src={ctaSpiralLime}
-          alt=""
-          className="bytespace-cta__ornament bytespace-cta__ornament--spiral-bottom-right"
-        />
+    <section className="cta-section" aria-labelledby="cta-heading">
+      <div className="cta-ornaments" aria-hidden="true">
+        <img src={ctaSpiralLime} alt="" className="cta-ornament cta-ornament-spiral-tl" />
+        <img src={ctaSquiggleWhite} alt="" className="cta-ornament cta-ornament-squiggle-tl" />
+        <img src={ctaConeWhite} alt="" className="cta-ornament cta-ornament-cone-bl" />
+        <img src={ctaTorusLime} alt="" className="cta-ornament cta-ornament-torus-bl" />
+        <img src={ctaPyramidLime} alt="" className="cta-ornament cta-ornament-pyramid-tr" />
+        <img src={ctaCylinderWhite} alt="" className="cta-ornament cta-ornament-cylinder-tr" />
+        <img src={ctaSpiralLime} alt="" className="cta-ornament cta-ornament-spiral-br" />
       </div>
 
-      <div className="bytespace-cta__container">
-        {/* Centered Heading */}
-        <h2 id="cta-heading" className="bytespace-cta__heading">
+      <div className="cta-container">
+        <h2 id="cta-heading" className="cta-heading">
           {headlinePrefix}
-          <span className="bytespace-cta__highlight">{headlineHighlight}</span>
+          <span className="cta-highlight">{headlineHighlight}</span>
           {headlineSuffix}
         </h2>
 
-        {/* Centered Description (3 balanced lines) */}
-        <p className="bytespace-cta__description">{description}</p>
+        <p className="cta-description">{description}</p>
 
-        {/* Join as Creator Button */}
-        <div className="bytespace-cta__action">
+        <div className="cta-action">
           <Button
             variant="primary"
             size="large"
             onClick={handleButtonClick}
-            className="bytespace-cta__button"
+            className="cta-btn"
           >
             {buttonText}
           </Button>
