@@ -1,9 +1,9 @@
-import { brandInfo, headerNavLinks, footerData } from '../../data/navigation';
-import { partnersData } from '../../data/partners';
-import { categoryTabs, diverseLearningPaths } from '../../data/categories';
-import { featuredCoursesData } from '../../data/courses';
-import { heroContentData, growthShowcaseData, creatorCTAData } from '../../data/features';
-import { testimonialsData } from '../../data/testimonials';
+import { brandInfo, headerNavLinks, footerData } from '../../core/data/navigation';
+import { partnersData } from '../../core/data/partners';
+import { categoryTabs, diverseLearningPaths } from '../../core/data/categories';
+import { featuredCoursesData } from '../../core/data/courses';
+import { heroContentData, growthShowcaseData, creatorCTAData } from '../../core/data/features';
+import { testimonialsData } from '../../core/data/testimonials';
 
 describe('ByteSpace Data Layer Integrity Tests', () => {
   test('navigation.js exports brand, header links, and footer data', () => {

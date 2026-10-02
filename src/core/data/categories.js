@@ -3,12 +3,12 @@
  * Source of truth: design/landing-page/design-context.md (Figma #21:33, #21:56, #21:63, #34:725)
  */
 
-import categoryDesignIcon from '../assets/icons/category-design.svg';
-import categoryDevelopmentIcon from '../assets/icons/category-development.svg';
-import categoryItSoftwareIcon from '../assets/icons/category-it-software.svg';
-import categoryBusinessIcon from '../assets/icons/category-business.svg';
-import categoryMarketingIcon from '../assets/icons/category-marketing.svg';
-import categoryPhotographyIcon from '../assets/icons/category-photography.svg';
+import categoryDesignIcon from '../../assets/icons/category-design.svg';
+import categoryDevelopmentIcon from '../../assets/icons/category-development.svg';
+import categoryItSoftwareIcon from '../../assets/icons/category-it-software.svg';
+import categoryBusinessIcon from '../../assets/icons/category-business.svg';
+import categoryMarketingIcon from '../../assets/icons/category-marketing.svg';
+import categoryPhotographyIcon from '../../assets/icons/category-photography.svg';
 
 /**
  * 19 Category filter pills for Featured Courses Section

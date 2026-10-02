@@ -1,13 +1,15 @@
 import React from 'react';
-import { partnersData } from '../../../data/partners';
+import { getPartners } from '../../../core/services/partnerService';
 import './PartnerLogos.css';
 
 export default function PartnerLogos() {
+  const partners = getPartners();
+
   return (
     <section className="partners" aria-label="Partner Organizations">
       <div className="partners-container">
         <div className="partners-track" role="list">
-          {partnersData.map((partner) => (
+          {partners.map((partner) => (
             <div key={partner.id} className="partners-item" role="listitem">
               <img
                 src={partner.logo}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import DiversePaths from '../../components/landing/DiversePaths/DiversePaths';
-import { diverseLearningPaths, categoriesSectionHeader } from '../../data/categories';
+import { diverseLearningPaths, categoriesSectionHeader } from '../../core/data/categories';
 
 describe('DiversePaths Section', () => {
   test('renders section heading and description accurately', () => {

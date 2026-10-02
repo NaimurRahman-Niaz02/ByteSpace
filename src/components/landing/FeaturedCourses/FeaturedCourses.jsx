@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import CategoryTabs from './CategoryTabs';
 import CourseCard from './CourseCard';
-import { categoryTabs } from '../../../data/categories';
+import { getCategoryTabs } from '../../../core/services/categoryService';
 import {
-  featuredCoursesData,
-  coursesSectionHeader,
-  courseSharedIcons,
-} from '../../../data/courses';
+  getFeaturedCourses,
+  getCoursesSectionHeader,
+  getCourseSharedIcons,
+} from '../../../core/services/courseService';
 import './FeaturedCourses.css';
 
 export default function FeaturedCourses() {
   const [activeTabId, setActiveTabId] = useState('cat-featured');
+  const categoryTabs = getCategoryTabs();
+  const coursesSectionHeader = getCoursesSectionHeader();
+  const featuredCoursesData = getFeaturedCourses();
+  const courseSharedIcons = getCourseSharedIcons();
 
   return (
     <section className="featured-courses" aria-labelledby="featured-courses-heading">

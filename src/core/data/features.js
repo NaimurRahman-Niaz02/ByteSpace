@@ -3,22 +3,22 @@
  * Source of truth: design/landing-page/design-context.md (Figma #34:1157, #34:1158, #34:1161)
  */
 
-import featureLearnerImg from '../assets/images/feature-learner.png';
-import featureCreatorImg from '../assets/images/feature-creator.png';
-import heroModelImg from '../assets/images/hero-model.png';
+import featureLearnerImg from '../../assets/images/feature-learner.png';
+import featureCreatorImg from '../../assets/images/feature-creator.png';
+import heroModelImg from '../../assets/images/hero-model.png';
 
-import checkCircleIcon from '../assets/icons/check-circle-icon.svg';
-import chartProgressIcon from '../assets/icons/chart-progress.svg';
-import chartRevenueIcon from '../assets/icons/chart-revenue.svg';
-import starIcon from '../assets/icons/star-icon.svg';
+import checkCircleIcon from '../../assets/icons/check-circle-icon.svg';
+import chartProgressIcon from '../../assets/icons/chart-progress.svg';
+import chartRevenueIcon from '../../assets/icons/chart-revenue.svg';
+import starIcon from '../../assets/icons/star-icon.svg';
 
-import student1Img from '../assets/images/student-1.png';
-import student2Img from '../assets/images/student-2.png';
-import student3Img from '../assets/images/student-3.png';
-import student4Img from '../assets/images/student-4.png';
-import student5Img from '../assets/images/student-5.png';
-import student6Img from '../assets/images/student-6.png';
-import student7Img from '../assets/images/student-7.png';
+import student1Img from '../../assets/images/student-1.png';
+import student2Img from '../../assets/images/student-2.png';
+import student3Img from '../../assets/images/student-3.png';
+import student4Img from '../../assets/images/student-4.png';
+import student5Img from '../../assets/images/student-5.png';
+import student6Img from '../../assets/images/student-6.png';
+import student7Img from '../../assets/images/student-7.png';
 
 /**
  * Hero Section Stats & Floating Cards Data

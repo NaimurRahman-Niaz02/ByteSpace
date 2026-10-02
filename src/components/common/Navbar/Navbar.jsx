@@ -1,13 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
-  brandInfo,
-  headerNavLinks,
-  headerAuthActions,
-  headerCartAction,
-} from '../../../data/navigation';
+  getBrandInfo,
+  getHeaderNavLinks,
+  getHeaderAuthActions,
+  getHeaderCartAction,
+} from '../../../core/services/navigationService';
 import './Navbar.css';
 
 export default function Navbar() {
+  const brandInfo = getBrandInfo();
+  const headerNavLinks = getHeaderNavLinks();
+  const headerAuthActions = getHeaderAuthActions();
+  const headerCartAction = getHeaderCartAction();
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const menuRef = useRef(null);
   const hamburgerRef = useRef(null);
