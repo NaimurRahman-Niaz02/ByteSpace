@@ -3,21 +3,21 @@
  * Source of truth: design/landing-page/design-context.md (Figma #33:683)
  */
 
-import courseFigmaImg from '../assets/images/course-figma.png';
-import courseDigitalAssetImg from '../assets/images/course-digital-asset.png';
-import courseBigDataImg from '../assets/images/course-big-data.png';
-import courseProductivityImg from '../assets/images/course-productivity.png';
-import courseMoneyImg from '../assets/images/course-money.png';
-import courseStartupImg from '../assets/images/course-startup.png';
+import courseFigmaImg from '../../assets/images/course-figma.png';
+import courseDigitalAssetImg from '../../assets/images/course-digital-asset.png';
+import courseBigDataImg from '../../assets/images/course-big-data.png';
+import courseProductivityImg from '../../assets/images/course-productivity.png';
+import courseMoneyImg from '../../assets/images/course-money.png';
+import courseStartupImg from '../../assets/images/course-startup.png';
 
-import starIcon from '../assets/icons/star-icon.svg';
-import starGrayIcon from '../assets/icons/star-gray-icon.svg';
-import signalIcon from '../assets/icons/signal-icon.svg';
-import arrowForwardIcon from '../assets/icons/arrow-forward.svg';
-import student1Img from '../assets/images/student-1.png';
-import student2Img from '../assets/images/student-2.png';
-import student8Img from '../assets/images/student-8.png';
-import student9Img from '../assets/images/student-9.png';
+import starIcon from '../../assets/icons/star-icon.svg';
+import starGrayIcon from '../../assets/icons/star-gray-icon.svg';
+import signalIcon from '../../assets/icons/signal-icon.svg';
+import arrowForwardIcon from '../../assets/icons/arrow-forward.svg';
+import student1Img from '../../assets/images/student-1.png';
+import student2Img from '../../assets/images/student-2.png';
+import student8Img from '../../assets/images/student-8.png';
+import student9Img from '../../assets/images/student-9.png';
 
 export const coursesSectionHeader = {
   title: 'Discover Your Passion, Build Your Skills',

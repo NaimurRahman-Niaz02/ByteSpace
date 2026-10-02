@@ -1,12 +1,15 @@
 import React from 'react';
 import CategoryCard from './CategoryCard';
 import {
-  diverseLearningPaths,
-  categoriesSectionHeader,
-} from '../../../data/categories';
+  getDiverseLearningPaths,
+  getCategoriesSectionHeader,
+} from '../../../core/services/categoryService';
 import './DiversePaths.css';
 
 export default function DiversePaths() {
+  const diverseLearningPaths = getDiverseLearningPaths();
+  const categoriesSectionHeader = getCategoriesSectionHeader();
+
   return (
     <section className="diverse-paths" aria-labelledby="diverse-paths-heading">
       <div className="diverse-paths-container">

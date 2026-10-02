@@ -3,10 +3,10 @@
  * Source of truth: design/landing-page/design-context.md (Figma #34:1175, #34:1182)
  */
 
-import avatarSarahImg from '../assets/images/avatar-sarah.png';
-import avatarJamesImg from '../assets/images/avatar-james.png';
-import avatarAlexImg from '../assets/images/avatar-alex.png';
-import starIcon from '../assets/icons/star-icon.svg';
+import avatarSarahImg from '../../assets/images/avatar-sarah.png';
+import avatarJamesImg from '../../assets/images/avatar-james.png';
+import avatarAlexImg from '../../assets/images/avatar-alex.png';
+import starIcon from '../../assets/icons/star-icon.svg';
 
 export const testimonialsHeaderData = {
   title: 'Discover What Our Community Is Saying',

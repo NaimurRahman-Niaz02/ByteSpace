@@ -1,16 +1,16 @@
 import React from 'react';
 import FloatingCard from '../../common/FloatingCard/FloatingCard';
 import CourseCard from '../FeaturedCourses/CourseCard';
-import { featuredCoursesData, courseSharedIcons } from '../../../data/courses';
-import chartProgress from '../../../assets/icons/chart-progress.svg';
-import coneLime from '../../../assets/images/ornament-cylinder-lime.png';
+import { getFeaturedCourses, getCourseSharedIcons } from '../../../core/services/courseService';
+import { chartProgress, coneLime } from '../../../assets';
 import './GrowthShowcase.css';
 
 export default function LearnerGrowthRow({ data }) {
   if (!data) return null;
 
   const { heading, description, image, metrics = [] } = data;
-  const sampleCourse = featuredCoursesData[0];
+  const sampleCourse = getFeaturedCourses()[0];
+  const courseSharedIcons = getCourseSharedIcons();
 
   return (
     <div className="showcase-row showcase-row-learner">

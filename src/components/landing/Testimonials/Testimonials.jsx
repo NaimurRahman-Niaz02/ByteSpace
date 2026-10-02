@@ -1,9 +1,12 @@
 import React from 'react';
 import TestimonialCard from './TestimonialCard';
-import { testimonialsData, testimonialsHeaderData } from '../../../data/testimonials';
+import { getTestimonials, getTestimonialsHeader } from '../../../core/services/testimonialService';
 import './Testimonials.css';
 
 export default function Testimonials() {
+  const testimonialsData = getTestimonials();
+  const testimonialsHeaderData = getTestimonialsHeader();
+
   return (
     <section className="testimonials" aria-labelledby="testimonials-heading">
       <div className="testimonials-glows" aria-hidden="true">

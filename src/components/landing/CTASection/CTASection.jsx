@@ -1,12 +1,14 @@
 import React from 'react';
 import Button from '../../common/Button/Button';
-import { creatorCTAData } from '../../../data/features';
-import ctaSpiralLime from '../../../assets/images/cta-spiral-lime.png';
-import ctaSquiggleWhite from '../../../assets/images/cta-squiggle-white.png';
-import ctaConeWhite from '../../../assets/images/cta-cone-white.png';
-import ctaTorusLime from '../../../assets/images/cta-torus-lime.png';
-import ctaPyramidLime from '../../../assets/images/cta-pyramid-lime.png';
-import ctaCylinderWhite from '../../../assets/images/cta-cylinder-white.png';
+import { getCreatorCTAData } from '../../../core/services/featureService';
+import {
+  ctaSpiralLime,
+  ctaSquiggleWhite,
+  ctaConeWhite,
+  ctaTorusLime,
+  ctaPyramidLime,
+  ctaCylinderWhite,
+} from '../../../assets';
 import './CTASection.css';
 
 export default function CTASection() {
@@ -17,7 +19,7 @@ export default function CTASection() {
     description,
     buttonText,
     buttonHref,
-  } = creatorCTAData;
+  } = getCreatorCTAData();
 
   const handleButtonClick = () => {
     if (buttonHref) {

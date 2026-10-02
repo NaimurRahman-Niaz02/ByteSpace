@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import Footer from '../../components/common/Footer/Footer';
-import { footerData } from '../../data/navigation';
+import { footerData } from '../../core/data/navigation';
 
 describe('Footer Component', () => {
   test('renders brand name, newsletter form, and disclaimer', () => {

@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import FeaturedCourses from '../../components/landing/FeaturedCourses/FeaturedCourses';
-import { featuredCoursesData, coursesSectionHeader } from '../../data/courses';
-import { categoryTabs } from '../../data/categories';
+import { featuredCoursesData, coursesSectionHeader } from '../../core/data/courses';
+import { categoryTabs } from '../../core/data/categories';
 
 describe('FeaturedCourses Section', () => {
   test('renders section heading and description accurately', () => {

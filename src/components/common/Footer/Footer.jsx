@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import Button from '../Button/Button';
-import { footerData } from '../../../data/navigation';
+import { getFooterData } from '../../../core/services/navigationService';
 import './Footer.css';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
 
-  const { brand, newsletter, columns = [], bottomBar } = footerData;
+  const { brand, newsletter, columns = [], bottomBar } = getFooterData();
 
   const handleSubscribe = (e) => {
     e.preventDefault();

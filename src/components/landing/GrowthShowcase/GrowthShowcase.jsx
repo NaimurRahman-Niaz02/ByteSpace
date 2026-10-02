@@ -1,11 +1,11 @@
 import React from 'react';
 import LearnerGrowthRow from './LearnerGrowthRow';
 import CreatorManagementRow from './CreatorManagementRow';
-import { growthShowcaseData } from '../../../data/features';
+import { getGrowthShowcaseData } from '../../../core/services/featureService';
 import './GrowthShowcase.css';
 
 export default function GrowthShowcase() {
-  const { learnerGrowth, creatorManagement } = growthShowcaseData;
+  const { learnerGrowth, creatorManagement } = getGrowthShowcaseData();
 
   return (
     <section className="showcase" aria-label="Professional Growth & Creator Showcase">

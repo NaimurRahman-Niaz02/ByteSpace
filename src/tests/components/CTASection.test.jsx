@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import CTASection from '../../components/landing/CTASection/CTASection';
-import { creatorCTAData } from '../../data/features';
+import { creatorCTAData } from '../../core/data/features';
 
 describe('CTASection Component', () => {
   test('renders heading with highlighted Creator text', () => {
