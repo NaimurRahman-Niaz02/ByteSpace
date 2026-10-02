@@ -1,30 +1,17 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import CourseCard from '../components/landing/FeaturedCourses/CourseCard';
-import { getFeaturedCourses, getCourseSharedIcons } from '../core/services/courseService';
+import AuthShowcase from '../components/auth/AuthShowcase/AuthShowcase';
 import {
   logoIcon,
-  starYellowGreenIcon,
-  starBlueIcon,
-  ornamentRing,
-  ornamentPyramid,
-  ornamentSquiggle,
-  studentAvatars,
   FacebookIcon,
   GoogleIcon,
 } from '../assets';
 import './Auth.css';
 
-const authCourseIcons = {
-  ...getCourseSharedIcons(),
-  star: starYellowGreenIcon,
-};
-
 export default function LoginPage() {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const courses = getFeaturedCourses();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -40,46 +27,10 @@ export default function LoginPage() {
       </header>
 
       <main className="auth-container">
-        <div className="auth-left">
-          <h1 className="auth-heading">Sign in with ease</h1>
-          <p className="auth-subtitle">
-            Experience a seamless and efficient sign-in process that grants you instant access to a world of knowledge.
-          </p>
-
-          <div className="auth-stage" aria-hidden="true">
-            <img src={ornamentRing} alt="" className="auth-ornament-ring" />
-
-            <div className="auth-card-bg">
-              <CourseCard course={courses[1]} icons={authCourseIcons} />
-            </div>
-
-            <div className="auth-card-fg">
-              <CourseCard course={courses[2]} icons={authCourseIcons} />
-            </div>
-
-            <div className="auth-happy-students" aria-label="Happy Students rating and avatars">
-              <div className="auth-students-header">
-                <span className="auth-students-title">Happy Students</span>
-                <div className="auth-students-rating">
-                  <span className="auth-students-rating-text">4.5 (240)</span>
-                  <img src={starBlueIcon} alt="" aria-hidden="true" className="auth-students-star" width="16" height="16" />
-                </div>
-              </div>
-
-              <div className="auth-avatar-stack" role="group" aria-label="Student avatars">
-                {studentAvatars.map((student) => (
-                  <img key={student.id} src={student.src} alt={student.alt} className="auth-avatar" width="32" height="32" />
-                ))}
-                <div className="auth-avatar-badge" aria-label="Over 2000 more students">
-                  2K+
-                </div>
-              </div>
-            </div>
-
-            <img src={ornamentPyramid} alt="" className="auth-pyramid" />
-            <img src={ornamentSquiggle} alt="" className="auth-squiggle" />
-          </div>
-        </div>
+        <AuthShowcase
+          title="Sign in with ease"
+          subtitle="Experience a seamless and efficient sign-in process that grants you instant access to a world of knowledge."
+        />
 
         <div className="auth-right">
           <div className="auth-card">

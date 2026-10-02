@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../../common/Navbar/Navbar';
 import SearchBar from '../../common/SearchBar/SearchBar';
 import FloatingCard from '../../common/FloatingCard/FloatingCard';
+import HeroCard from './HeroCard';
 
 import {
   heroBgMesh,
@@ -78,24 +79,7 @@ export default function Hero() {
           </div>
 
           <div className="hero-cards-row hero-cards-row-bottom">
-            <FloatingCard className="hero-card hero-card-students" ariaLabel="Happy Students rating and avatars">
-              <div className="hero-students-header">
-                <span className="hero-card-title">Happy Students</span>
-                <div className="hero-rating-row">
-                  <span className="hero-rating-text">4.5 (240)</span>
-                  <img src={starIcon} alt="" aria-hidden="true" className="hero-star-icon" width="16" height="16" />
-                </div>
-              </div>
-
-              <div className="hero-avatar-stack" role="group" aria-label="Student avatars">
-                {studentAvatars.map((student) => (
-                  <img key={student.id} src={student.src} alt={student.alt} className="hero-avatar-img" width="43" height="43" />
-                ))}
-                <div className="hero-avatar-badge" aria-label="Over 2000 more students">
-                  2K+
-                </div>
-              </div>
-            </FloatingCard>
+            <HeroCard starIcon={starIcon} avatars={studentAvatars} />
           </div>
         </div>
       </div>
