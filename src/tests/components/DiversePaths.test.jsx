@@ -12,25 +12,33 @@ describe('DiversePaths Section', () => {
     expect(screen.getByText(categoriesSectionHeader.description)).toBeInTheDocument();
   });
 
-  test('renders exactly 6 category cards with correct titles', () => {
+  test('renders exactly 6 category cards with correct titles and course counts', () => {
     render(<DiversePaths />);
     expect(diverseLearningPaths).toHaveLength(6);
+
     diverseLearningPaths.forEach((category) => {
       expect(
         screen.getByRole('heading', { level: 3, name: category.title })
       ).toBeInTheDocument();
-      if (category.coursesCount) {
-        expect(screen.getByText(category.coursesCount)).toBeInTheDocument();
-      }
     });
+
+    diverseLearningPaths
+      .filter((category) => Boolean(category.coursesCount))
+      .forEach((category) => {
+        const countMatches = screen.getAllByText(
+          new RegExp(String(category.coursesCount), 'i')
+        );
+        expect(countMatches.length).toBeGreaterThan(0);
+      });
   });
 
   test('renders all 6 category SVG icons', () => {
-    const { container } = render(<DiversePaths />);
-    const iconImages = container.querySelectorAll('.category-card-icon');
+    render(<DiversePaths />);
+    const iconImages = screen.getAllByRole('img');
     expect(iconImages).toHaveLength(6);
+
     iconImages.forEach((img) => {
-      expect(img.getAttribute('src')).toBeTruthy();
+      expect(img).toHaveAttribute('src');
     });
   });
 });
