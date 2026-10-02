@@ -3,9 +3,9 @@
  * Source of truth: design/landing-page/design-context.md (Figma #1:1778, #34:1256)
  */
 
-import logoIcon from '../assets/icons/logo-icon.svg';
-import cartIcon from '../assets/icons/cart-icon.svg';
-import searchIcon from '../assets/icons/search-icon.svg';
+import logoIcon from '../../assets/icons/logo-icon.svg';
+import cartIcon from '../../assets/icons/cart-icon.svg';
+import searchIcon from '../../assets/icons/search-icon.svg';
 
 export const brandInfo = {
   name: 'ByteSpace',

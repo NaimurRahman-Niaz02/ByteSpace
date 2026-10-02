@@ -2,38 +2,22 @@ import React from 'react';
 import Navbar from '../../common/Navbar/Navbar';
 import SearchBar from '../../common/SearchBar/SearchBar';
 import FloatingCard from '../../common/FloatingCard/FloatingCard';
+import HeroCard from './HeroCard';
 
-import heroBgMesh from '../../../assets/icons/hero-bg-mesh.svg';
-import chartProgress from '../../../assets/icons/chart-progress.svg';
-import starIcon from '../../../assets/icons/star-icon.svg';
-import heroModel from '../../../assets/images/hero-model.png';
-
-import cylinderLime from '../../../assets/images/ornament-cylinder-lime.png';
-import coneBlue from '../../../assets/images/ornament-cone-blue.png';
-import coneSmall from '../../../assets/images/ornament-cone-small.png';
-import sphere1 from '../../../assets/images/ornament-sphere-1.png';
-import sphere2 from '../../../assets/images/ornament-sphere-2.png';
-import sphere2Lime from '../../../assets/images/ornament-sphere-2-lime.png';
-
-import student1 from '../../../assets/images/student-1.png';
-import student2 from '../../../assets/images/student-2.png';
-import student3 from '../../../assets/images/student-3.png';
-import student4 from '../../../assets/images/student-4.png';
-import student5 from '../../../assets/images/student-5.png';
-import student6 from '../../../assets/images/student-6.png';
-import student7 from '../../../assets/images/student-7.png';
-
+import {
+  heroBgMesh,
+  chartProgress,
+  starIcon,
+  heroModel,
+  cylinderLime,
+  coneBlue,
+  coneSmall,
+  sphere1,
+  sphere2,
+  sphere2Lime,
+  studentAvatars,
+} from '../../../assets';
 import './Hero.css';
-
-const studentAvatars = [
-  { id: 1, src: student1, alt: 'Student avatar 1' },
-  { id: 2, src: student2, alt: 'Student avatar 2' },
-  { id: 3, src: student3, alt: 'Student avatar 3' },
-  { id: 4, src: student4, alt: 'Student avatar 4' },
-  { id: 5, src: student5, alt: 'Student avatar 5' },
-  { id: 6, src: student6, alt: 'Student avatar 6' },
-  { id: 7, src: student7, alt: 'Student avatar 7' },
-];
 
 export default function Hero() {
   const handleSearch = (query) => { console.log('Search query:', query); };
@@ -95,24 +79,7 @@ export default function Hero() {
           </div>
 
           <div className="hero-cards-row hero-cards-row-bottom">
-            <FloatingCard className="hero-card hero-card-students" ariaLabel="Happy Students rating and avatars">
-              <div className="hero-students-header">
-                <span className="hero-card-title">Happy Students</span>
-                <div className="hero-rating-row">
-                  <span className="hero-rating-text">4.5 (240)</span>
-                  <img src={starIcon} alt="" aria-hidden="true" className="hero-star-icon" width="16" height="16" />
-                </div>
-              </div>
-
-              <div className="hero-avatar-stack" role="group" aria-label="Student avatars">
-                {studentAvatars.map((student) => (
-                  <img key={student.id} src={student.src} alt={student.alt} className="hero-avatar-img" width="43" height="43" />
-                ))}
-                <div className="hero-avatar-badge" aria-label="Over 2000 more students">
-                  2K+
-                </div>
-              </div>
-            </FloatingCard>
+            <HeroCard starIcon={starIcon} avatars={studentAvatars} />
           </div>
         </div>
       </div>

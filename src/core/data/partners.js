@@ -3,11 +3,11 @@
  * Source of truth: design/landing-page/design-context.md (Figma #1:1708)
  */
 
-import partnerLogo1 from '../assets/icons/partner-logo-1.svg';
-import partnerLogo2 from '../assets/icons/partner-logo-2.svg';
-import partnerLogo3 from '../assets/icons/partner-logo-3.svg';
-import partnerLogo4 from '../assets/icons/partner-logo-4.svg';
-import partnerLogo5 from '../assets/icons/partner-logo-5.svg';
+import partnerLogo1 from '../../assets/icons/partner-logo-1.svg';
+import partnerLogo2 from '../../assets/icons/partner-logo-2.svg';
+import partnerLogo3 from '../../assets/icons/partner-logo-3.svg';
+import partnerLogo4 from '../../assets/icons/partner-logo-4.svg';
+import partnerLogo5 from '../../assets/icons/partner-logo-5.svg';
 
 export const partnersData = [
   {

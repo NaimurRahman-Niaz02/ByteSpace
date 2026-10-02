@@ -1,7 +1,6 @@
 import React from 'react';
 import FloatingCard from '../../common/FloatingCard/FloatingCard';
-import starIcon from '../../../assets/icons/star-icon.svg';
-import ornamentSpiralLime from '../../../assets/images/ornament-spiral-lime.png';
+import { starIcon, ornamentSpiralLime } from '../../../assets';
 import './GrowthShowcase.css';
 
 export default function CreatorManagementRow({ data }) {
