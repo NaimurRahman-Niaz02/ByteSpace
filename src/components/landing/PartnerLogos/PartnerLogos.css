@@ -65,12 +65,22 @@
   .bytespace-partners {
     height: auto;
     min-height: 160px;
-    padding: var(--space-48) var(--space-24);
+    padding: var(--space-40) var(--space-24);
   }
 
   .bytespace-partners__track {
+    display: flex;
     flex-wrap: wrap;
-    gap: var(--space-40) var(--space-48);
+    justify-content: center;
+    gap: var(--space-24) var(--space-48);
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .bytespace-partners__item {
+    flex: 0 0 calc(33.333% - var(--space-48));
+    display: flex;
+    justify-content: center;
   }
 
   .bytespace-partners__logo {

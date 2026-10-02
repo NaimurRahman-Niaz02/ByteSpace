@@ -3,7 +3,7 @@ import FloatingCard from '../../common/FloatingCard/FloatingCard';
 import CourseCard from '../FeaturedCourses/CourseCard';
 import { featuredCoursesData, courseSharedIcons } from '../../../data/courses';
 import chartProgress from '../../../assets/icons/chart-progress.svg';
-import coneLime from '../../../assets/images/ornament-cone-lime.png';
+import coneLime from '../../../assets/images/ornament-cylinder-lime.png';
 import './GrowthShowcase.css';
 
 /**

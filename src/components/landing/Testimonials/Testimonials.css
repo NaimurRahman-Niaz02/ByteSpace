@@ -216,26 +216,35 @@
 /* Tablet (768px – 1024px) */
 @media (max-width: 1024px) {
   .bytespace-testimonials {
-    padding-top: var(--space-80);
-    padding-bottom: var(--space-80);
+    padding-top: var(--space-48);
+    padding-bottom: var(--space-64);
     min-height: auto;
   }
 
   .bytespace-testimonials__header {
     flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-16);
-    margin-bottom: var(--space-40);
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    margin-bottom: var(--space-32);
+    width: 100%;
   }
 
   .bytespace-testimonials__title {
-    max-width: 100%;
+    flex: none;
+    max-width: 600px;
     font-size: 36px;
+    text-align: center;
+    margin: 0 auto;
   }
 
   .bytespace-testimonials__description {
-    max-width: 100%;
+    flex: none;
+    max-width: 640px;
     font-size: 16px;
+    text-align: center;
+    margin: 0 auto;
+    text-wrap: balance;
   }
 
   .bytespace-testimonials__grid {
@@ -272,12 +281,14 @@
   }
 
   .bytespace-testimonials__title {
+    flex: none;
     font-size: 28px;
     line-height: 1.25;
     max-width: 100%;
   }
 
   .bytespace-testimonials__description {
+    flex: none;
     font-size: 15px;
     line-height: 1.5;
     max-width: 100%;
@@ -289,7 +300,49 @@
   }
 
   .bytespace-testimonial-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "avatar author"
+      "quote  quote";
+    column-gap: var(--space-16);
+    row-gap: var(--space-16);
+    align-items: center;
     padding: var(--space-20);
+  }
+
+  .bytespace-testimonial-card__avatar-frame {
+    grid-area: avatar;
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+  }
+
+  .bytespace-testimonial-card__author-info {
+    grid-area: author;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    gap: 2px;
+  }
+
+  .bytespace-testimonial-card__name {
+    font-size: 18px;
+    line-height: 1.3;
+  }
+
+  .bytespace-testimonial-card__role {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .bytespace-testimonial-card__quote {
+    grid-area: quote;
+    text-align: left;
+    font-size: 15px;
+    line-height: 1.5;
   }
 
   .bytespace-testimonial-card:last-child {

@@ -1,19 +1,26 @@
 import React from 'react';
 import Button from '../../common/Button/Button';
 import { creatorCTAData } from '../../../data/features';
-import heroBgMesh from '../../../assets/icons/hero-bg-mesh.svg';
-import ornamentConeLime from '../../../assets/images/ornament-cone-lime.png';
-import ornamentSphere2 from '../../../assets/images/ornament-sphere-2.png';
-import ornamentConeSmall from '../../../assets/images/ornament-cone-small.png';
+import ctaSpiralLime from '../../../assets/images/cta-spiral-lime.png';
+import ctaSquiggleWhite from '../../../assets/images/cta-squiggle-white.png';
+import ctaConeWhite from '../../../assets/images/cta-cone-white.png';
+import ctaTorusLime from '../../../assets/images/cta-torus-lime.png';
+import ctaPyramidLime from '../../../assets/images/cta-pyramid-lime.png';
+import ctaCylinderWhite from '../../../assets/images/cta-cylinder-white.png';
 import './CTASection.css';
 
 /**
  * CTASection Component
- * Source of truth: design/landing-page/design-context.md (Figma #34:1161)
- * Approximate desktop dimensions: 1440px x 488px
- * Background: Persian Blue/800 (#003BE2)
- * Highlighted "Creator" text in Electric Lime/400 (#D4FB20)
- * Centered composition with decorative 3D background elements
+ * Source of truth: Figma #34:1161 & Reference Design
+ * Background: Persian Blue/800 (#003BE2) with subtle white mesh grid
+ * 7 Decorative 3D ornaments:
+ * 1. Top-Left Lime Spiral
+ * 2. Top-Left White Squiggle
+ * 3. Bottom-Left White Cone
+ * 4. Bottom-Left Lime Torus Ring
+ * 5. Top-Right Lime Pyramid
+ * 6. Top-Right White Cylinder
+ * 7. Bottom-Right Lime Spiral
  */
 export default function CTASection() {
   const {
@@ -33,41 +40,61 @@ export default function CTASection() {
 
   return (
     <section className="bytespace-cta" aria-labelledby="cta-heading">
-      {/* Background Ambient Grid Mesh */}
-      <img
-        src={heroBgMesh}
-        alt=""
-        aria-hidden="true"
-        className="bytespace-cta__mesh"
-      />
-      {/* Decorative 3D ornaments (#46:78) */}
+      {/* Decorative 3D ornaments */}
       <div className="bytespace-cta__ornaments" aria-hidden="true">
+        {/* 1. Top-Left Lime Spiral */}
         <img
-          src={ornamentConeLime}
+          src={ctaSpiralLime}
           alt=""
-          className="bytespace-cta__ornament bytespace-cta__ornament--cone-lime"
+          className="bytespace-cta__ornament bytespace-cta__ornament--spiral-top-left"
         />
+        {/* 2. Top-Left White Squiggle */}
         <img
-          src={ornamentSphere2}
+          src={ctaSquiggleWhite}
           alt=""
-          className="bytespace-cta__ornament bytespace-cta__ornament--sphere"
+          className="bytespace-cta__ornament bytespace-cta__ornament--squiggle-top-left"
         />
+        {/* 3. Bottom-Left White Cone */}
         <img
-          src={ornamentConeSmall}
+          src={ctaConeWhite}
           alt=""
-          className="bytespace-cta__ornament bytespace-cta__ornament--cone-small"
+          className="bytespace-cta__ornament bytespace-cta__ornament--cone-bottom-left"
+        />
+        {/* 4. Bottom-Left Lime Torus Ring */}
+        <img
+          src={ctaTorusLime}
+          alt=""
+          className="bytespace-cta__ornament bytespace-cta__ornament--torus-bottom-left"
+        />
+        {/* 5. Top-Right Lime Pyramid */}
+        <img
+          src={ctaPyramidLime}
+          alt=""
+          className="bytespace-cta__ornament bytespace-cta__ornament--pyramid-top-right"
+        />
+        {/* 6. Top-Right White Cylinder */}
+        <img
+          src={ctaCylinderWhite}
+          alt=""
+          className="bytespace-cta__ornament bytespace-cta__ornament--cylinder-top-right"
+        />
+        {/* 7. Bottom-Right Lime Spiral */}
+        <img
+          src={ctaSpiralLime}
+          alt=""
+          className="bytespace-cta__ornament bytespace-cta__ornament--spiral-bottom-right"
         />
       </div>
 
       <div className="bytespace-cta__container">
-        {/* Centered Heading with Highlighted "Creator" */}
+        {/* Centered Heading */}
         <h2 id="cta-heading" className="bytespace-cta__heading">
           {headlinePrefix}
           <span className="bytespace-cta__highlight">{headlineHighlight}</span>
           {headlineSuffix}
         </h2>
 
-        {/* Centered Description (max-width: 964px) */}
+        {/* Centered Description (3 balanced lines) */}
         <p className="bytespace-cta__description">{description}</p>
 
         {/* Join as Creator Button */}

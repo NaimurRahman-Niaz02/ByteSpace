@@ -590,6 +590,39 @@
     gap: var(--space-80);
   }
 
+  /* Center ambient glow auroras in the middle */
+  .bytespace-showcase__glow--row1-lime {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50px;
+    width: 650px;
+    height: 650px;
+  }
+
+  .bytespace-showcase__glow--row1-blue {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100px;
+    width: 650px;
+    height: 650px;
+  }
+
+  .bytespace-showcase__glow--row2-lime {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 250px;
+    width: 650px;
+    height: 650px;
+  }
+
+  .bytespace-showcase__glow--row2-blue {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 200px;
+    width: 650px;
+    height: 650px;
+  }
+
   .bytespace-showcase-row {
     grid-template-columns: 1fr;
     gap: var(--space-48);
@@ -603,20 +636,36 @@
     order: 1;
   }
 
-  .bytespace-showcase-row__text {
-    max-width: 100%;
+  /* Professional (Learner Row): Center title, balanced text, centered metrics */
+  .bytespace-showcase-row__text--learner {
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 700px;
   }
 
   .bytespace-showcase-row__heading--learner {
-    max-width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 580px;
   }
 
-  .bytespace-showcase-visual-wrapper--creator {
-    width: 541px;
-    height: 596px;
-    transform: scale(clamp(0.65, calc((100vw - 48px) / 541), 0.92));
-    transform-origin: top center;
+  .bytespace-showcase-row__description--learner {
+    text-align: center;
+    text-wrap: balance;
+    max-width: 650px;
     margin: 0 auto;
+  }
+
+  .bytespace-showcase-row__text--learner .bytespace-showcase-metrics {
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .bytespace-showcase-visual-wrapper--learner {
+    margin: 0 auto;
+    transform: scale(clamp(0.75, calc((100vw - 48px) / 600), 1));
+    transform-origin: top center;
   }
 
   .bytespace-showcase-card-course {
@@ -630,6 +679,44 @@
 
   .bytespace-showcase-card--progress {
     right: 0;
+  }
+
+  /* Create and Manage (Creator Row): Center title, balanced text, centered options */
+  .bytespace-showcase-row__text--creator {
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 700px;
+  }
+
+  .bytespace-showcase-row__heading--creator {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 580px;
+  }
+
+  .bytespace-showcase-row__description--creator {
+    text-align: center;
+    text-wrap: balance;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  .bytespace-showcase-bullets {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .bytespace-showcase-visual-wrapper--creator {
+    width: 541px;
+    height: 596px;
+    transform: scale(clamp(0.65, calc((100vw - 48px) / 541), 0.92));
+    transform-origin: top center;
+    margin: 0 auto;
   }
 }
 
@@ -682,13 +769,18 @@
 
   .bytespace-showcase-image-frame {
     max-width: 300px;
-    margin-left: 0 !important;
+  }
+
+  .bytespace-showcase-image-frame--learner {
+    margin-left: 0;
   }
 
   .bytespace-showcase-ornament--cone-lime {
-    width: 70px;
-    top: -10px;
-    right: 10px;
+    width: 65px;
+    top: 45px;
+    right: 15px;
+    z-index: 1;
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.12));
   }
 
   .bytespace-showcase-card--progress {
@@ -702,37 +794,76 @@
     font-size: 32px;
   }
 
-  .bytespace-showcase-image-frame--creator {
-    position: relative;
-    left: auto;
-    top: auto;
+  .bytespace-showcase-row__visual--creator {
     width: 100%;
-    max-width: 280px;
-    height: auto;
-    margin: 0 auto !important;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: clamp(290px, calc(520px * ((100vw - 32px) / 480)), 500px);
+    overflow: visible;
+  }
+
+  .bytespace-showcase-visual-wrapper--creator {
+    position: relative;
+    width: 480px;
+    height: 520px;
+    max-width: none;
+    flex-shrink: 0;
+    transform: scale(clamp(0.55, calc((100vw - 32px) / 480), 0.95));
+    transform-origin: top center;
+    margin: 0 auto;
+  }
+
+  .bytespace-showcase-image-frame--creator {
+    position: absolute;
+    left: 50%;
+    top: 5px;
+    transform: translateX(-50%);
+    width: 310px;
+    height: 510px;
+    max-width: 310px;
+    margin: 0;
+  }
+
+  .bytespace-showcase-image--creator {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: top center;
   }
 
   .bytespace-showcase-card--revenue1 {
-    top: 10px;
-    left: 0px;
-    width: 160px;
-    padding: var(--space-8);
+    top: 35px;
+    left: 10px;
+    width: 170px;
+    padding: 10px 12px;
+    z-index: 1;
   }
 
   .bytespace-showcase-card--revenue2 {
-    top: 140px;
-    left: 0px;
-    width: 120px;
-    padding: var(--space-8);
+    top: 175px;
+    left: 10px;
+    width: 125px;
+    padding: 10px 12px;
+    z-index: 1;
+  }
+
+  .bytespace-showcase-ornament--spiral-lime {
+    width: 95px;
+    top: 50px;
+    right: 15px;
+    left: auto;
+    z-index: 1;
   }
 
   .bytespace-showcase-card--students {
     top: auto;
     left: auto;
-    bottom: 0px;
-    right: 0px;
-    width: 200px;
-    padding: var(--space-8);
+    bottom: 20px;
+    right: 10px;
+    width: 210px;
+    padding: 10px 12px;
+    z-index: 10;
   }
 
   .bytespace-students-card__avatar {
@@ -744,13 +875,6 @@
     width: 32px;
     height: 32px;
     line-height: 32px;
-  }
-
-  .bytespace-showcase-ornament--spiral-lime {
-    width: 90px;
-    top: 60px;
-    right: 5px;
-    left: auto;
   }
 
   .bytespace-showcase-bullets {
