@@ -1,31 +1,33 @@
 .cta-section {
   width: 100%;
-  background-color: var(--color-persian-blue-700);
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 80px 80px;
+  min-height: 488px;
+  background-color: var(--color-persian-blue-800, #003BE2);
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.14) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+  background-size: 115px 115px;
   background-position: center center;
-  padding: 100px 0;
   position: relative;
   overflow: hidden;
   display: flex;
-  justify-content: center;
   align-items: center;
-  color: var(--color-pure-white);
+  justify-content: center;
+  padding: 84px 0 80px;
+  box-sizing: border-box;
 }
 
 .cta-container {
   width: 100%;
   max-width: var(--container-max-width, 1200px);
   margin: 0 auto;
-  padding: 0 var(--space-24);
-  position: relative;
-  z-index: 10;
+  padding: 0 var(--space-24, 24px);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  position: relative;
+  z-index: 3;
+  box-sizing: border-box;
 }
 
 .cta-ornaments {
@@ -35,96 +37,103 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
+  overflow: hidden;
   z-index: 1;
 }
 
 .cta-ornament {
   position: absolute;
-  display: block;
-  user-select: none;
+  object-fit: contain;
   pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
 }
 
 .cta-ornament-spiral-tl {
-  width: clamp(100px, 9.5vw, 137px);
-  top: clamp(-45px, -3.5vw, -30px);
+  top: clamp(-50px, -3vw, -25px);
   left: clamp(-45px, -2.5vw, -20px);
-  transform: rotate(-15deg);
-  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
+  width: clamp(150px, 14.5vw, 210px);
+  height: auto;
+  transform: rotate(-25deg);
 }
 
 .cta-ornament-squiggle-tl {
-  width: clamp(75px, 6.8vw, 98px);
-  top: clamp(110px, 9vw, 130px);
-  left: clamp(80px, 8.5vw, 120px);
-  transform: rotate(25deg);
-  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.15));
+  top: clamp(25px, 3.5vw, 55px);
+  left: clamp(130px, 15.5vw, 225px);
+  width: clamp(80px, 8vw, 115px);
+  height: auto;
+  transform: rotate(-35deg);
 }
 
 .cta-ornament-cone-bl {
-  width: clamp(85px, 7.8vw, 112px);
-  bottom: clamp(65px, 5.5vw, 80px);
-  left: clamp(20px, 2.8vw, 40px);
-  transform: rotate(45deg);
-  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.16));
+  bottom: clamp(-20px, -1.5vw, -10px);
+  left: clamp(-30px, -1.5vw, -15px);
+  width: clamp(105px, 10.5vw, 155px);
+  height: auto;
+  transform: rotate(25deg);
+  z-index: 1;
 }
 
 .cta-ornament-torus-bl {
-  width: clamp(85px, 7.8vw, 112px);
-  bottom: clamp(-35px, -2vw, -15px);
-  left: clamp(90px, 9vw, 130px);
-  transform: rotate(-20deg);
-  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.2));
+  bottom: clamp(-95px, -8vw, -65px);
+  left: clamp(40px, 5vw, 75px);
+  width: clamp(180px, 18.5vw, 270px);
+  height: auto;
+  transform: rotate(0deg);
+  z-index: 2;
 }
 
 .cta-ornament-pyramid-tr {
-  width: clamp(80px, 7.2vw, 104px);
-  top: clamp(10px, 1.5vw, 25px);
-  right: clamp(100px, 10.5vw, 150px);
-  transform: rotate(15deg);
-  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.16));
+  top: clamp(25px, 3.5vw, 55px);
+  right: clamp(180px, 24vw, 355px);
+  width: clamp(85px, 8.5vw, 125px);
+  height: auto;
+  transform: rotate(0deg);
 }
 
 .cta-ornament-cylinder-tr {
-  width: clamp(85px, 7.5vw, 108px);
-  top: clamp(120px, 9.5vw, 140px);
-  right: clamp(30px, 3.5vw, 50px);
+  top: clamp(-70px, -4vw, -40px);
+  right: clamp(-80px, -5vw, -45px);
+  width: clamp(170px, 18vw, 260px);
+  height: auto;
   transform: rotate(-35deg);
-  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.15));
 }
 
 .cta-ornament-spiral-br {
-  width: clamp(100px, 9.5vw, 137px);
-  bottom: clamp(-45px, -3.5vw, -30px);
-  right: clamp(-45px, -2.5vw, -20px);
-  transform: rotate(40deg);
-  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
+  bottom: clamp(-85px, -6vw, -55px);
+  right: clamp(15px, 4vw, 60px);
+  width: clamp(140px, 15vw, 215px);
+  height: auto;
+  transform: rotate(25deg);
 }
 
 .cta-heading {
   font-family: var(--font-heading);
   font-size: clamp(34px, 3.2vw, 46px);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-bold, 700);
   line-height: 1.25;
   letter-spacing: -0.015em;
-  color: var(--color-pure-white);
-  max-width: 710px;
-  margin: 0 auto var(--space-20);
+  color: var(--color-white, #FFFFFF);
+  max-width: 620px;
+  margin: 0 auto 20px;
+  text-align: center;
 }
 
 .cta-highlight {
-  color: var(--color-electric-lime-400);
+  color: var(--color-electric-lime-400, #D4FB20);
+  font-weight: inherit;
+  display: inline;
 }
 
 .cta-description {
   font-family: var(--font-body);
   font-size: clamp(15px, 1.25vw, 18px);
-  font-weight: var(--weight-regular);
-  line-height: 1.6;
+  font-weight: var(--weight-regular, 400);
+  line-height: 1.62;
   color: rgba(255, 255, 255, 0.85);
-  max-width: 574px;
-  margin: 0 auto var(--space-32);
-  text-wrap: balance;
+  max-width: 900px;
+  margin: 0 auto 34px;
+  text-align: center;
 }
 
 .cta-action {
@@ -133,148 +142,178 @@
 }
 
 .cta-btn {
-  background-color: var(--color-electric-lime-400);
-  color: var(--color-navy-dark);
+  min-width: 172px;
+  height: 46px;
+  padding: 12px 28px;
   font-family: var(--font-body);
-  font-weight: var(--weight-medium);
-  font-size: var(--font-size-label-l);
-  padding: 14px 32px;
-  border-radius: var(--radius-full);
-  border: none;
-  cursor: pointer;
+  font-size: 16px;
+  font-weight: var(--weight-semibold, 600);
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-electric-lime-400, #D4FB20);
+  color: #0F172A;
   box-shadow: 0 4px 18px rgba(212, 251, 32, 0.35);
-  transition: all var(--transition-fast);
+  cursor: pointer;
+  transition: transform var(--transition-fast, 0.2s ease), box-shadow var(--transition-fast, 0.2s ease);
 }
 
 .cta-btn:hover {
-  background-color: #c4fa10;
-  box-shadow: 0 6px 22px rgba(212, 251, 32, 0.5);
   transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(212, 251, 32, 0.5);
 }
 
 @media (max-width: 1024px) {
   .cta-section {
-    padding: 80px 0;
+    min-height: 440px;
+    padding: var(--space-64, 64px) 0;
+    background-size: 90px 90px;
   }
 
   .cta-heading {
-    font-size: 38px;
-    max-width: 620px;
+    font-size: var(--font-size-heading-s, 36px);
+    max-width: 580px;
+    margin-bottom: var(--space-16, 16px);
   }
 
   .cta-description {
-    font-size: 16px;
-    max-width: 520px;
+    font-size: var(--font-size-body-m, 16px);
+    max-width: 660px;
+    margin-bottom: var(--space-32, 32px);
   }
 
   .cta-ornament-spiral-tl {
-    width: 100px;
-    top: -20px;
-    left: -20px;
+    top: -30px;
+    left: -25px;
+    width: 140px;
+    transform: rotate(-25deg);
   }
 
   .cta-ornament-squiggle-tl {
-    width: 70px;
-    top: 90px;
-    left: 40px;
+    top: 25px;
+    left: 110px;
+    width: 75px;
+    transform: rotate(-35deg);
   }
 
   .cta-ornament-cone-bl {
-    width: 80px;
-    bottom: 50px;
-    left: 15px;
+    bottom: -15px;
+    left: -15px;
+    width: 100px;
+    transform: rotate(25deg);
+    z-index: 1;
   }
 
   .cta-ornament-torus-bl {
-    width: 80px;
-    bottom: -15px;
-    left: 60px;
+    bottom: -55px;
+    left: 40px;
+    width: 175px;
+    z-index: 2;
   }
 
   .cta-ornament-pyramid-tr {
-    width: 75px;
-    top: 15px;
-    right: 60px;
+    top: 25px;
+    right: 170px;
+    width: 80px;
   }
 
   .cta-ornament-cylinder-tr {
-    width: 75px;
-    top: 95px;
-    right: 20px;
+    top: -35px;
+    right: -40px;
+    width: 165px;
+    transform: rotate(-35deg);
   }
 
   .cta-ornament-spiral-br {
-    width: 100px;
-    bottom: -20px;
-    right: -20px;
+    bottom: -50px;
+    right: 20px;
+    width: 140px;
+    transform: rotate(25deg);
   }
 }
 
 @media (max-width: 768px) {
   .cta-section {
-    padding: 60px 0;
+    min-height: auto;
+    padding: var(--space-48, 48px) var(--space-16, 16px);
+    background-size: 70px 70px;
   }
 
   .cta-container {
-    padding: 0 var(--space-16);
+    padding: 0;
   }
 
   .cta-heading {
-    font-size: 26px;
-    line-height: 1.3;
-    margin-bottom: var(--space-16);
+    font-size: clamp(22px, 6.2vw, 28px);
+    line-height: 1.25;
+    max-width: 320px;
+    margin-bottom: var(--space-16, 16px);
   }
 
   .cta-description {
     font-size: clamp(13px, 3.8vw, 15px);
     line-height: 1.55;
-    margin-bottom: var(--space-24);
+    max-width: 320px;
+    margin-bottom: var(--space-24, 24px);
   }
 
   .cta-btn {
-    padding: 12px 28px;
-    font-size: 16px;
+    min-width: 160px;
+    max-width: 220px;
+    height: 44px;
+    padding: 10px 24px;
+    font-size: var(--font-size-label-m, 16px);
   }
 
   .cta-ornament-spiral-tl {
-    width: 65px;
-    top: -15px;
-    left: -15px;
+    top: -20px;
+    left: -20px;
+    width: 75px;
+    transform: rotate(-25deg);
   }
 
   .cta-ornament-squiggle-tl {
-    width: 45px;
-    top: 60px;
-    left: 10px;
+    top: 10px;
+    left: 45px;
+    width: 42px;
+    transform: rotate(-35deg);
+    opacity: 0.9;
   }
 
   .cta-ornament-cone-bl {
-    width: 50px;
-    bottom: 40px;
-    left: 5px;
+    bottom: -10px;
+    left: -10px;
+    width: 55px;
+    transform: rotate(25deg);
+    z-index: 1;
   }
 
   .cta-ornament-torus-bl {
-    width: 55px;
-    bottom: -10px;
-    left: 30px;
+    bottom: -30px;
+    left: 20px;
+    width: 95px;
+    z-index: 2;
   }
 
   .cta-ornament-pyramid-tr {
-    width: 50px;
-    top: 10px;
-    right: 25px;
+    top: 15px;
+    right: 55px;
+    width: 45px;
+    opacity: 0.9;
   }
 
   .cta-ornament-cylinder-tr {
-    width: 50px;
-    top: 65px;
-    right: 10px;
+    top: -20px;
+    right: -25px;
+    width: 85px;
+    transform: rotate(-35deg);
   }
 
   .cta-ornament-spiral-br {
-    width: 65px;
-    bottom: -15px;
-    right: -15px;
+    bottom: -25px;
+    right: -10px;
+    width: 75px;
+    transform: rotate(25deg);
   }
 }
