@@ -1,4 +1,4 @@
-.bytespace-btn {
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -12,19 +12,18 @@
   user-select: none;
 }
 
-.bytespace-btn:focus-visible {
+.btn:focus-visible {
   outline: 2px solid var(--color-electric-lime-400);
   outline-offset: 3px;
 }
 
-.bytespace-btn:disabled {
+.btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   pointer-events: none;
 }
 
-/* Primary Variant (Electric Lime) */
-.bytespace-btn--primary {
+.btn-primary {
   background-color: var(--color-electric-lime-400);
   color: var(--color-shuttle-gray-950);
   border-radius: var(--radius-lg);
@@ -34,19 +33,18 @@
   box-shadow: 0 2px 8px rgba(212, 251, 32, 0.2);
 }
 
-.bytespace-btn--primary:hover {
+.btn-primary:hover {
   background-color: #e0fd47;
   transform: translateY(-1px);
   box-shadow: 0 4px 14px rgba(212, 251, 32, 0.35);
 }
 
-.bytespace-btn--primary:active {
+.btn-primary:active {
   transform: translateY(0);
   box-shadow: 0 1px 4px rgba(212, 251, 32, 0.2);
 }
 
-/* Ghost Variant */
-.bytespace-btn--ghost {
+.btn-ghost {
   background-color: transparent;
   color: var(--color-shuttle-gray-50);
   border-radius: var(--radius-lg);
@@ -55,13 +53,12 @@
   padding: 8px 16px;
 }
 
-.bytespace-btn--ghost:hover {
+.btn-ghost:hover {
   color: var(--color-electric-lime-400);
   background-color: rgba(255, 255, 255, 0.08);
 }
 
-/* Link Variant */
-.bytespace-btn--link {
+.btn-link {
   background-color: transparent;
   color: var(--color-shuttle-gray-50);
   font-size: var(--font-size-body-m);
@@ -69,45 +66,47 @@
   padding: 8px 0;
 }
 
-.bytespace-btn--link:hover {
+.btn-link:hover {
   color: var(--color-electric-lime-400);
   text-decoration: underline;
 }
 
-/* Icon Variant */
-.bytespace-btn--icon {
+.btn-icon {
   background: transparent;
   padding: 8px;
   border-radius: var(--radius-full);
   color: var(--color-shuttle-gray-50);
 }
 
-.bytespace-btn--icon:hover {
+.btn-icon:hover {
   background-color: rgba(255, 255, 255, 0.12);
   color: var(--color-electric-lime-400);
 }
 
-/* Sizes */
-.bytespace-btn--small {
+.btn-small {
   padding: 8px 16px;
   font-size: var(--font-size-label-s);
 }
 
-.bytespace-btn--large {
+.btn-large {
   padding: 14px 28px;
   font-size: var(--font-size-label-l);
 }
 
-.bytespace-btn__icon {
+.btn-icon-wrap {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-.bytespace-btn__icon--left {
+.btn-icon-left {
   margin-right: var(--space-8);
 }
 
-.bytespace-btn__icon--right {
+.btn-icon-right {
   margin-left: var(--space-8);
+}
+
+.btn-text {
+  display: inline-block;
 }

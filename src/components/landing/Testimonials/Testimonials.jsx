@@ -3,45 +3,28 @@ import TestimonialCard from './TestimonialCard';
 import { testimonialsData, testimonialsHeaderData } from '../../../data/testimonials';
 import './Testimonials.css';
 
-/**
- * Testimonials Section Component
- * Source of truth: design/landing-page/design-context.md (Figma #34:1175)
- * Approximate desktop dimensions: 1440px x 784px
- * Background: #FAFAFA
- * Features:
- * - 3 ambient radial gradient glow shapes (Lime and Blue, blur: 20px)
- * - Section Header ("Discover What Our Community Is Saying")
- * - 3 Testimonial Cards in a 3-column row with 40px gap
- */
 export default function Testimonials() {
   return (
-    <section className="bytespace-testimonials" aria-labelledby="testimonials-heading">
-      {/* 3 Ambient Radial Gradient Glows (#34:1175: 2 Lime, 1 Blue) */}
-      <div className="bytespace-testimonials__glows" aria-hidden="true">
-        <div className="bytespace-testimonials__glow bytespace-testimonials__glow--lime-1" />
-        <div className="bytespace-testimonials__glow bytespace-testimonials__glow--lime-2" />
-        <div className="bytespace-testimonials__glow bytespace-testimonials__glow--blue" />
+    <section className="testimonials" aria-labelledby="testimonials-heading">
+      <div className="testimonials-glows" aria-hidden="true">
+        <div className="testimonials-glow testimonials-glow-lime-1" />
+        <div className="testimonials-glow testimonials-glow-lime-2" />
+        <div className="testimonials-glow testimonials-glow-blue" />
       </div>
 
-      <div className="bytespace-testimonials__container">
-        {/* Section Header */}
-        <header className="bytespace-testimonials__header">
-          <h2 id="testimonials-heading" className="bytespace-testimonials__title">
+      <div className="testimonials-container">
+        <header className="testimonials-header">
+          <h2 id="testimonials-heading" className="testimonials-title">
             {testimonialsHeaderData.title}
           </h2>
           {testimonialsHeaderData.description && (
-            <p className="bytespace-testimonials__description">
+            <p className="testimonials-desc">
               {testimonialsHeaderData.description}
             </p>
           )}
         </header>
 
-        {/* 3 Testimonials Grid */}
-        <div
-          className="bytespace-testimonials__grid"
-          role="region"
-          aria-label="Community reviews"
-        >
+        <div className="testimonials-grid" role="region" aria-label="Community reviews">
           {testimonialsData.map((testimonial) => (
             <TestimonialCard key={testimonial.id} testimonial={testimonial} />
           ))}

@@ -1,17 +1,8 @@
-/**
- * ByteSpace Authentication Pages (Login & Register) Styles
- * Source of truth: design/Log-in/CSS.md & design/Register/CSS.md (Figma #49:195, #47:351)
- * Breakpoints strictly restricted to max-width: 1024px and max-width: 768px.
- */
-
-/* =========================================
- * 1. Root Container & Grid Background
- * ========================================= */
-.bytespace-auth {
+.auth-page {
   position: relative;
   min-height: 100vh;
   width: 100%;
-  background-color: var(--color-primary); /* #003BE2 */
+  background-color: var(--color-primary);
   background-image: 
     linear-gradient(to right, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
@@ -21,10 +12,7 @@
   flex-direction: column;
 }
 
-/* =========================================
- * 2. Top Header & Brand Logo
- * ========================================= */
-.bytespace-auth__header {
+.auth-header {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
@@ -35,7 +23,7 @@
   box-sizing: border-box;
 }
 
-.bytespace-auth__brand {
+.auth-brand {
   display: inline-flex;
   align-items: center;
   gap: var(--space-12);
@@ -43,13 +31,13 @@
   cursor: pointer;
 }
 
-.bytespace-auth__logo-icon {
+.auth-logo-icon {
   width: 32px;
   height: 32px;
-  filter: brightness(0) saturate(100%) invert(88%) sepia(43%) saturate(1472%) hue-rotate(24deg) brightness(104%) contrast(97%); /* #D4FB20 */
+  filter: brightness(0) saturate(100%) invert(88%) sepia(43%) saturate(1472%) hue-rotate(24deg) brightness(104%) contrast(97%);
 }
 
-.bytespace-auth__brand-name {
+.auth-brand-name {
   font-family: var(--font-display, 'Poppins', sans-serif);
   font-weight: 700;
   font-size: 24px;
@@ -57,10 +45,7 @@
   letter-spacing: -0.01em;
 }
 
-/* =========================================
- * 3. Main Split Container
- * ========================================= */
-.bytespace-auth__container {
+.auth-container {
   flex: 1;
   width: 100%;
   max-width: 1440px;
@@ -75,10 +60,7 @@
   box-sizing: border-box;
 }
 
-/* =========================================
- * 4. Left Column: Messaging & Visual Stage
- * ========================================= */
-.bytespace-auth__left {
+.auth-left {
   flex: 0 0 clamp(415px, calc(415px + 105 * ((100vw - 1025px) / 415)), 520px);
   max-width: 520px;
   display: flex;
@@ -86,7 +68,7 @@
   color: var(--color-white);
 }
 
-.bytespace-auth__heading {
+.auth-heading {
   font-family: var(--font-heading);
   font-weight: 600;
   font-size: clamp(18px, calc(18px + 2 * ((100vw - 1025px) / 415)), 20px);
@@ -96,7 +78,7 @@
   margin-bottom: var(--space-16);
 }
 
-.bytespace-auth__subtitle {
+.auth-subtitle {
   font-family: var(--font-body);
   font-size: clamp(15px, calc(15px + 3 * ((100vw - 1025px) / 415)), 18px);
   line-height: 1.6;
@@ -105,8 +87,7 @@
   max-width: 475px;
 }
 
-/* Visual Stage with Overlapping Cards */
-.bytespace-auth__stage {
+.auth-stage {
   position: relative;
   width: 500px;
   height: clamp(470px, calc(470px + 100 * ((100vw - 1025px) / 415)), 570px);
@@ -115,8 +96,7 @@
   transform-origin: top left;
 }
 
-/* Torus Ring Top-Left */
-.bytespace-auth__ornament-ring {
+.auth-ornament-ring {
   position: absolute;
   top: -25px;
   left: 20px;
@@ -127,8 +107,7 @@
   pointer-events: none;
 }
 
-/* Background Secondary Course Card (Build Digital Asset) */
-.bytespace-auth__card-bg {
+.auth-card-bg {
   position: absolute;
   top: 95px;
   left: 0;
@@ -138,8 +117,7 @@
   filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.16));
 }
 
-/* Primary Foreground Course Card (the Power of Big Data) */
-.bytespace-auth__card-fg {
+.auth-card-fg {
   position: absolute;
   top: 15px;
   left: 110px;
@@ -149,35 +127,32 @@
   filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.22));
 }
 
-/* Stage CourseCard overrides for non-interactive display */
-.bytespace-auth__stage .bytespace-course-card {
+.auth-stage .course-card {
   max-width: 100%;
   pointer-events: none;
   user-select: none;
 }
 
-.bytespace-auth__stage .bytespace-course-card:hover {
+.auth-stage .course-card:hover {
   transform: none;
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.04);
 }
 
-.bytespace-auth__stage .bytespace-course-card:hover .bytespace-course-card__cover {
+.auth-stage .course-card:hover .course-card-cover {
   transform: none;
 }
 
-/* Auth page course cards: 26+ circle is black with white font */
-.bytespace-auth__stage .bytespace-course-card__avatar-badge {
-  background-color: var(--color-shuttle-gray-950); /* #242528 */
-  color: var(--color-white);                      /* #FFFFFF */
+.auth-stage .course-card-avatar-badge {
+  background-color: var(--color-shuttle-gray-950);
+  color: var(--color-white);
 }
 
-/* Happy Students Floating Card on Auth Page */
-.bytespace-auth__happy-students {
+.auth-happy-students {
   position: absolute;
   top: 415px;
   left: 175px;
   width: 258px;
-  background-color: var(--color-accent); /* #D4FB20 Yellow-green / Electric Lime */
+  background-color: var(--color-accent);
   border-radius: 20px;
   padding: 16px 18px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
@@ -190,14 +165,14 @@
   user-select: none;
 }
 
-.bytespace-auth__students-header {
+.auth-students-header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 4px;
 }
 
-.bytespace-auth__students-title {
+.auth-students-title {
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 16px;
@@ -205,13 +180,13 @@
   color: #242528;
 }
 
-.bytespace-auth__students-rating {
+.auth-students-rating {
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-.bytespace-auth__students-rating-text {
+.auth-students-rating-text {
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 500;
@@ -219,18 +194,18 @@
   line-height: 1;
 }
 
-.bytespace-auth__students-star {
+.auth-students-star {
   width: 16px;
   height: 16px;
   display: block;
 }
 
-.bytespace-auth__avatar-stack {
+.auth-avatar-stack {
   display: flex;
   align-items: center;
 }
 
-.bytespace-auth__avatar-stack .bytespace-auth__avatar {
+.auth-avatar-stack .auth-avatar {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -241,18 +216,18 @@
   display: block;
 }
 
-.bytespace-auth__avatar-stack .bytespace-auth__avatar:first-child {
+.auth-avatar-stack .auth-avatar:first-child {
   margin-left: 0;
 }
 
-.bytespace-auth__avatar-stack .bytespace-auth__avatar-badge {
+.auth-avatar-stack .auth-avatar-badge {
   width: 32px;
   height: 32px;
   border-radius: 50%;
   border: 2px solid var(--color-white);
   margin-left: -10px;
-  background-color: var(--color-shuttle-gray-950); /* #242528 Black */
-  color: var(--color-white);                      /* #FFFFFF White text */
+  background-color: var(--color-shuttle-gray-950);
+  color: var(--color-white);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -262,8 +237,7 @@
   flex-shrink: 0;
 }
 
-/* 3D Bottom Ornaments */
-.bytespace-auth__pyramid {
+.auth-pyramid {
   position: absolute;
   top: 450px;
   left: -20px;
@@ -274,7 +248,7 @@
   pointer-events: none;
 }
 
-.bytespace-auth__squiggle {
+.auth-squiggle {
   position: absolute;
   top: 390px;
   right: -25px;
@@ -285,10 +259,7 @@
   pointer-events: none;
 }
 
-/* =========================================
- * 5. Right Column: White Auth Card
- * ========================================= */
-.bytespace-auth__right {
+.auth-right {
   flex: 1 1 auto;
   max-width: 579px;
   min-width: 360px;
@@ -296,7 +267,7 @@
   justify-content: flex-end;
 }
 
-.bytespace-auth__card {
+.auth-card {
   width: 100%;
   max-width: 579px;
   background: var(--color-white);
@@ -308,7 +279,7 @@
   box-sizing: border-box;
 }
 
-.bytespace-auth__card-eyebrow {
+.auth-card-eyebrow {
   font-family: var(--font-body);
   font-weight: var(--weight-regular);
   font-size: 18px;
@@ -317,7 +288,7 @@
   margin-bottom: var(--space-8);
 }
 
-.bytespace-auth__card-title {
+.auth-card-title {
   font-family: var(--font-heading);
   font-weight: 600;
   font-size: clamp(32px, calc(32px + 12 * ((100vw - 1025px) / 415)), 44px);
@@ -327,25 +298,24 @@
   margin-bottom: clamp(20px, calc(20px + 12 * ((100vw - 1025px) / 415)), var(--space-32));
 }
 
-.bytespace-auth__card-title--register {
+.auth-card-title-register {
   max-width: 260px;
 }
 
-/* Form Controls */
-.bytespace-auth__form {
+.auth-form {
   display: flex;
   flex-direction: column;
   gap: var(--space-20);
   width: 100%;
 }
 
-.bytespace-auth__field {
+.auth-field {
   display: flex;
   flex-direction: column;
   gap: var(--space-8);
 }
 
-.bytespace-auth__label {
+.auth-label {
   font-family: var(--font-body);
   font-weight: 500;
   font-size: 14px;
@@ -353,7 +323,7 @@
   color: var(--color-shuttle-gray-950);
 }
 
-.bytespace-auth__input {
+.auth-input {
   width: 100%;
   height: 52px;
   background-color: var(--color-white);
@@ -367,24 +337,23 @@
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.bytespace-auth__input::placeholder {
+.auth-input::placeholder {
   color: var(--color-shuttle-gray-400);
 }
 
-.bytespace-auth__input:focus {
+.auth-input:focus {
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(0, 59, 226, 0.1);
   outline: none;
 }
 
-/* Form Actions */
-.bytespace-auth__btn-wrapper {
+.auth-btn-wrap {
   display: flex;
   justify-content: flex-end;
   margin-top: var(--space-12);
 }
 
-.bytespace-auth__submit-btn {
+.auth-submit-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -400,17 +369,16 @@
   transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 
-.bytespace-auth__submit-btn:hover {
+.auth-submit-btn:hover {
   background-color: var(--color-electric-lime-500);
   transform: translateY(-1px);
 }
 
-.bytespace-auth__submit-btn:active {
+.auth-submit-btn:active {
   transform: translateY(0);
 }
 
-/* Divider */
-.bytespace-auth__divider {
+.auth-divider {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -419,7 +387,7 @@
   width: 100%;
 }
 
-.bytespace-auth__divider-line {
+.auth-divider-line {
   position: absolute;
   left: 0;
   right: 0;
@@ -427,7 +395,7 @@
   background-color: var(--color-black-200);
 }
 
-.bytespace-auth__divider-text {
+.auth-divider-text {
   position: relative;
   background: var(--color-white);
   padding: 0 var(--space-20);
@@ -437,15 +405,14 @@
   color: var(--color-shuttle-gray-400);
 }
 
-/* Social Buttons (Rounded Box Design) */
-.bytespace-auth__socials {
+.auth-socials {
   display: flex;
   justify-content: center;
   gap: var(--space-20);
   margin-bottom: var(--space-32);
 }
 
-.bytespace-auth__social-btn {
+.auth-social-btn {
   width: 64px;
   height: 64px;
   border-radius: 18px;
@@ -459,18 +426,17 @@
   transition: border-color var(--transition-fast), background-color var(--transition-fast), transform var(--transition-fast);
 }
 
-.bytespace-auth__social-btn:hover {
+.auth-social-btn:hover {
   border-color: var(--color-shuttle-gray-950);
   background: var(--color-shuttle-gray-50);
   transform: translateY(-1px);
 }
 
-.bytespace-auth__social-icon {
+.auth-social-icon {
   display: block;
 }
 
-/* Bottom Nav Link */
-.bytespace-auth__footer-text {
+.auth-footer-text {
   text-align: center;
   font-family: var(--font-body);
   font-size: 17px;
@@ -479,99 +445,93 @@
   margin-top: var(--space-20);
 }
 
-.bytespace-auth__footer-text--register {
+.auth-footer-text-register {
   margin-top: 56px;
 }
 
-.bytespace-auth__footer-link {
+.auth-footer-link {
   color: var(--color-primary);
-  font-weight: 400; /* normal font weight as requested */
-  font-size: 17px;  /* increased font size */
+  font-weight: 400;
+  font-size: 17px;
   text-decoration: none;
   margin-left: 6px;
   transition: color var(--transition-fast), text-decoration var(--transition-fast);
 }
 
-.bytespace-auth__footer-link:hover {
+.auth-footer-link:hover {
   text-decoration: underline;
 }
 
-/* =========================================
- * 6. Responsive Styles (STRICTLY 1024px and 768px)
- * ========================================= */
-
-/* Tablet (<= 1024px) */
 @media (max-width: 1024px) {
-  .bytespace-auth__header {
+  .auth-header {
     padding: 24px clamp(48px, 6vw, 72px) 24px var(--space-24);
   }
 
-  .bytespace-auth__container {
+  .auth-container {
     padding: 0 clamp(48px, 6vw, 72px) var(--space-48) var(--space-24);
     gap: var(--space-32);
   }
 
-  .bytespace-auth__left {
+  .auth-left {
     flex: 0 0 380px;
     width: 380px;
     max-width: 380px;
   }
 
-  .bytespace-auth__heading {
+  .auth-heading {
     font-size: 18px;
     margin-bottom: var(--space-12);
   }
 
-  .bytespace-auth__subtitle {
+  .auth-subtitle {
     font-size: 15px;
     margin-bottom: var(--space-24);
   }
 
-  .bytespace-auth__stage {
+  .auth-stage {
     width: 500px;
     height: 440px;
     transform: scale(0.72);
     transform-origin: top left;
   }
 
-  .bytespace-auth__right {
+  .auth-right {
     flex: 1 1 auto;
     max-width: 480px;
     min-width: 280px;
   }
 
-  .bytespace-auth__card {
+  .auth-card {
     padding: 32px 28px;
   }
 
-  .bytespace-auth__card-title {
+  .auth-card-title {
     font-size: 30px;
     margin-bottom: var(--space-20);
   }
 }
 
-/* Mobile (<= 768px, down to 320px) */
 @media (max-width: 768px) {
-  .bytespace-auth {
+  .auth-page {
     min-height: 100vh;
     padding-bottom: var(--space-40);
   }
 
-  .bytespace-auth__header {
+  .auth-header {
     padding: var(--space-24) var(--space-16) var(--space-12);
     justify-content: center;
   }
 
-  .bytespace-auth__brand {
+  .auth-brand {
     gap: var(--space-8);
   }
 
-  .bytespace-auth__logo-icon {
+  .auth-logo-icon {
     width: 28px;
     height: 28px;
   }
 
-  .bytespace-auth__container {
+  .auth-container {
     flex-direction: column;
     padding: 0 clamp(16px, 4vw, 24px);
     align-items: center;
@@ -582,13 +542,13 @@
     box-sizing: border-box;
   }
 
-  .bytespace-auth__left {
+  .auth-left {
     max-width: 100%;
     margin-bottom: var(--space-12);
     text-align: center;
   }
 
-  .bytespace-auth__heading {
+  .auth-heading {
     font-size: clamp(20px, 5.5vw, 26px);
     font-weight: var(--weight-bold);
     color: var(--color-white);
@@ -596,7 +556,7 @@
     line-height: 1.25;
   }
 
-  .bytespace-auth__subtitle {
+  .auth-subtitle {
     font-size: clamp(13px, 3.2vw, 14.5px);
     color: rgba(255, 255, 255, 0.85);
     line-height: 1.45;
@@ -604,18 +564,17 @@
     max-width: 340px;
   }
 
-  /* Hide the complex overlapping 3D stage on mobile */
-  .bytespace-auth__stage {
+  .auth-stage {
     display: none;
   }
 
-  .bytespace-auth__right {
+  .auth-right {
     flex: 1 1 auto;
     width: 100%;
     max-width: 100%;
   }
 
-  .bytespace-auth__card {
+  .auth-card {
     width: 100%;
     max-width: 100%;
     padding: clamp(24px, 5vw, 32px) clamp(18px, 4vw, 26px);
@@ -625,7 +584,7 @@
     box-sizing: border-box;
   }
 
-  .bytespace-auth__card-title {
+  .auth-card-title {
     font-size: clamp(24px, 6vw, 28px);
     font-weight: 700;
     margin-bottom: var(--space-20);
@@ -633,46 +592,46 @@
     color: #040819;
   }
 
-  .bytespace-auth__card-title--register {
+  .auth-card-title-register {
     max-width: 100%;
   }
 
-  .bytespace-auth__field {
+  .auth-field {
     margin-bottom: var(--space-16);
   }
 
-  .bytespace-auth__label {
+  .auth-label {
     font-size: 13.5px;
     margin-bottom: 6px;
   }
 
-  .bytespace-auth__input {
+  .auth-input {
     height: 48px;
     font-size: 14px;
     padding: 0 14px;
     border-radius: 12px;
   }
 
-  .bytespace-auth__remember-row {
+  .auth-remember-row {
     margin-top: 4px;
     margin-bottom: var(--space-20);
     font-size: 13px;
   }
 
-  .bytespace-auth__remember-label {
+  .auth-remember-label {
     font-size: 13px;
   }
 
-  .bytespace-auth__forgot-link {
+  .auth-forgot-link {
     font-size: 13px;
   }
 
-  .bytespace-auth__btn-wrapper {
+  .auth-btn-wrap {
     justify-content: stretch;
     margin-top: var(--space-16);
   }
 
-  .bytespace-auth__submit-btn {
+  .auth-submit-btn {
     width: 100%;
     height: 48px;
     font-size: 15px;
@@ -683,42 +642,42 @@
     box-shadow: 0 4px 16px rgba(212, 251, 32, 0.35);
   }
 
-  .bytespace-auth__submit-btn:hover {
+  .auth-submit-btn:hover {
     background-color: var(--color-electric-lime-500);
   }
 
-  .bytespace-auth__divider {
+  .auth-divider {
     margin: 24px 0 20px;
   }
 
-  .bytespace-auth__divider-text {
+  .auth-divider-text {
     font-size: 14px;
     padding: 0 14px;
   }
 
-  .bytespace-auth__socials {
+  .auth-socials {
     gap: 16px;
     margin-bottom: var(--space-20);
   }
 
-  .bytespace-auth__social-btn {
+  .auth-social-btn {
     width: 52px;
     height: 52px;
     border-radius: 14px;
   }
 
-  .bytespace-auth__social-icon {
+  .auth-social-icon {
     width: 22px;
     height: 22px;
   }
 
-  .bytespace-auth__footer-text,
-  .bytespace-auth__footer-text--register {
+  .auth-footer-text,
+  .auth-footer-text-register {
     font-size: 14px;
     margin-top: var(--space-16);
   }
 
-  .bytespace-auth__footer-link {
+  .auth-footer-link {
     font-size: 14px;
   }
 }

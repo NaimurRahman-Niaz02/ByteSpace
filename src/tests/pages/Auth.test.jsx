@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import LoginPage from './LoginPage';
-import RegisterPage from './RegisterPage';
+import LoginPage from '../../pages/LoginPage';
+import RegisterPage from '../../pages/RegisterPage';
 
 describe('LoginPage Component', () => {
   test('renders Login page headings and inputs', () => {
@@ -45,7 +45,7 @@ describe('LoginPage Component', () => {
     );
 
     const brandLink = screen.getByRole('link', { name: /ByteSpace/i });
-    expect(brandLink.querySelector('.bytespace-auth__brand-name')).toBeNull();
+    expect(brandLink.querySelector('.auth-brand-name')).toBeNull();
 
     expect(screen.getByText('Build Digital Asset')).toBeInTheDocument();
     expect(screen.getByText('the Power of Big Data')).toBeInTheDocument();
@@ -99,7 +99,7 @@ describe('RegisterPage Component', () => {
     );
 
     const brandLink = screen.getByRole('link', { name: /ByteSpace/i });
-    expect(brandLink.querySelector('.bytespace-auth__brand-name')).toBeNull();
+    expect(brandLink.querySelector('.auth-brand-name')).toBeNull();
 
     expect(screen.getByText('Build Digital Asset')).toBeInTheDocument();
     expect(screen.getByText('the Power of Big Data')).toBeInTheDocument();

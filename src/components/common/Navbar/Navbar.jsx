@@ -7,11 +7,6 @@ import {
 } from '../../../data/navigation';
 import './Navbar.css';
 
-/**
- * Navbar Component
- * Matches Figma Node #1:1778 (Header_Frame)
- * Height 120px, ByteSpace logo (Clash Display 24px + Lime icon), Nav links (16px), Actions + Cart
- */
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const menuRef = useRef(null);
@@ -21,7 +16,6 @@ export default function Navbar() {
     setMobileMenuOpen((prev) => !prev);
   };
 
-  // Close mobile drawer when clicking outside
   useEffect(() => {
     if (!mobileMenuOpen) return;
     const handleOutsideClick = (e) => {
@@ -43,30 +37,28 @@ export default function Navbar() {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="bytespace-navbar" role="banner">
-      <div className="bytespace-navbar__container">
-        {/* Brand Logo */}
-        <a href="/" className="bytespace-navbar__brand" aria-label="ByteSpace Home">
+    <header className="navbar" role="banner">
+      <div className="navbar-container">
+        <a href="/" className="navbar-brand" aria-label="ByteSpace Home">
           <img
             src={brandInfo.logoIcon}
             alt=""
             aria-hidden="true"
-            className="bytespace-navbar__logo-icon"
+            className="navbar-logo-icon"
             width="29"
             height="32"
           />
-          <span className="bytespace-navbar__brand-name">{brandInfo.name}</span>
+          <span className="navbar-brand-name">{brandInfo.name}</span>
         </a>
 
-        {/* Desktop Navigation Links */}
-        <nav className="bytespace-navbar__nav" aria-label="Main Navigation">
-          <ul className="bytespace-navbar__nav-list">
+        <nav className="navbar-nav" aria-label="Main Navigation">
+          <ul className="navbar-nav-list">
             {headerNavLinks.map((item) => (
-              <li key={item.id} className="bytespace-navbar__nav-item">
+              <li key={item.id} className="navbar-nav-item">
                 <a
                   href={item.href}
-                  className={`bytespace-navbar__nav-link ${
-                    item.isActive ? 'bytespace-navbar__nav-link--active' : ''
+                  className={`navbar-nav-link ${
+                    item.isActive ? 'navbar-nav-link-active' : ''
                   }`}
                 >
                   {item.label}
@@ -76,14 +68,13 @@ export default function Navbar() {
           </ul>
         </nav>
 
-        {/* Right Actions: Sign In / Join Us & Shopping Cart */}
-        <div className="bytespace-navbar__actions">
-          <div className="bytespace-navbar__auth">
+        <div className="navbar-actions">
+          <div className="navbar-auth">
             {headerAuthActions.map((action) => (
               <a
                 key={action.id}
                 href={action.href}
-                className="bytespace-navbar__auth-link"
+                className="navbar-auth-link"
               >
                 {action.label}
               </a>
@@ -92,61 +83,58 @@ export default function Navbar() {
 
           <a
             href="#cart"
-            className="bytespace-navbar__cart-btn"
+            className="navbar-cart-btn"
             aria-label={headerCartAction.ariaLabel}
           >
             <img
               src={headerCartAction.icon}
               alt=""
               aria-hidden="true"
-              className="bytespace-navbar__cart-icon"
+              className="navbar-cart-icon"
               width="24"
               height="24"
             />
           </a>
 
-          {/* Mobile Menu Hamburger Toggle */}
           <button
             ref={hamburgerRef}
             type="button"
-            className={`bytespace-navbar__hamburger ${
-              mobileMenuOpen ? 'bytespace-navbar__hamburger--active' : ''
+            className={`navbar-hamburger ${
+              mobileMenuOpen ? 'navbar-hamburger-active' : ''
             }`}
             onClick={toggleMobileMenu}
             aria-expanded={mobileMenuOpen}
             aria-label="Toggle navigation menu"
           >
-            <span className="bytespace-navbar__hamburger-bar" />
-            <span className="bytespace-navbar__hamburger-bar" />
-            <span className="bytespace-navbar__hamburger-bar" />
+            <span className="navbar-hamburger-bar" />
+            <span className="navbar-hamburger-bar" />
+            <span className="navbar-hamburger-bar" />
           </button>
         </div>
       </div>
 
-      {/* Mobile Backdrop to catch outside clicks */}
       {mobileMenuOpen && (
         <div
-          className="bytespace-navbar__mobile-backdrop"
+          className="navbar-mobile-backdrop"
           onClick={() => setMobileMenuOpen(false)}
           aria-hidden="true"
         />
       )}
 
-      {/* Mobile Dropdown / Drawer */}
       <div
         ref={menuRef}
-        className={`bytespace-navbar__mobile-menu ${
-          mobileMenuOpen ? 'bytespace-navbar__mobile-menu--open' : ''
+        className={`navbar-mobile-menu ${
+          mobileMenuOpen ? 'navbar-mobile-menu-open' : ''
         }`}
         aria-hidden={!mobileMenuOpen}
       >
-        <ul className="bytespace-navbar__mobile-list">
+        <ul className="navbar-mobile-list">
           {headerNavLinks.map((item) => (
             <li key={`mobile-${item.id}`}>
               <a
                 href={item.href}
-                className={`bytespace-navbar__mobile-link ${
-                  item.isActive ? 'bytespace-navbar__mobile-link--active' : ''
+                className={`navbar-mobile-link ${
+                  item.isActive ? 'navbar-mobile-link-active' : ''
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -154,12 +142,12 @@ export default function Navbar() {
               </a>
             </li>
           ))}
-          <li className="bytespace-navbar__mobile-divider" />
+          <li className="navbar-mobile-divider" />
           {headerAuthActions.map((action) => (
             <li key={`mobile-${action.id}`}>
               <a
                 href={action.href}
-                className="bytespace-navbar__mobile-link"
+                className="navbar-mobile-link"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {action.label}

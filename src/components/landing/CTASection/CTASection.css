@@ -1,12 +1,4 @@
-/**
- * ByteSpace Creator CTA Section Styles
- * Source of truth: Figma #34:1161 & Ground Truth Actual Design
- */
-
-/* =========================================
- * 1. Section Container & Background
- * ========================================= */
-.bytespace-cta {
+.cta-section {
   width: 100%;
   min-height: 488px;
   background-color: var(--color-persian-blue-800, #003BE2);
@@ -24,7 +16,7 @@
   box-sizing: border-box;
 }
 
-.bytespace-cta__container {
+.cta-container {
   width: 100%;
   max-width: var(--container-max-width, 1200px);
   margin: 0 auto;
@@ -38,10 +30,7 @@
   box-sizing: border-box;
 }
 
-/* =========================================
- * 2. Decorative 3D Ornaments (Desktop)
- * ========================================= */
-.bytespace-cta__ornaments {
+.cta-ornaments {
   position: absolute;
   top: 0;
   left: 0;
@@ -52,7 +41,7 @@
   z-index: 1;
 }
 
-.bytespace-cta__ornament {
+.cta-ornament {
   position: absolute;
   object-fit: contain;
   pointer-events: none;
@@ -60,8 +49,7 @@
   filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
 }
 
-/* 1. Top-Left Lime Spiral */
-.bytespace-cta__ornament--spiral-top-left {
+.cta-ornament-spiral-tl {
   top: clamp(-50px, -3vw, -25px);
   left: clamp(-45px, -2.5vw, -20px);
   width: clamp(150px, 14.5vw, 210px);
@@ -69,8 +57,7 @@
   transform: rotate(-25deg);
 }
 
-/* 2. Top-Left White Squiggle */
-.bytespace-cta__ornament--squiggle-top-left {
+.cta-ornament-squiggle-tl {
   top: clamp(25px, 3.5vw, 55px);
   left: clamp(130px, 15.5vw, 225px);
   width: clamp(80px, 8vw, 115px);
@@ -78,8 +65,7 @@
   transform: rotate(-35deg);
 }
 
-/* 3. Bottom-Left White Cone */
-.bytespace-cta__ornament--cone-bottom-left {
+.cta-ornament-cone-bl {
   bottom: clamp(-20px, -1.5vw, -10px);
   left: clamp(-30px, -1.5vw, -15px);
   width: clamp(105px, 10.5vw, 155px);
@@ -88,8 +74,7 @@
   z-index: 1;
 }
 
-/* 4. Bottom-Left Lime Torus Ring */
-.bytespace-cta__ornament--torus-bottom-left {
+.cta-ornament-torus-bl {
   bottom: clamp(-95px, -8vw, -65px);
   left: clamp(40px, 5vw, 75px);
   width: clamp(180px, 18.5vw, 270px);
@@ -98,8 +83,7 @@
   z-index: 2;
 }
 
-/* 5. Top-Right Lime Pyramid */
-.bytespace-cta__ornament--pyramid-top-right {
+.cta-ornament-pyramid-tr {
   top: clamp(25px, 3.5vw, 55px);
   right: clamp(180px, 24vw, 355px);
   width: clamp(85px, 8.5vw, 125px);
@@ -107,8 +91,7 @@
   transform: rotate(0deg);
 }
 
-/* 6. Top-Right White Cylinder */
-.bytespace-cta__ornament--cylinder-top-right {
+.cta-ornament-cylinder-tr {
   top: clamp(-70px, -4vw, -40px);
   right: clamp(-80px, -5vw, -45px);
   width: clamp(170px, 18vw, 260px);
@@ -116,8 +99,7 @@
   transform: rotate(-35deg);
 }
 
-/* 7. Bottom-Right Lime Spiral */
-.bytespace-cta__ornament--spiral-bottom-right {
+.cta-ornament-spiral-br {
   bottom: clamp(-85px, -6vw, -55px);
   right: clamp(15px, 4vw, 60px);
   width: clamp(140px, 15vw, 215px);
@@ -125,10 +107,7 @@
   transform: rotate(25deg);
 }
 
-/* =========================================
- * 3. Typography & Action Button
- * ========================================= */
-.bytespace-cta__heading {
+.cta-heading {
   font-family: var(--font-heading);
   font-size: clamp(34px, 3.2vw, 46px);
   font-weight: var(--weight-bold, 700);
@@ -140,13 +119,13 @@
   text-align: center;
 }
 
-.bytespace-cta__highlight {
-  color: var(--color-white, #FFFFFF);
+.cta-highlight {
+  color: var(--color-electric-lime-400, #D4FB20);
   font-weight: inherit;
   display: inline;
 }
 
-.bytespace-cta__description {
+.cta-description {
   font-family: var(--font-body);
   font-size: clamp(15px, 1.25vw, 18px);
   font-weight: var(--weight-regular, 400);
@@ -157,12 +136,12 @@
   text-align: center;
 }
 
-.bytespace-cta__action {
+.cta-action {
   display: flex;
   justify-content: center;
 }
 
-.bytespace-cta__button {
+.cta-btn {
   min-width: 172px;
   height: 46px;
   padding: 12px 28px;
@@ -180,50 +159,45 @@
   transition: transform var(--transition-fast, 0.2s ease), box-shadow var(--transition-fast, 0.2s ease);
 }
 
-.bytespace-cta__button:hover {
+.cta-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 24px rgba(212, 251, 32, 0.5);
 }
 
-/* =========================================
- * 4. Responsive Behavior
- * ========================================= */
-
-/* Tablet (769px – 1024px) */
 @media (max-width: 1024px) {
-  .bytespace-cta {
+  .cta-section {
     min-height: 440px;
     padding: var(--space-64, 64px) 0;
     background-size: 90px 90px;
   }
 
-  .bytespace-cta__heading {
+  .cta-heading {
     font-size: var(--font-size-heading-s, 36px);
     max-width: 580px;
     margin-bottom: var(--space-16, 16px);
   }
 
-  .bytespace-cta__description {
+  .cta-description {
     font-size: var(--font-size-body-m, 16px);
     max-width: 660px;
     margin-bottom: var(--space-32, 32px);
   }
 
-  .bytespace-cta__ornament--spiral-top-left {
+  .cta-ornament-spiral-tl {
     top: -30px;
     left: -25px;
     width: 140px;
     transform: rotate(-25deg);
   }
 
-  .bytespace-cta__ornament--squiggle-top-left {
+  .cta-ornament-squiggle-tl {
     top: 25px;
     left: 110px;
     width: 75px;
     transform: rotate(-35deg);
   }
 
-  .bytespace-cta__ornament--cone-bottom-left {
+  .cta-ornament-cone-bl {
     bottom: -15px;
     left: -15px;
     width: 100px;
@@ -231,27 +205,27 @@
     z-index: 1;
   }
 
-  .bytespace-cta__ornament--torus-bottom-left {
+  .cta-ornament-torus-bl {
     bottom: -55px;
     left: 40px;
     width: 175px;
     z-index: 2;
   }
 
-  .bytespace-cta__ornament--pyramid-top-right {
+  .cta-ornament-pyramid-tr {
     top: 25px;
     right: 170px;
     width: 80px;
   }
 
-  .bytespace-cta__ornament--cylinder-top-right {
+  .cta-ornament-cylinder-tr {
     top: -35px;
     right: -40px;
     width: 165px;
     transform: rotate(-35deg);
   }
 
-  .bytespace-cta__ornament--spiral-bottom-right {
+  .cta-ornament-spiral-br {
     bottom: -50px;
     right: 20px;
     width: 140px;
@@ -259,33 +233,32 @@
   }
 }
 
-/* Mobile (<= 768px, down to 320px) */
 @media (max-width: 768px) {
-  .bytespace-cta {
+  .cta-section {
     min-height: auto;
     padding: var(--space-48, 48px) var(--space-16, 16px);
     background-size: 70px 70px;
   }
 
-  .bytespace-cta__container {
+  .cta-container {
     padding: 0;
   }
 
-  .bytespace-cta__heading {
+  .cta-heading {
     font-size: clamp(22px, 6.2vw, 28px);
     line-height: 1.25;
     max-width: 320px;
     margin-bottom: var(--space-16, 16px);
   }
 
-  .bytespace-cta__description {
+  .cta-description {
     font-size: clamp(13px, 3.8vw, 15px);
     line-height: 1.55;
     max-width: 320px;
     margin-bottom: var(--space-24, 24px);
   }
 
-  .bytespace-cta__button {
+  .cta-btn {
     min-width: 160px;
     max-width: 220px;
     height: 44px;
@@ -293,14 +266,14 @@
     font-size: var(--font-size-label-m, 16px);
   }
 
-  .bytespace-cta__ornament--spiral-top-left {
+  .cta-ornament-spiral-tl {
     top: -20px;
     left: -20px;
     width: 75px;
     transform: rotate(-25deg);
   }
 
-  .bytespace-cta__ornament--squiggle-top-left {
+  .cta-ornament-squiggle-tl {
     top: 10px;
     left: 45px;
     width: 42px;
@@ -308,7 +281,7 @@
     opacity: 0.9;
   }
 
-  .bytespace-cta__ornament--cone-bottom-left {
+  .cta-ornament-cone-bl {
     bottom: -10px;
     left: -10px;
     width: 55px;
@@ -316,28 +289,28 @@
     z-index: 1;
   }
 
-  .bytespace-cta__ornament--torus-bottom-left {
+  .cta-ornament-torus-bl {
     bottom: -30px;
     left: 20px;
     width: 95px;
     z-index: 2;
   }
 
-  .bytespace-cta__ornament--pyramid-top-right {
+  .cta-ornament-pyramid-tr {
     top: 15px;
     right: 55px;
     width: 45px;
     opacity: 0.9;
   }
 
-  .bytespace-cta__ornament--cylinder-top-right {
+  .cta-ornament-cylinder-tr {
     top: -20px;
     right: -25px;
     width: 85px;
     transform: rotate(-35deg);
   }
 
-  .bytespace-cta__ornament--spiral-bottom-right {
+  .cta-ornament-spiral-br {
     bottom: -25px;
     right: -10px;
     width: 75px;

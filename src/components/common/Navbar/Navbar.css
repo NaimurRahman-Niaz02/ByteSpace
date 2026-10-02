@@ -1,16 +1,16 @@
-.bytespace-navbar {
+.navbar {
   position: relative;
   width: 100%;
-  height: var(--height-header); /* 120px */
+  height: var(--height-header); 
   z-index: 50;
   display: flex;
   align-items: center;
 }
 
-.bytespace-navbar__container {
+.navbar-container {
   position: relative;
   width: 100%;
-  max-width: var(--width-artboard); /* 1440px */
+  max-width: var(--width-artboard); 
   margin: 0 auto;
   padding: 0 clamp(40px, calc(40px + 80 * ((100vw - 1025px) / 415)), var(--space-120));
   display: flex;
@@ -19,7 +19,7 @@
 }
 
 /* Brand Logo (#1:1787) */
-.bytespace-navbar__brand {
+.navbar-brand {
   display: inline-flex;
   align-items: center;
   gap: var(--space-8);
@@ -28,23 +28,23 @@
   flex-shrink: 0;
 }
 
-.bytespace-navbar__logo-icon {
+.navbar-logo-icon {
   width: 29px;
   height: 32px;
   display: block;
 }
 
-.bytespace-navbar__brand-name {
+.navbar-brand-name {
   font-family: var(--font-logo); /* Clash Display */
   font-weight: var(--weight-bold); /* 700 */
   font-size: 24px;
-  color: var(--color-shuttle-gray-50); /* #F5F5F6 */
+  color: var(--color-shuttle-gray-50); 
   letter-spacing: 0;
   line-height: 1;
 }
 
 /* Navigation Menu (#1:1779) */
-.bytespace-navbar__nav {
+.navbar-nav {
   display: flex;
   align-items: center;
   position: absolute;
@@ -52,63 +52,63 @@
   transform: translateX(-50%);
 }
 
-.bytespace-navbar__nav-list {
+.navbar-nav-list {
   display: flex;
   align-items: center;
-  gap: var(--space-24); /* 24px */
+  gap: var(--space-24); 
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.bytespace-navbar__nav-link {
+.navbar-nav-link {
   font-family: var(--font-body);
-  font-size: var(--font-size-body-m); /* 16px */
+  font-size: var(--font-size-body-m); 
   font-weight: var(--weight-regular); /* 400 */
-  color: var(--color-shuttle-gray-50); /* #F5F5F6 */
+  color: var(--color-shuttle-gray-50); 
   text-decoration: none;
   transition: color var(--transition-fast);
   padding: 6px 0;
   position: relative;
 }
 
-.bytespace-navbar__nav-link--active {
+.navbar-nav-link-active {
   font-weight: var(--weight-medium); /* Label M (500) */
   color: var(--color-shuttle-gray-50);
 }
 
-.bytespace-navbar__nav-link:hover {
+.navbar-nav-link:hover {
   color: var(--color-electric-lime-400);
 }
 
 /* Right Actions (#1:1783) */
-.bytespace-navbar__actions {
+.navbar-actions {
   display: flex;
   align-items: center;
-  gap: var(--space-24); /* 24px */
+  gap: var(--space-24); 
 }
 
-.bytespace-navbar__auth {
+.navbar-auth {
   display: flex;
   align-items: center;
   gap: var(--space-24);
 }
 
-.bytespace-navbar__auth-link {
+.navbar-auth-link {
   font-family: var(--font-body);
-  font-size: var(--font-size-body-m); /* 16px */
+  font-size: var(--font-size-body-m); 
   font-weight: var(--weight-regular); /* 400 */
-  color: var(--color-shuttle-gray-50); /* #F5F5F6 */
+  color: var(--color-shuttle-gray-50); 
   text-decoration: none;
   transition: color var(--transition-fast);
   padding: 6px 0;
 }
 
-.bytespace-navbar__auth-link:hover {
+.navbar-auth-link:hover {
   color: var(--color-electric-lime-400);
 }
 
-.bytespace-navbar__cart-btn {
+.navbar-cart-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -119,19 +119,19 @@
   transition: transform var(--transition-fast), opacity var(--transition-fast);
 }
 
-.bytespace-navbar__cart-btn:hover {
+.navbar-cart-btn:hover {
   opacity: 0.85;
   transform: scale(1.05);
 }
 
-.bytespace-navbar__cart-icon {
+.navbar-cart-icon {
   width: 24px;
   height: 24px;
   display: block;
 }
 
 /* Mobile Hamburger Toggle */
-.bytespace-navbar__hamburger {
+.navbar-hamburger {
   display: none;
   flex-direction: column;
   justify-content: space-around;
@@ -144,7 +144,7 @@
   z-index: 60;
 }
 
-.bytespace-navbar__hamburger-bar {
+.navbar-hamburger-bar {
   width: 28px;
   height: 2.5px;
   background-color: var(--color-shuttle-gray-50);
@@ -152,22 +152,22 @@
   transition: all var(--transition-fast);
 }
 
-.bytespace-navbar__hamburger--active .bytespace-navbar__hamburger-bar:nth-child(1) {
+.navbar-hamburger-active .navbar-hamburger-bar:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
 
-.bytespace-navbar__hamburger--active .bytespace-navbar__hamburger-bar:nth-child(2) {
+.navbar-hamburger-active .navbar-hamburger-bar:nth-child(2) {
   opacity: 0;
 }
 
-.bytespace-navbar__hamburger--active .bytespace-navbar__hamburger-bar:nth-child(3) {
+.navbar-hamburger-active .navbar-hamburger-bar:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
 
 /* Mobile Dropdown / Drawer Menu
  * Starts from top of section down to the end of the blue section, docked on the right
  */
-.bytespace-navbar__mobile-menu {
+.navbar-mobile-menu {
   display: none;
   position: absolute;
   top: 0;
@@ -187,7 +187,7 @@
   overflow-y: auto;
 }
 
-.bytespace-navbar__mobile-list {
+.navbar-mobile-list {
   display: flex;
   flex-direction: column;
   gap: var(--space-16);
@@ -196,7 +196,7 @@
   padding: 0;
 }
 
-.bytespace-navbar__mobile-link {
+.navbar-mobile-link {
   font-family: var(--font-body);
   font-size: var(--font-size-label-l);
   font-weight: var(--weight-medium);
@@ -207,12 +207,12 @@
   transition: color var(--transition-fast);
 }
 
-.bytespace-navbar__mobile-link--active,
-.bytespace-navbar__mobile-link:hover {
+.navbar-mobile-link-active,
+.navbar-mobile-link:hover {
   color: var(--color-electric-lime-400);
 }
 
-.bytespace-navbar__mobile-divider {
+.navbar-mobile-divider {
   height: 1px;
   background: rgba(255, 255, 255, 0.15);
   margin: var(--space-8) 0;
@@ -220,31 +220,31 @@
 
 /* Responsive Breakpoints */
 @media (max-width: 1024px) {
-  .bytespace-navbar__container {
+  .navbar-container {
     padding: 0 var(--space-48);
   }
 }
 
 /* Mobile (<= 768px) */
 @media (max-width: 768px) {
-  .bytespace-navbar {
+  .navbar {
     position: static;
   }
 
-  .bytespace-navbar__container {
+  .navbar-container {
     padding: 0 var(--space-24);
   }
 
-  .bytespace-navbar__nav,
-  .bytespace-navbar__auth {
+  .navbar-nav,
+  .navbar-auth {
     display: none;
   }
 
-  .bytespace-navbar__hamburger {
+  .navbar-hamburger {
     display: flex;
   }
 
-  .bytespace-navbar__mobile-backdrop {
+  .navbar-mobile-backdrop {
     position: absolute;
     top: 0;
     left: 0;
@@ -257,14 +257,14 @@
     cursor: pointer;
   }
 
-  .bytespace-navbar__mobile-menu {
+  .navbar-mobile-menu {
     height: 100%;
     min-height: 100%;
     max-height: 100%;
     z-index: 55;
   }
 
-  .bytespace-navbar__mobile-menu--open {
+  .navbar-mobile-menu-open {
     display: block;
   }
 }

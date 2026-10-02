@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import DiversePaths from './DiversePaths';
-import { diverseLearningPaths, categoriesSectionHeader } from '../../../data/categories';
+import DiversePaths from '../../components/landing/DiversePaths/DiversePaths';
+import { diverseLearningPaths, categoriesSectionHeader } from '../../data/categories';
 
 describe('DiversePaths Section', () => {
   test('renders section heading and description accurately', () => {
@@ -27,7 +27,7 @@ describe('DiversePaths Section', () => {
 
   test('renders all 6 category SVG icons', () => {
     const { container } = render(<DiversePaths />);
-    const iconImages = container.querySelectorAll('.bytespace-category-card__icon');
+    const iconImages = container.querySelectorAll('.category-card-icon');
     expect(iconImages).toHaveLength(6);
     iconImages.forEach((img) => {
       expect(img.getAttribute('src')).toBeTruthy();

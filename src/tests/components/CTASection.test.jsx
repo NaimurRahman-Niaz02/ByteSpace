@@ -1,13 +1,13 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import CTASection from './CTASection';
-import { creatorCTAData } from '../../../data/features';
+import CTASection from '../../components/landing/CTASection/CTASection';
+import { creatorCTAData } from '../../data/features';
 
 describe('CTASection Component', () => {
   test('renders heading with highlighted Creator text', () => {
     render(<CTASection />);
     expect(screen.getByRole('heading', { level: 2 })).toBeInTheDocument();
-    expect(screen.getByText(creatorCTAData.headlineHighlight)).toHaveClass('bytespace-cta__highlight');
+    expect(screen.getByText(creatorCTAData.headlineHighlight)).toHaveClass('cta-highlight');
   });
 
   test('renders description and Join as Creator button', () => {

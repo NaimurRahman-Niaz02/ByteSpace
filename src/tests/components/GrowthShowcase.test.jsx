@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import GrowthShowcase from './GrowthShowcase';
-import { growthShowcaseData } from '../../../data/features';
+import GrowthShowcase from '../../components/landing/GrowthShowcase/GrowthShowcase';
+import { growthShowcaseData } from '../../data/features';
 
 describe('GrowthShowcase Section', () => {
   test('renders Row 1 heading, description, and metrics accurately', () => {

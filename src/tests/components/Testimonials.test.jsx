@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Testimonials from './Testimonials';
-import { testimonialsData, testimonialsHeaderData } from '../../../data/testimonials';
+import Testimonials from '../../components/landing/Testimonials/Testimonials';
+import { testimonialsData, testimonialsHeaderData } from '../../data/testimonials';
 
 describe('Testimonials Section', () => {
   test('renders header title', () => {

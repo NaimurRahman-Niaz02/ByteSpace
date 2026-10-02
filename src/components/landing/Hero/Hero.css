@@ -1,9 +1,8 @@
 /**
- * ByteSpace Hero Section Styles
- * Source of truth: design/landing-page/design-context.md (Figma #1:1695)
+ * Hero Section Styles
  */
 
-.bytespace-hero {
+.hero {
   position: relative;
   width: 100%;
   height: 1024px;
@@ -20,7 +19,7 @@
 }
 
 /* Ambient Grid Mesh (#12:224) - handled via static 120px background-image */
-.bytespace-hero__mesh {
+.hero-mesh {
   display: none;
 }
 
@@ -28,7 +27,7 @@
  * 3D Ornament Cluster (#46:79)
  * Exact Figma positioning relative to 1440px canvas
  * ========================================= */
-.bytespace-hero__ornaments {
+.hero-ornaments {
   position: absolute;
   top: 0;
   left: 50%;
@@ -40,7 +39,7 @@
   z-index: 3;
 }
 
-.bytespace-hero__ornament {
+.hero-ornament {
   position: absolute;
   object-fit: contain;
   user-select: none;
@@ -49,7 +48,7 @@
 
 /* Green 3D Ornaments: Electric Lime (#D4FB20) */
 /* Top-Right Lime Cylinder (#46:110) */
-.bytespace-hero__ornament--cone-lime {
+.hero-ornament-cone-lime {
   right: -120px;
   top: 221px;
   width: 370px;
@@ -59,7 +58,7 @@
 }
 
 /* Top-Left Lime Spiral (#46:90) */
-.bytespace-hero__ornament--sphere-2-large {
+.hero-ornament-sphere-large {
   left: -118px;
   top: 221px;
   width: 385px;
@@ -70,7 +69,7 @@
 
 /* White 3D Ornaments: Crisp White (#F5F5F6) */
 /* Bottom-Right White Squiggle (#46:85) */
-.bytespace-hero__ornament--sphere-1 {
+.hero-ornament-sphere-1 {
   right: 20px;
   top: 672px;
   width: 330px;
@@ -80,7 +79,7 @@
 }
 
 /* Middle-Right White Pyramid (#46:80) */
-.bytespace-hero__ornament--cone-small {
+.hero-ornament-cone-small {
   right: clamp(15px, 9vw, 140px);
   top: 464px;
   width: 188px;
@@ -90,7 +89,7 @@
 }
 
 /* Middle-Left Small White Squiggle (#46:95) */
-.bytespace-hero__ornament--sphere-2-small {
+.hero-ornament-sphere-small {
   left: clamp(15px, 9vw, 140px);
   top: 477px;
   width: 175px;
@@ -101,7 +100,7 @@
 }
 
 /* Bottom-Left White Torus Ring (#46:105) */
-.bytespace-hero__ornament--cone-blue {
+.hero-ornament-cone-blue {
   left: 15px;
   top: 682px;
   width: 342px;
@@ -113,7 +112,7 @@
 /* =========================================
  * Hero Typography & Search Block (#1:1769)
  * ========================================= */
-.bytespace-hero__content {
+.hero-content {
   position: relative;
   z-index: 20;
   width: 100%;
@@ -126,7 +125,7 @@
   text-align: center;
 }
 
-.bytespace-hero__heading-group {
+.hero-heading {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -135,7 +134,7 @@
 }
 
 /* Title (#1:1770 - Heading L) */
-.bytespace-hero__title {
+.hero-title {
   font-family: var(--font-heading);
   font-weight: var(--weight-semibold);
   font-size: clamp(52px, 4.8vw, 72px);
@@ -148,7 +147,7 @@
 }
 
 /* Subtitle (#1:1771 - Body L) */
-.bytespace-hero__subtitle {
+.hero-subtitle {
   font-family: var(--font-body);
   font-weight: var(--weight-regular);
   font-size: 18px;
@@ -160,7 +159,7 @@
 }
 
 /* Search Bar Container (#1:1772) */
-.bytespace-hero__search {
+.hero-search {
   margin-top: 36px;
   width: 100%;
   display: flex;
@@ -172,7 +171,7 @@
  * Hero Stage: Model, Ring & Floating Cards
  * Anchored to the exact bottom of 1024px hero
  * ========================================= */
-.bytespace-hero__stage {
+.hero-stage {
   position: absolute;
   left: 50%;
   bottom: 0;
@@ -188,7 +187,7 @@
  * Anchored to exact Figma top: 582px (top: 99px inside 541px stage)
  * Bottom is at y=1731px (clipped below 1024px), preserving fixed visibility
  */
-.bytespace-hero__ring {
+.hero-ring {
   position: absolute;
   left: 50%;
   top: 99px;
@@ -205,7 +204,7 @@
 /* Central Hero Model (#1:1796)
  * Anchored directly to the bottom line of the hero section
  */
-.bytespace-hero__model-wrapper {
+.hero-model-wrap {
   position: absolute;
   left: 50%;
   bottom: 0;
@@ -216,7 +215,7 @@
   pointer-events: none;
 }
 
-.bytespace-hero__model-img {
+.hero-model-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -228,7 +227,7 @@
  * Floating Metric Cards
  * Exact Figma positioning relative to center
  * ========================================= */
-.bytespace-hero__card {
+.hero-card {
   position: absolute;
   z-index: 10;
   border: 1px solid rgba(255, 255, 255, 0.75);
@@ -236,7 +235,7 @@
 }
 
 /* Card 1: UI/UX Design (#46:126) */
-.bytespace-hero__card--uiux {
+.hero-card-uiux {
   left: 50%;
   margin-left: -316px;
   top: 156px;
@@ -244,7 +243,7 @@
   white-space: nowrap;
 }
 
-.bytespace-hero__card-title {
+.hero-card-title {
   font-family: var(--font-body);
   font-weight: var(--weight-medium);
   font-size: var(--font-size-label-m);
@@ -252,14 +251,14 @@
   line-height: 1.2;
 }
 
-.bytespace-hero__card-meta {
+.hero-card-meta {
   display: flex;
   align-items: center;
   gap: var(--space-8);
   margin-top: var(--space-4);
 }
 
-.bytespace-hero__card-meta-text {
+.hero-card-meta-text {
   font-family: var(--font-body);
   font-size: var(--font-size-body-xs);
   font-weight: var(--weight-medium);
@@ -267,14 +266,14 @@
   line-height: 1.6;
 }
 
-.bytespace-hero__card-meta-dot {
+.hero-card-meta-dot {
   font-size: 11px;
   color: var(--color-shuttle-gray-700);
   line-height: 1;
 }
 
 /* Card 2: Learning Progress (#1:1797) */
-.bytespace-hero__card--progress {
+.hero-card-progress {
   left: 50%;
   margin-left: 122px;
   top: 168px;
@@ -282,7 +281,7 @@
   padding: var(--space-16);
 }
 
-.bytespace-hero__card-label {
+.hero-card-label {
   font-family: var(--font-body);
   font-size: var(--font-size-label-s);
   font-weight: var(--weight-medium);
@@ -290,7 +289,7 @@
   line-height: 1.2;
 }
 
-.bytespace-hero__card-metric-value {
+.hero-card-metric-value {
   font-family: var(--font-heading);
   font-weight: var(--weight-semibold);
   font-size: 48px;
@@ -300,7 +299,7 @@
   margin: 4px 0 8px;
 }
 
-.bytespace-hero__card-progress-bar {
+.hero-card-progress-bar {
   width: 200px;
   height: 8px;
   border-radius: var(--radius-lg);
@@ -308,7 +307,7 @@
 }
 
 /* Card 3: Happy Students (#1:1821) */
-.bytespace-hero__card--students {
+.hero-card-students {
   left: 50%;
   margin-left: -392px;
   top: 354px;
@@ -316,7 +315,7 @@
   padding: var(--space-16);
 }
 
-.bytespace-hero__students-header {
+.hero-students-header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -324,13 +323,13 @@
   margin-bottom: var(--space-12);
 }
 
-.bytespace-hero__rating-row {
+.hero-rating-row {
   display: flex;
   align-items: center;
   gap: var(--space-4);
 }
 
-.bytespace-hero__rating-text {
+.hero-rating-text {
   font-family: var(--font-body);
   font-size: var(--font-size-body-xs);
   font-weight: var(--weight-regular);
@@ -338,19 +337,19 @@
   line-height: 1.6;
 }
 
-.bytespace-hero__star-icon {
+.hero-star-icon {
   width: 16px;
   height: 16px;
   display: block;
 }
 
 /* Avatar Stack (#1:1827) */
-.bytespace-hero__avatar-stack {
+.hero-avatar-stack {
   display: flex;
   align-items: center;
 }
 
-.bytespace-hero__avatar-img {
+.hero-avatar-img {
   width: 43px;
   height: 43px;
   border-radius: var(--radius-full);
@@ -361,11 +360,11 @@
   display: block;
 }
 
-.bytespace-hero__avatar-img:first-child {
+.hero-avatar-img:first-child {
   margin-left: 0;
 }
 
-.bytespace-hero__avatar-badge {
+.hero-avatar-badge {
   width: 43px;
   height: 43px;
   border-radius: var(--radius-full);
@@ -388,57 +387,57 @@
  * ========================================= */
 
 @media (max-width: 1024px) {
-  .bytespace-hero {
+  .hero {
     height: auto;
     min-height: auto;
   }
 
-  .bytespace-hero__ornaments {
+  .hero-ornaments {
     display: block;
     pointer-events: none;
   }
 
-  .bytespace-hero__ornament--cone-lime {
+  .hero-ornament-cone-lime {
     right: -30px;
     top: 160px;
     width: clamp(140px, 16vw, 180px);
   }
 
-  .bytespace-hero__ornament--sphere-2-large {
+  .hero-ornament-sphere-large {
     left: -30px;
     top: 160px;
     width: clamp(150px, 17vw, 190px);
   }
 
-  .bytespace-hero__ornament--cone-small {
+  .hero-ornament-cone-small {
     right: clamp(10px, 3vw, 35px);
     top: clamp(330px, 38vw, 380px);
     width: clamp(85px, 10vw, 110px);
   }
 
-  .bytespace-hero__ornament--sphere-2-small {
+  .hero-ornament-sphere-small {
     left: clamp(10px, 3vw, 35px);
     top: clamp(330px, 38vw, 380px);
     width: clamp(85px, 10vw, 110px);
   }
 
-  .bytespace-hero__ornament--sphere-1 {
+  .hero-ornament-sphere-1 {
     right: 10px;
     top: clamp(460px, 56vw, 540px);
     width: clamp(130px, 15vw, 170px);
   }
 
-  .bytespace-hero__ornament--cone-blue {
+  .hero-ornament-cone-blue {
     left: 10px;
     top: clamp(460px, 56vw, 540px);
     width: clamp(140px, 16vw, 180px);
   }
 
-  .bytespace-hero__title {
+  .hero-title {
     font-size: clamp(38px, 4.8vw, 52px);
   }
 
-  .bytespace-hero__stage {
+  .hero-stage {
     position: relative;
     left: auto;
     bottom: auto;
@@ -448,7 +447,7 @@
     pointer-events: auto;
   }
 
-  .bytespace-hero__model-wrapper {
+  .hero-model-wrap {
     position: absolute;
     width: clamp(380px, 46vw, 450px);
     height: clamp(380px, 46vw, 450px);
@@ -458,12 +457,12 @@
     pointer-events: auto;
   }
 
-  .bytespace-hero__model-img {
+  .hero-model-img {
     object-fit: cover;
     object-position: top center;
   }
 
-  .bytespace-hero__ring {
+  .hero-ring {
     position: absolute;
     left: 50%;
     top: auto;
@@ -474,20 +473,20 @@
     border-width: clamp(160px, 20vw, 240px);
   }
 
-  .bytespace-hero__card--uiux {
+  .hero-card-uiux {
     left: 50%;
     margin-left: calc(-1 * min(260px, 30vw));
     top: 60px;
   }
 
-  .bytespace-hero__card--progress {
+  .hero-card-progress {
     left: 50%;
     margin-left: min(100px, 11vw);
     top: 70px;
     width: 200px;
   }
 
-  .bytespace-hero__card--students {
+  .hero-card-students {
     left: 50%;
     margin-left: calc(-1 * min(320px, 33vw));
     top: 220px;
@@ -502,7 +501,7 @@
  * 4. Boy's head starts close and below search button, face visible
  * ========================================= */
 @media (max-width: 768px) {
-  .bytespace-hero {
+  .hero {
     min-height: auto;
     height: auto;
     padding-bottom: 0;
@@ -510,7 +509,7 @@
     position: relative;
   }
 
-  .bytespace-hero__ornaments {
+  .hero-ornaments {
     display: block;
     position: absolute;
     top: 0;
@@ -526,7 +525,7 @@
   }
 
   /* Lime Cylinder: Top Right Corner, clear of title */
-  .bytespace-hero__ornament--cone-lime {
+  .hero-ornament-cone-lime {
     right: -20px;
     top: 15px;
     left: auto;
@@ -534,7 +533,7 @@
   }
 
   /* Lime Spiral: Top Left Corner, clear of title */
-  .bytespace-hero__ornament--sphere-2-large {
+  .hero-ornament-sphere-large {
     left: -20px;
     top: 15px;
     right: auto;
@@ -542,7 +541,7 @@
   }
 
   /* Small White Pyramid: Mid Right Edge, beside search */
-  .bytespace-hero__ornament--cone-small {
+  .hero-ornament-cone-small {
     right: -10px;
     top: clamp(260px, 48vw, 320px);
     left: auto;
@@ -550,7 +549,7 @@
   }
 
   /* Small White Squiggle: Mid Left Edge, beside search */
-  .bytespace-hero__ornament--sphere-2-small {
+  .hero-ornament-sphere-small {
     left: -10px;
     top: clamp(260px, 48vw, 320px);
     right: auto;
@@ -558,7 +557,7 @@
   }
 
   /* Large White Squiggle: Bottom Right, in open space beside cards */
-  .bytespace-hero__ornament--sphere-1 {
+  .hero-ornament-sphere-1 {
     right: clamp(4px, 2vw, 15px);
     bottom: clamp(50px, 12vw, 90px);
     top: auto;
@@ -567,7 +566,7 @@
   }
 
   /* White Torus Ring: Bottom Left, in open space beside cards */
-  .bytespace-hero__ornament--cone-blue {
+  .hero-ornament-cone-blue {
     left: clamp(4px, 2vw, 15px);
     bottom: clamp(50px, 12vw, 90px);
     top: auto;
@@ -575,33 +574,33 @@
     width: clamp(50px, 12vw, 70px);
   }
 
-  .bytespace-hero__content {
+  .hero-content {
     padding: var(--space-20) var(--space-16) 0;
     position: relative;
     z-index: 20;
   }
 
-  .bytespace-hero__heading-group {
+  .hero-heading {
     gap: var(--space-16);
   }
 
-  .bytespace-hero__title {
+  .hero-title {
     font-size: clamp(28px, 6vw, 40px);
     line-height: 1.2;
   }
 
-  .bytespace-hero__subtitle {
+  .hero-subtitle {
     font-size: clamp(13px, 2.5vw, 15px);
     line-height: 1.5;
   }
 
-  .bytespace-hero__search {
+  .hero-search {
     margin-top: clamp(14px, 3.5vw, 24px);
     width: 100%;
   }
 
   /* Stage: relative wrapper for background ring, model, and front cards */
-  .bytespace-hero__stage {
+  .hero-stage {
     position: relative;
     width: 100%;
     max-width: 100vw;
@@ -617,7 +616,7 @@
   }
 
   /* Half-circle ring: close to or less than half, anchored to bottom BEHIND cards */
-  .bytespace-hero__ring {
+  .hero-ring {
     position: absolute;
     width: clamp(340px, 80vw, 540px);
     height: clamp(340px, 80vw, 540px);
@@ -632,7 +631,7 @@
   /* Central Hero Model: Boy's head starts close below search button, face visible,
    * base sits directly on the bottom line of the section BEHIND cards
    */
-  .bytespace-hero__model-wrapper {
+  .hero-model-wrap {
     position: absolute;
     width: clamp(290px, 68vw, 440px);
     height: clamp(300px, 70vw, 450px);
@@ -645,7 +644,7 @@
     pointer-events: none;
   }
 
-  .bytespace-hero__model-img {
+  .hero-model-img {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -656,7 +655,7 @@
 
 
   /* Floating cards container: in front of model, center-aligned */
-  .bytespace-hero__cards {
+  .hero-cards {
     position: relative;
     z-index: 10;
     display: flex;
@@ -670,7 +669,7 @@
   }
 
   /* Row 1: First two cards side by side; combined width matches third card exactly */
-  .bytespace-hero__cards-row--top {
+  .hero-cards-row-top {
     display: flex;
     flex-direction: row;
     align-items: stretch;
@@ -682,7 +681,7 @@
   }
 
   /* Row 2: Third card in second line; width exactly matches row 1 combined width */
-  .bytespace-hero__cards-row--bottom {
+  .hero-cards-row-bottom {
     display: flex;
     justify-content: center;
     width: clamp(270px, 80vw, 360px);
@@ -691,7 +690,7 @@
   }
 
   /* Shared Card Styling for Mobile */
-  .bytespace-hero__cards .bytespace-hero__card {
+  .hero-cards .hero-card {
     position: relative;
     left: auto;
     right: auto;
@@ -712,18 +711,18 @@
   }
 
   /* Card 1: UI/UX Design */
-  .bytespace-hero__card--uiux {
+  .hero-card-uiux {
     flex: 1;
     min-width: 0;
   }
 
-  .bytespace-hero__card--uiux .bytespace-hero__card-title {
+  .hero-card-uiux .hero-card-title {
     font-size: clamp(11px, 2vw, 14px);
     text-align: center;
     width: 100%;
   }
 
-  .bytespace-hero__card-meta {
+  .hero-card-meta {
     justify-content: center;
     /* Center meta pills/bullets */
     width: 100%;
@@ -731,31 +730,31 @@
     margin-top: 2px;
   }
 
-  .bytespace-hero__card-meta-text {
+  .hero-card-meta-text {
     font-size: clamp(8px, 1.5vw, 11px);
   }
 
   /* Card 2: Learning Progress */
-  .bytespace-hero__card--progress {
+  .hero-card-progress {
     flex: 1;
     min-width: 0;
     width: auto;
   }
 
-  .bytespace-hero__card--progress .bytespace-hero__card-label {
+  .hero-card-progress .hero-card-label {
     font-size: clamp(10px, 1.8vw, 12px);
     text-align: center;
     width: 100%;
   }
 
-  .bytespace-hero__card-metric-value {
+  .hero-card-metric-value {
     font-size: clamp(18px, 3.8vw, 26px);
     margin: 2px 0;
     text-align: center;
     width: 100%;
   }
 
-  .bytespace-hero__card-progress-bar {
+  .hero-card-progress-bar {
     width: 100%;
     max-width: 120px;
     height: 5px;
@@ -763,13 +762,13 @@
   }
 
   /* Card 3: Happy Students in second line */
-  .bytespace-hero__card--students {
+  .hero-card-students {
     width: 100%;
     /* Takes 100% of row 2 width which is clamp(270px, 80vw, 360px) */
     max-width: 100%;
   }
 
-  .bytespace-hero__students-header {
+  .hero-students-header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -780,29 +779,29 @@
     width: 100%;
   }
 
-  .bytespace-hero__card--students .bytespace-hero__card-title {
+  .hero-card-students .hero-card-title {
     font-size: clamp(11px, 2vw, 14px);
     text-align: center;
     width: 100%;
   }
 
-  .bytespace-hero__rating-row {
+  .hero-rating-row {
     justify-content: center;
   }
 
-  .bytespace-hero__avatar-stack {
+  .hero-avatar-stack {
     justify-content: center;
     /* Center avatars inside card */
     width: 100%;
   }
 
-  .bytespace-hero__avatar-img {
+  .hero-avatar-img {
     width: clamp(22px, 3.8vw, 30px);
     height: clamp(22px, 3.8vw, 30px);
     margin-left: -8px;
   }
 
-  .bytespace-hero__avatar-badge {
+  .hero-avatar-badge {
     width: clamp(22px, 3.8vw, 30px);
     height: clamp(22px, 3.8vw, 30px);
     margin-left: -8px;

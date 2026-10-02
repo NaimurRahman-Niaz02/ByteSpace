@@ -3,15 +3,6 @@ import Button from '../Button/Button';
 import { footerData } from '../../../data/navigation';
 import './Footer.css';
 
-/**
- * Footer Component
- * Source of truth: design/landing-page/design-context.md (Figma #34:1256)
- * Approximate desktop dimensions: 1440px x 525px
- * Background: #FFFFFF
- * Structure:
- * 1. Top Section: Newsletter subscription block (left) & 3 navigation columns (right: Browse, Categories, Platform)
- * 2. Bottom Bar: Copyright notice & legal links (Privacy Policy, Terms of Service, Cookies Settings)
- */
 export default function Footer() {
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -27,70 +18,50 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bytespace-footer" aria-label="Site footer">
-      <div className="bytespace-footer__container">
-        {/* Main Directory & Newsletter Row */}
-        <div className="bytespace-footer__main">
-          {/* Newsletter Column (Left) */}
-          <div className="bytespace-footer__newsletter">
-            <div className="bytespace-footer__brand">
-              <img
-                src={brand.logoIcon}
-                alt=""
-                className="bytespace-footer__logo-icon"
-                aria-hidden="true"
-              />
-              <span className="bytespace-footer__brand-name">{brand.name}</span>
+    <footer className="footer" aria-label="Site footer">
+      <div className="footer-container">
+        <div className="footer-main">
+          <div className="footer-newsletter">
+            <div className="footer-brand">
+              <img src={brand.logoIcon} alt="" className="footer-logo-icon" aria-hidden="true" />
+              <span className="footer-brand-name">{brand.name}</span>
             </div>
 
-            <p className="bytespace-footer__brand-description">
-              {brand.description}
-            </p>
+            <p className="footer-brand-desc">{brand.description}</p>
 
-            <form
-              className="bytespace-footer__form"
-              onSubmit={handleSubscribe}
-              aria-label="Newsletter subscription"
-            >
-              <div className="bytespace-footer__input-wrapper">
+            <form className="footer-form" onSubmit={handleSubscribe} aria-label="Newsletter subscription">
+              <div className="footer-input-wrap">
                 <input
                   type="email"
                   placeholder={newsletter.placeholder}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="bytespace-footer__input"
+                  className="footer-input"
                   required
                   aria-label="Email address"
                 />
-                <Button
-                  type="submit"
-                  variant="primary"
-                  className="bytespace-footer__submit-btn"
-                >
+                <Button type="submit" variant="primary" className="footer-submit-btn">
                   {newsletter.buttonText.trim()}
                 </Button>
               </div>
 
               {isSubscribed && (
-                <p className="bytespace-footer__success" role="status">
+                <p className="footer-success" role="status">
                   Thank you for subscribing!
                 </p>
               )}
 
-              <p className="bytespace-footer__disclaimer">
-                {newsletter.disclaimer}
-              </p>
+              <p className="footer-disclaimer">{newsletter.disclaimer}</p>
             </form>
           </div>
 
-          {/* 3 Navigation Columns (Right, headers removed) */}
-          <div className="bytespace-footer__nav" role="navigation" aria-label="Footer links">
+          <div className="footer-nav" role="navigation" aria-label="Footer links">
             {columns.map((column) => (
-              <div key={column.id} className="bytespace-footer__col">
-                <ul className="bytespace-footer__col-list">
+              <div key={column.id} className="footer-col">
+                <ul className="footer-col-list">
                   {column.links.map((link, idx) => (
-                    <li key={idx} className="bytespace-footer__col-item">
-                      <a href={link.href} className="bytespace-footer__link">
+                    <li key={idx} className="footer-col-item">
+                      <a href={link.href} className="footer-link">
                         {link.label}
                       </a>
                     </li>
@@ -101,16 +72,14 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="bytespace-footer__divider" aria-hidden="true" />
+        <div className="footer-divider" aria-hidden="true" />
 
-        {/* Bottom Bar: Copyright & Legal Links */}
-        <div className="bytespace-footer__bottom">
-          <p className="bytespace-footer__copyright">{bottomBar.copyright}</p>
-          <ul className="bytespace-footer__legal-links">
+        <div className="footer-bottom">
+          <p className="footer-copyright">{bottomBar.copyright}</p>
+          <ul className="footer-legal-links">
             {bottomBar.legalLinks.map((legal, idx) => (
-              <li key={idx} className="bytespace-footer__legal-item">
-                <a href={legal.href} className="bytespace-footer__legal-link">
+              <li key={idx} className="footer-legal-item">
+                <a href={legal.href} className="footer-legal-link">
                   {legal.label}
                 </a>
               </li>

@@ -1,15 +1,6 @@
-/**
- * ByteSpace Professional Growth & Creator Showcase Styles
- * Source of truth: design/landing-page/design-context.md
- * Figma nodes: #34:1159 (Section), #34:1157 (Row 1), #34:1158 (Row 2)
- */
-
-/* =========================================
- * 1. Section Container & Layout
- * ========================================= */
-.bytespace-showcase {
+.showcase {
   width: 100%;
-  background-color: var(--color-bg-light); /* #FAFAFA */
+  background-color: var(--color-bg-light); 
   padding-top: var(--space-80);
   padding-bottom: var(--space-80);
   position: relative;
@@ -17,7 +8,7 @@
   box-sizing: border-box;
 }
 
-.bytespace-showcase__glows {
+.showcase-glows {
   position: absolute;
   top: 0;
   left: 0;
@@ -28,15 +19,14 @@
   z-index: 0;
 }
 
-.bytespace-showcase__glow {
+.showcase-glow {
   position: absolute;
   border-radius: var(--radius-full);
   filter: blur(40px);
   -webkit-filter: blur(40px);
 }
 
-/* Row 1 Lime Glow (top left/center) */
-.bytespace-showcase__glow--row1-lime {
+.showcase-glow-row1-lime {
   width: 800px;
   height: 800px;
   top: -150px;
@@ -44,8 +34,7 @@
   background: radial-gradient(circle at 50% 50%, rgba(203, 252, 1, 0.45) 0%, rgba(203, 252, 1, 0.12) 50%, rgba(203, 252, 1, 0) 75%);
 }
 
-/* Row 1 Blue Glow (top right) */
-.bytespace-showcase__glow--row1-blue {
+.showcase-glow-row1-blue {
   width: 800px;
   height: 800px;
   top: -100px;
@@ -53,8 +42,7 @@
   background: radial-gradient(circle at 50% 50%, rgba(0, 59, 226, 0.16) 0%, rgba(0, 59, 226, 0.04) 50%, rgba(0, 59, 226, 0) 75%);
 }
 
-/* Row 2 Lime Glow (bottom left) */
-.bytespace-showcase__glow--row2-lime {
+.showcase-glow-row2-lime {
   width: 750px;
   height: 750px;
   bottom: 0px;
@@ -62,8 +50,7 @@
   background: radial-gradient(circle at 50% 50%, rgba(203, 252, 1, 0.55) 0%, rgba(203, 252, 1, 0.15) 50%, rgba(203, 252, 1, 0) 75%);
 }
 
-/* Row 2 Blue Glow (bottom right) */
-.bytespace-showcase__glow--row2-blue {
+.showcase-glow-row2-blue {
   width: 850px;
   height: 850px;
   bottom: -50px;
@@ -71,25 +58,22 @@
   background: radial-gradient(circle at 50% 50%, rgba(0, 59, 226, 0.22) 0%, rgba(0, 59, 226, 0.06) 50%, rgba(0, 59, 226, 0) 75%);
 }
 
-.bytespace-showcase__container {
+.showcase-container {
   width: 100%;
-  max-width: var(--container-max-width); /* 1200px */
+  max-width: var(--container-max-width); 
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--space-24);
   padding-right: var(--space-24);
   display: flex;
   flex-direction: column;
-  gap: var(--space-80); /* 80px gap between rows */
+  gap: var(--space-80);
   position: relative;
   z-index: 1;
   box-sizing: border-box;
 }
 
-/* =========================================
- * 2. Shared Showcase Row Structure
- * ========================================= */
-.bytespace-showcase-row {
+.showcase-row {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
@@ -98,81 +82,75 @@
   box-sizing: border-box;
 }
 
-/* =========================================
- * 3. Text & Metrics Column
- * ========================================= */
-.bytespace-showcase-row__text {
-  max-width: var(--container-feature-col); /* 574px */
+.showcase-row-text {
+  max-width: var(--container-feature-col); 
   display: flex;
   flex-direction: column;
-  gap: 40px; /* Exact 40px gap in Figma */
+  gap: 40px;
   box-sizing: border-box;
 }
 
-.bytespace-showcase-row__heading {
+.showcase-row-heading {
   font-family: var(--font-heading);
-  font-size: var(--font-size-heading-m); /* 44px */
+  font-size: var(--font-size-heading-m); 
   font-weight: var(--weight-semibold);
-  line-height: var(--line-height-heading-m); /* 1.2 */
-  letter-spacing: var(--letter-spacing-heading-m); /* -0.01em */
-  color: var(--color-navy-dark); /* #040819 */
+  line-height: var(--line-height-heading-m);
+  letter-spacing: var(--letter-spacing-heading-m);
+  color: var(--color-navy-dark); 
   margin: 0;
 }
 
-/* Learner title held in exactly 2 lines on desktop */
-.bytespace-showcase-row__heading--learner {
+.showcase-heading-learner {
   max-width: 530px;
 }
 
-.bytespace-showcase-row__description {
+.showcase-row-desc {
   font-family: var(--font-body);
-  font-size: var(--font-size-body-l); /* 18px */
-  font-weight: var(--weight-regular); /* 400 */
-  line-height: var(--line-height-body-l); /* 1.6 */
-  color: var(--color-shuttle-gray-700); /* #4B4C53 */
+  font-size: var(--font-size-body-l); 
+  font-weight: var(--weight-regular);
+  line-height: var(--line-height-body-l);
+  color: var(--color-shuttle-gray-700); 
   margin: 0;
 }
 
-.bytespace-showcase-row__description--creator {
-  font-weight: var(--weight-regular); /* Regular, start ByteSpace is not bold */
-  color: var(--color-shuttle-gray-700); /* #4B4C53 */
+.showcase-desc-creator {
+  font-weight: var(--weight-regular);
+  color: var(--color-shuttle-gray-700); 
 }
 
-/* Row 1: Metrics (12K Students | 70+ Courses | 16 Creators) */
-.bytespace-showcase-metrics {
+.showcase-metrics {
   display: flex;
   align-items: flex-end;
-  gap: var(--space-56); /* 56px in Figma */
+  gap: var(--space-56);
   margin: 0;
   padding: 0;
   border-top: none;
 }
 
-.bytespace-showcase-metric {
+.showcase-metric {
   display: flex;
   flex-direction: column;
   gap: 0;
 }
 
-.bytespace-showcase-metric__value {
+.showcase-metric-value {
   font-family: var(--font-heading);
   font-size: 36px;
-  font-weight: 500; /* Poppins 500 in Figma */
-  color: var(--color-persian-blue-800); /* #003BE2 */
+  font-weight: 500;
+  color: var(--color-persian-blue-800); 
   line-height: 44px;
   letter-spacing: -0.01em;
 }
 
-.bytespace-showcase-metric__label {
+.showcase-metric-label {
   font-family: var(--font-body);
-  font-size: var(--font-size-body-l); /* 18px */
+  font-size: var(--font-size-body-l); 
   font-weight: var(--weight-regular);
-  color: var(--color-shuttle-gray-700); /* #4B4C53 */
+  color: var(--color-shuttle-gray-700); 
   line-height: 1.6;
 }
 
-/* Row 2: Feature Bullets */
-.bytespace-showcase-bullets {
+.showcase-bullets {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -181,38 +159,35 @@
   list-style: none;
 }
 
-.bytespace-showcase-bullet {
+.showcase-bullet {
   display: flex;
   align-items: center;
   gap: var(--space-16);
 }
 
-.bytespace-showcase-bullet__icon {
+.showcase-bullet-icon {
   width: 24px;
   height: 24px;
   flex-shrink: 0;
   display: block;
 }
 
-.bytespace-showcase-bullet__text {
+.showcase-bullet-text {
   font-family: var(--font-body);
-  font-size: var(--font-size-label-l); /* 18px */
-  font-weight: var(--weight-medium); /* 500 */
-  color: var(--color-shuttle-gray-950); /* #242528 */
+  font-size: var(--font-size-label-l); 
+  font-weight: var(--weight-medium);
+  color: var(--color-shuttle-gray-950); 
   line-height: 1.4;
 }
 
-/* =========================================
- * 4. Visual Column & Floating Elements
- * ========================================= */
-.bytespace-showcase-row__visual {
+.showcase-row-visual {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
 
-.bytespace-showcase-visual-wrapper {
+.showcase-visual-wrap {
   position: relative;
   width: 100%;
   max-width: 580px;
@@ -222,7 +197,7 @@
   align-items: center;
 }
 
-.bytespace-showcase-visual-wrapper--creator {
+.showcase-visual-wrap-creator {
   position: relative;
   width: 541px;
   height: 596px;
@@ -230,8 +205,7 @@
   max-width: 100%;
 }
 
-/* Base Image Frame - unboxed, transparent */
-.bytespace-showcase-image-frame {
+.showcase-image-frame {
   width: 100%;
   max-width: 480px;
   background: transparent;
@@ -242,14 +216,13 @@
   z-index: 2;
 }
 
-.bytespace-showcase-image-frame--learner {
+.showcase-learner {
   max-width: 440px;
   margin-left: 70px;
   margin-top: 10px;
 }
 
-/* Creator image frame (Layered in front of revenue cards & spiral, behind Happy Students) */
-.bytespace-showcase-image-frame--creator {
+.showcase-creator {
   position: absolute;
   left: 75px;
   top: 10px;
@@ -264,14 +237,14 @@
   z-index: 2;
 }
 
-.bytespace-showcase-image {
+.showcase-img {
   width: 100%;
   height: auto;
   display: block;
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.12));
 }
 
-.bytespace-showcase-image--creator {
+.showcase-img-creator {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -279,8 +252,7 @@
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
 }
 
-/* 3D Lime Spiral Ornament in Creator row (Figma #34:1158 Frame) */
-.bytespace-showcase-ornament--spiral-lime {
+.showcase-ornament-spiral {
   position: absolute;
   top: 115px;
   left: 300px;
@@ -291,8 +263,7 @@
   filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.12));
 }
 
-/* Row 1: Background Course Card (Figma #34:1157 Course_Card_1) */
-.bytespace-showcase-card-course {
+.showcase-card-course {
   position: absolute;
   top: 15px;
   left: -20px;
@@ -301,12 +272,11 @@
   pointer-events: none;
 }
 
-.bytespace-showcase-card-course .bytespace-course-card {
+.showcase-card-course .course-card {
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
 }
 
-/* Row 1: 3D Lime Cone Ornament */
-.bytespace-showcase-ornament--cone-lime {
+.showcase-ornament-cone {
   position: absolute;
   top: 30px;
   right: 0px;
@@ -317,8 +287,7 @@
   filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.12));
 }
 
-/* Row 1: Learning Progress Card (Matching Hero Section) */
-.bytespace-showcase-card--progress {
+.showcase-card-progress {
   position: absolute;
   bottom: 40px;
   right: -20px;
@@ -326,7 +295,7 @@
   width: 232px;
   padding: 16px;
   background-color: var(--color-white);
-  border-radius: var(--radius-md); /* 16px */
+  border-radius: var(--radius-md); 
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.8);
   backdrop-filter: var(--blur-glass);
@@ -334,16 +303,16 @@
   z-index: 4;
 }
 
-.bytespace-showcase-progress-card__label {
+.showcase-progress-label {
   font-family: var(--font-body);
-  font-size: var(--font-size-label-s); /* 14px */
+  font-size: var(--font-size-label-s); 
   font-weight: var(--weight-medium);
   color: var(--color-shuttle-gray-950);
   display: block;
   margin-bottom: 4px;
 }
 
-.bytespace-showcase-progress-card__metric-value {
+.showcase-progress-value {
   font-family: var(--font-heading);
   font-size: 48px;
   font-weight: 600;
@@ -353,56 +322,52 @@
   margin-bottom: 12px;
 }
 
-.bytespace-showcase-progress-card__bar {
+.showcase-progress-bar {
   width: 100%;
   height: 8px;
   display: block;
 }
 
-/* Base Floating Card Tweaks */
-.bytespace-showcase-card {
+.showcase-card {
   position: absolute;
   z-index: 4;
 }
 
-/* Row 2: Revenue Cards (Total Revenue & Year to Date) */
-/* Floating Revenue Card 1: Total Revenue (Figma #34:1158: width 232px, left 0, top 44px, z-index 1) */
-.bytespace-showcase-card--revenue1 {
+.showcase-card-revenue1 {
   position: absolute;
   top: 44px;
   left: 0px;
   width: 232px;
   height: 119px;
   padding: 16px;
-  background-color: var(--color-persian-blue-800); /* #003BE2 in Figma */
+  background-color: var(--color-persian-blue-800);
   backdrop-filter: var(--blur-glass);
   -webkit-backdrop-filter: var(--blur-glass);
-  border-radius: var(--radius-md); /* 16px */
+  border-radius: var(--radius-md); 
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 16px 36px rgba(0, 59, 226, 0.28);
   box-sizing: border-box;
   z-index: 1;
 }
 
-/* Floating Revenue Card 2: Year to Date (Figma #34:1158: width 134px, left 0, top 194px, z-index 1) */
-.bytespace-showcase-card--revenue2 {
+.showcase-card-revenue2 {
   position: absolute;
   top: 194px;
   left: 0px;
   width: 134px;
   height: 135px;
   padding: 16px;
-  background-color: var(--color-persian-blue-800); /* #003BE2 in Figma */
+  background-color: var(--color-persian-blue-800);
   backdrop-filter: var(--blur-glass);
   -webkit-backdrop-filter: var(--blur-glass);
-  border-radius: var(--radius-md); /* 16px */
+  border-radius: var(--radius-md); 
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 16px 36px rgba(0, 59, 226, 0.28);
   box-sizing: border-box;
   z-index: 1;
 }
 
-.bytespace-revenue-card__meta {
+.revenue-card-meta {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -410,22 +375,22 @@
   gap: 2px;
 }
 
-.bytespace-revenue-card__title {
+.revenue-card-title {
   font-family: var(--font-body);
-  font-size: var(--font-size-label-m); /* 16px */
+  font-size: var(--font-size-label-m); 
   font-weight: var(--weight-medium);
-  color: var(--color-shuttle-gray-50); /* #F5F5F6 */
+  color: var(--color-shuttle-gray-50); 
   line-height: 1.2;
 }
 
-.bytespace-revenue-card__period {
+.revenue-card-period {
   font-family: var(--font-body);
   font-size: 10px;
-  color: var(--color-shuttle-gray-50); /* #F5F5F6 */
+  color: var(--color-shuttle-gray-50); 
   line-height: 1.2;
 }
 
-.bytespace-revenue-card__amount-row {
+.revenue-card-amount-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -433,19 +398,19 @@
   margin-bottom: var(--space-8);
 }
 
-.bytespace-revenue-card__amount {
+.revenue-card-amount {
   font-family: var(--font-heading);
   font-size: 24px;
   font-weight: 600;
-  color: var(--color-shuttle-gray-50); /* #F5F5F6 */
+  color: var(--color-shuttle-gray-50); 
   line-height: 32px;
   letter-spacing: -0.01em;
 }
 
-.bytespace-revenue-card__badge {
+.revenue-card-badge {
   display: inline-block;
-  background-color: var(--color-ring-stroke); /* #CBFC01 */
-  color: var(--color-shuttle-gray-950); /* #242528 */
+  background-color: var(--color-ring-stroke); 
+  color: var(--color-shuttle-gray-950); 
   font-family: var(--font-body);
   font-size: 10px;
   font-weight: 500;
@@ -454,7 +419,7 @@
   line-height: 20px;
 }
 
-.bytespace-revenue-card__progress-track {
+.revenue-card-progress-track {
   width: 100%;
   height: 8px;
   background-color: rgba(255, 255, 255, 0.3);
@@ -463,15 +428,14 @@
   margin-top: 4px;
 }
 
-.bytespace-revenue-card__progress-fill {
+.revenue-card-progress-fill {
   width: 56%;
   height: 100%;
-  background-color: var(--color-electric-lime-400); /* #D4FB20 */
+  background-color: var(--color-electric-lime-400); 
   border-radius: 24px;
 }
 
-/* Row 2: Happy Students Card (Figma #34:1158: width 258px, left 283px, top 413px, z-index 3) */
-.bytespace-showcase-card--students {
+.showcase-card-students {
   position: absolute;
   top: 413px;
   left: 283px;
@@ -483,14 +447,14 @@
   background-color: var(--color-white);
   backdrop-filter: var(--blur-glass);
   -webkit-backdrop-filter: var(--blur-glass);
-  border-radius: var(--radius-md); /* 16px */
+  border-radius: var(--radius-md); 
   border: 1px solid rgba(255, 255, 255, 0.8);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
   box-sizing: border-box;
   z-index: 3;
 }
 
-.bytespace-students-card__header {
+.students-card-header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -498,51 +462,51 @@
   margin-bottom: var(--space-12);
 }
 
-.bytespace-students-card__title {
+.students-card-title {
   font-family: var(--font-body);
-  font-size: var(--font-size-label-m); /* 16px */
+  font-size: var(--font-size-label-m); 
   font-weight: var(--weight-medium);
-  color: var(--color-shuttle-gray-950); /* #242528 */
+  color: var(--color-shuttle-gray-950); 
   line-height: 1.2;
 }
 
-.bytespace-students-card__rating {
+.students-card-rating {
   display: flex;
   align-items: center;
   gap: var(--space-4);
 }
 
-.bytespace-students-card__score {
+.students-card-score {
   font-family: var(--font-body);
   font-size: 10px;
   font-weight: 700;
   color: var(--color-shuttle-gray-950);
 }
 
-.bytespace-students-card__reviews {
+.students-card-reviews {
   font-family: var(--font-body);
   font-size: 10px;
   font-weight: 700;
   color: var(--color-shuttle-gray-950);
 }
 
-.bytespace-students-card__star {
+.students-card-star {
   width: 16px;
   height: 16px;
   display: block;
 }
 
-.bytespace-students-card__avatars-row {
+.students-card-avatars-row {
   display: flex;
   align-items: center;
 }
 
-.bytespace-students-card__avatar-stack {
+.students-card-avatar-stack {
   display: flex;
   align-items: center;
 }
 
-.bytespace-students-card__avatar {
+.students-card-avatar {
   width: 43px;
   height: 43px;
   border-radius: var(--radius-full);
@@ -553,16 +517,16 @@
   flex-shrink: 0;
 }
 
-.bytespace-students-card__avatar:first-child {
+.students-card-avatar:first-child {
   margin-left: 0;
 }
 
-.bytespace-students-card__avatar-badge {
+.students-card-avatar-badge {
   width: 43px;
   height: 43px;
   border-radius: var(--radius-full);
-  background-color: var(--color-electric-lime-400); /* #D4FB20 */
-  color: var(--color-shuttle-gray-950); /* #242528 */
+  background-color: var(--color-electric-lime-400); 
+  color: var(--color-shuttle-gray-950); 
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 12px;
@@ -575,23 +539,17 @@
   flex-shrink: 0;
 }
 
-/* =========================================
- * 5. Responsive Breakpoints
- * ========================================= */
-
-/* Tablet (768px – 1024px) */
 @media (max-width: 1024px) {
-  .bytespace-showcase {
+  .showcase {
     padding-top: var(--space-80);
     padding-bottom: var(--space-80);
   }
 
-  .bytespace-showcase__container {
+  .showcase-container {
     gap: var(--space-80);
   }
 
-  /* Center ambient glow auroras in the middle */
-  .bytespace-showcase__glow--row1-lime {
+  .showcase-glow-row1-lime {
     left: 50%;
     transform: translateX(-50%);
     top: 50px;
@@ -599,7 +557,7 @@
     height: 650px;
   }
 
-  .bytespace-showcase__glow--row1-blue {
+  .showcase-glow-row1-blue {
     left: 50%;
     transform: translateX(-50%);
     top: 100px;
@@ -607,7 +565,7 @@
     height: 650px;
   }
 
-  .bytespace-showcase__glow--row2-lime {
+  .showcase-glow-row2-lime {
     left: 50%;
     transform: translateX(-50%);
     bottom: 250px;
@@ -615,7 +573,7 @@
     height: 650px;
   }
 
-  .bytespace-showcase__glow--row2-blue {
+  .showcase-glow-row2-blue {
     left: 50%;
     transform: translateX(-50%);
     bottom: 200px;
@@ -623,86 +581,84 @@
     height: 650px;
   }
 
-  .bytespace-showcase-row {
+  .showcase-row {
     grid-template-columns: 1fr;
     gap: var(--space-48);
   }
 
-  .bytespace-showcase-row--creator .bytespace-showcase-row__visual {
+  .showcase-row-creator .showcase-row-visual {
     order: 2;
   }
 
-  .bytespace-showcase-row--creator .bytespace-showcase-row__text {
+  .showcase-row-creator .showcase-row-text {
     order: 1;
   }
 
-  /* Professional (Learner Row): Center title, balanced text, centered metrics */
-  .bytespace-showcase-row__text--learner {
+  .showcase-text-learner {
     align-items: center;
     text-align: center;
     margin: 0 auto;
     max-width: 700px;
   }
 
-  .bytespace-showcase-row__heading--learner {
+  .showcase-heading-learner {
     text-align: center;
     margin: 0 auto;
     max-width: 580px;
   }
 
-  .bytespace-showcase-row__description--learner {
+  .showcase-desc-learner {
     text-align: center;
     text-wrap: balance;
     max-width: 650px;
     margin: 0 auto;
   }
 
-  .bytespace-showcase-row__text--learner .bytespace-showcase-metrics {
+  .showcase-text-learner .showcase-metrics {
     justify-content: center;
     margin: 0 auto;
   }
 
-  .bytespace-showcase-visual-wrapper--learner {
+  .showcase-visual-wrap-learner {
     margin: 0 auto;
     transform: scale(clamp(0.75, calc((100vw - 48px) / 600), 1));
     transform-origin: top center;
   }
 
-  .bytespace-showcase-card-course {
+  .showcase-card-course {
     left: 0;
     width: 280px;
   }
 
-  .bytespace-showcase-image-frame--learner {
+  .showcase-learner {
     margin-left: 40px;
   }
 
-  .bytespace-showcase-card--progress {
+  .showcase-card-progress {
     right: 0;
   }
 
-  /* Create and Manage (Creator Row): Center title, balanced text, centered options */
-  .bytespace-showcase-row__text--creator {
+  .showcase-text-creator {
     align-items: center;
     text-align: center;
     margin: 0 auto;
     max-width: 700px;
   }
 
-  .bytespace-showcase-row__heading--creator {
+  .showcase-heading-creator {
     text-align: center;
     margin: 0 auto;
     max-width: 580px;
   }
 
-  .bytespace-showcase-row__description--creator {
+  .showcase-desc-creator {
     text-align: center;
     text-wrap: balance;
     max-width: 650px;
     margin: 0 auto;
   }
 
-  .bytespace-showcase-bullets {
+  .showcase-bullets {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -711,7 +667,7 @@
     width: 100%;
   }
 
-  .bytespace-showcase-visual-wrapper--creator {
+  .showcase-visual-wrap-creator {
     width: 541px;
     height: 596px;
     transform: scale(clamp(0.65, calc((100vw - 48px) / 541), 0.92));
@@ -720,62 +676,61 @@
   }
 }
 
-/* Mobile (<= 767px, targeting 375px) */
 @media (max-width: 768px) {
-  .bytespace-showcase {
+  .showcase {
     padding-top: var(--space-64);
     padding-bottom: var(--space-64);
   }
 
-  .bytespace-showcase__container {
+  .showcase-container {
     gap: var(--space-64);
     padding-left: var(--space-16);
     padding-right: var(--space-16);
   }
 
-  .bytespace-showcase-row {
+  .showcase-row {
     grid-template-columns: 1fr;
     gap: var(--space-36);
   }
 
-  .bytespace-showcase-row__heading {
+  .showcase-row-heading {
     font-size: 28px;
     line-height: 1.25;
   }
 
-  .bytespace-showcase-row__description {
+  .showcase-row-desc {
     font-size: var(--font-size-body-m);
     line-height: var(--line-height-body-m);
   }
 
-  .bytespace-showcase-metrics {
+  .showcase-metrics {
     gap: var(--space-20);
     margin-top: 0;
     padding-top: var(--space-12);
   }
 
-  .bytespace-showcase-metric__value {
+  .showcase-metric-value {
     font-size: 28px;
   }
 
-  .bytespace-showcase-visual-wrapper {
+  .showcase-visual-wrap {
     max-width: 100%;
     height: 380px;
   }
 
-  .bytespace-showcase-card-course {
+  .showcase-card-course {
     display: none;
   }
 
-  .bytespace-showcase-image-frame {
+  .showcase-image-frame {
     max-width: 300px;
   }
 
-  .bytespace-showcase-image-frame--learner {
+  .showcase-learner {
     margin-left: 0;
   }
 
-  .bytespace-showcase-ornament--cone-lime {
+  .showcase-ornament-cone {
     width: 65px;
     top: 45px;
     right: 15px;
@@ -783,18 +738,18 @@
     filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.12));
   }
 
-  .bytespace-showcase-card--progress {
+  .showcase-card-progress {
     bottom: 0px;
     right: 0px;
     width: 180px;
     padding: 12px;
   }
 
-  .bytespace-showcase-progress-card__metric-value {
+  .showcase-progress-value {
     font-size: 32px;
   }
 
-  .bytespace-showcase-row__visual--creator {
+  .showcase-visual-creator {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -803,7 +758,7 @@
     overflow: visible;
   }
 
-  .bytespace-showcase-visual-wrapper--creator {
+  .showcase-visual-wrap-creator {
     position: relative;
     width: 480px;
     height: 520px;
@@ -814,7 +769,7 @@
     margin: 0 auto;
   }
 
-  .bytespace-showcase-image-frame--creator {
+  .showcase-creator {
     position: absolute;
     left: 50%;
     top: 5px;
@@ -825,14 +780,14 @@
     margin: 0;
   }
 
-  .bytespace-showcase-image--creator {
+  .showcase-img-creator {
     width: 100%;
     height: 100%;
     object-fit: contain;
     object-position: top center;
   }
 
-  .bytespace-showcase-card--revenue1 {
+  .showcase-card-revenue1 {
     top: 35px;
     left: 10px;
     width: 170px;
@@ -840,7 +795,7 @@
     z-index: 1;
   }
 
-  .bytespace-showcase-card--revenue2 {
+  .showcase-card-revenue2 {
     top: 175px;
     left: 10px;
     width: 125px;
@@ -848,7 +803,7 @@
     z-index: 1;
   }
 
-  .bytespace-showcase-ornament--spiral-lime {
+  .showcase-ornament-spiral {
     width: 95px;
     top: 50px;
     right: 15px;
@@ -856,7 +811,7 @@
     z-index: 1;
   }
 
-  .bytespace-showcase-card--students {
+  .showcase-card-students {
     top: auto;
     left: auto;
     bottom: 20px;
@@ -866,22 +821,22 @@
     z-index: 10;
   }
 
-  .bytespace-students-card__avatar {
+  .students-card-avatar {
     width: 32px;
     height: 32px;
   }
 
-  .bytespace-students-card__avatar-badge {
+  .students-card-avatar-badge {
     width: 32px;
     height: 32px;
     line-height: 32px;
   }
 
-  .bytespace-showcase-bullets {
+  .showcase-bullets {
     gap: var(--space-16);
   }
 
-  .bytespace-showcase-bullet__text {
+  .showcase-bullet-text {
     font-size: var(--font-size-label-m);
   }
 }
