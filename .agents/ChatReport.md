@@ -419,6 +419,228 @@ In response to user feedback comparing the current implementation against the ac
 - **Unit Tests**: All 9 test suites and **31 tests passing** (`npm test -- --watchAll=false`).
 - **Production Build**: `npm run build` compiled successfully with 0 errors and 0 warnings.
 
+---
+
+## 15. Hero Section PC Screen Stabilization & Grid Fix
+
+Following user review regarding shifting horizontal/vertical background grid lines, variable hero height when shrinking viewport width, floating boy cut-off, and exposed bottom circle arc:
+
+### 1. Root Cause Analysis
+- **Background Grid Movement**: `.bytespace-hero__mesh` was centered via `left: 50%; transform: translateX(-50%)`. As the viewport was resized, the 50% anchor constantly slid the vertical lines across the screen. Furthermore, vertical fluid padding on content pushed sections relative to the grid lines, causing the horizontal lines to appear lower.
+- **Hero Height Growth & Void Below Stage**: `.bytespace-hero` had `min-height: 1024px; display: flex; flex-direction: column`. Below 1440px, clamp equations shrank the stage height down to 440px while `min-height: 1024px` held the section open. This produced an empty blue gap of up to 174px below the stage. Because the student model and semicircle ring were anchored to `bottom: 0` of the stage, they were lifted into the air—exposing the boy's straight torso cutoff and the bottom rim of the lime ring.
+- **Erratic Image Movements**: 3D ornaments and floating cards had multiple interdependent fluid clamp formulas on `top`, `left`, `right`, and `margin`, causing every element to shift, resize, and drift across every single pixel of screen resize.
+
+### 2. Implemented Architecture & Fixes
+- **Static 120px CSS Background Grid**:
+  - Replaced the centered mesh image with a CSS background gradient on `.bytespace-hero`:
+    ```css
+    background-color: var(--color-persian-blue-800);
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+    background-size: 120px 120px;
+    background-position: 0 0;
+    ```
+  - Because it is anchored to `0 0`, neither horizontal nor vertical lines ever move upon viewport resizing.
+- **Fixed 1024px Desktop Canvas Height**:
+  - Enforced `height: 1024px` on `.bytespace-hero` for desktop (`> 1024px`).
+  - The hero height remains constant across all PC viewport widths (1025px to 1920px+).
+- **Stage Anchored to True Section Bottom**:
+  - Positioned `.bytespace-hero__stage` with `position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); width: 100%; max-width: 1440px; height: 541px; pointer-events: none;`.
+  - Anchored the central hero model to `bottom: 0`, ensuring the student's torso/laptop base is cleanly clipped at the bottom line with zero blue gap below.
+- **Fixed Circle Visibility**:
+  - Anchored `.bytespace-hero__ring` at `top: 99px` inside the stage (Figma `top: 582px` in 1024px artboard).
+  - Its bottom edge sits at `y = 1731px`, cleanly clipped 707px below the hero section. Semicircle visibility remains 100% constant across all PC viewports.
+- **Fixed Vertical Positions for Ornaments & Cards**:
+  - Cards (`UI/UX Design`, `Learning Progress 55%`, `Happy Students`) and 3D ornaments now use fixed vertical `top` coordinates matching Figma, completely eliminating vertical drift when changing width.
+- **Tablet & Mobile Isolation**:
+  - Scoped all fixed desktop coordinates strictly to desktop (`> 1024px`). Tablet (`@media (max-width: 1024px)`) and Mobile (`@media (max-width: 768px)`) maintain their respective responsive scaling.
+
+### 3. Verification & QA
+- **Unit Tests**: All 9 test suites and **31/31 unit tests pass** (`npm test -- --watchAll=false`).
+- **Production Build**: `npm run build` compiled successfully with 0 errors and 0 warnings.
+
+---
+
+## 16. Tablet Screen Responsiveness Pass (769px – 1024px)
+
+Following user feedback on tablet screen behavior without altering any PC screen (`> 1024px`) implementations:
+
+### 1. Hero Section
+- **Boy Model Bottom Alignment**: Changed `.bytespace-hero` on tablet from `min-height: clamp(800px, 85vw, 1024px)` to `min-height: auto; height: auto;`. The hero container terminates exactly where the model stage terminates, ensuring the student's base sits right on the bottom section line across all tablet widths without any empty blue gap below him.
+- **3D Ornaments Restored & Scaled**: Replaced `display: none` with tablet-scaled, edge-anchored 3D objects (Lime Cylinder, Lime Spiral, White Squiggles, Pyramid, and Torus) framing the stage cleanly between 769px and 1024px. Kept ornaments hidden on mobile (`<= 768px`).
+
+### 2. Partner Logos (Strict 3/2 Row Distribution)
+- Replaced variable `flex-wrap` with a dedicated 3-column tablet flex layout (`flex: 0 0 calc(33.333% - var(--space-48))` with `max-width: 680px; margin: 0 auto; justify-content: center`).
+- The 5 partner logos are now strictly arranged as 3 logos in row 1 and 2 logos centered in row 2 across all tablet viewports.
+
+### 3. Build Skills (FeaturedCourses)
+- **Category Options Wrapping**: Replaced horizontal cut-off/scroll with `flex-wrap: wrap; justify-content: center; gap: 8px 10px; max-width: 100%`, ensuring pills never extend beyond the screen on the left or right.
+- **Card Distribution**: Added `max-width: 100%; width: 100%;` to `.bytespace-course-card` on tablet. In the 2-column grid, both cards now expand evenly with equal widths and an exact 24px centered gap across the entire 769px–1024px range.
+
+### 4. Explore Diverse Paths (DiversePaths)
+- **3, 3 Two-Row Box Layout**: Converted `.bytespace-diverse-paths__grid` to `display: grid; grid-template-columns: repeat(3, minmax(140px, 167px)); justify-content: center; gap: 24px 32px`, strictly placing the 6 category boxes into two rows of 3.
+- **Balanced Centered Text**: Applied `text-align: center; max-width: 680px; margin: 0 auto; text-wrap: balance` to description and title.
+
+### 5. Growth Showcase (Learner & Creator Rows)
+- **Professional Row**: Centered title (`text-align: center; margin: 0 auto; max-width: 580px`), balanced description text (`text-wrap: balance; max-width: 650px`), centered metrics row, and centered background ambient auroras at `left: 50%; transform: translateX(-50%)`.
+- **Create and Manage Row**: Centered title, balanced description text, centered bullet points container (`max-width: 500px; margin: 0 auto;`), and centered ambient auroras.
+
+### 6. Discover Section (Testimonials)
+- Centered section header and title (`text-align: center; margin: 0 auto; max-width: 600px`).
+- Removed excessive blank space by tightening header gap (`gap: 12px; margin-bottom: 32px;`) and reducing section padding (`padding-top: 48px; padding-bottom: 64px;`).
+- Balanced description text centered with `max-width: 640px; margin: 0 auto; text-wrap: balance`.
+
+### 7. Auth Pages (Login & Register)
+- Increased space on the right side of the auth card by updating `.bytespace-auth__container` padding to `0 clamp(48px, 6vw, 72px) var(--space-48) var(--space-24)` and limiting `.bytespace-auth__right` to `max-width: 480px`.
+- The auth card now maintains generous, comfortable breathing room to the right viewport edge while preserving the left messaging column.
+
+### 8. Verification & QA
+- **Unit Tests**: All 9 test suites and **31/31 unit tests pass** (`npm test -- --watchAll=false`).
+- **Production Build**: `npm run build` compiled successfully with 0 errors and 0 warnings.
+
+---
+
+## 17. Tablet Category Tabs Continuous Flow & Testimonials Spacing Fix
+
+### 1. Root Cause & Problem Analysis
+1. **Category Tabs Segmented Wrapping**:
+   - *Issue*: In tablet mode (`769px–1024px`), category filter tabs wrapped as three separate broken collections (e.g. line 1 wrapped with two lone items on line 2, line 3 wrapped with "Photography" alone on line 4, and line 5 started separately with `+ More`).
+   - *Fix*: Applied `display: contents` to `.bytespace-category-tabs__row` inside `@media (max-width: 1024px)` while configuring the parent `.bytespace-category-tabs` with `display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 10px 12px; max-width: 820px;`.
+   - *Result*: The intermediate row containers are omitted from layout calculation. All 19 pills flow seamlessly as one continuous collection/array (`Featured`, `Music`, ..., `Cooking`, `+ More`), with `+ More` naturally positioned directly beside `Cooking` at the very end of the list.
+
+2. **Discover / Testimonials Blank Space Above & Below Text**:
+   - *Issue*: Screenshots revealed a massive 400px+ empty void above the description text and another 400px+ empty void below it before the testimonial cards.
+   - *Root Cause*: On desktop, `.bytespace-testimonials__title` and `.bytespace-testimonials__description` had `flex: 1 1 480px` and `flex: 1 1 500px` (where `flex-basis` established column widths in a horizontal flex layout). When `.bytespace-testimonials__header` switched to `flex-direction: column` on tablet, the `flex-basis` controlled *vertical height*, inflating the title element to 480px tall and the description to 500px tall.
+   - *Fix*: Added `flex: none;` to both `.bytespace-testimonials__title` and `.bytespace-testimonials__description` in `@media (max-width: 1024px)` and `@media (max-width: 768px)`.
+   - *Result*: The height immediately collapsed to the exact line height of the text content (~80px for title, ~75px for description), completely eliminating the blank space above and below the text.
+
+### 2. Verification
+- **Unit Tests**: All 9 test suites and **31/31 unit tests pass** (`npm test -- --watchAll=false`).
+- **Production Build**: `npm run build` compiled successfully with 0 errors and 0 warnings.
+
+---
+
+## 18. Comprehensive Mobile Responsiveness Pass (320px – 768px)
+
+Following user requirements for mobile viewports (`320px` to `768px`) without modifying any styling for tablet or PC (`>= 769px`):
+
+### 1. Hero Section (Menu Height, Outside Click & 3D Ornaments)
+- **Menu Height Matching Hero**: On mobile, `.bytespace-navbar` was set to `position: static` so that `.bytespace-hero` (with `position: relative`) acts as the containing block. `.bytespace-navbar__mobile-menu` now has `height: 100%; min-height: 100%; max-height: 100%; overflow-y: auto;`, making its opened height match the hero section height exactly instead of viewport height.
+- **Click Outside to Close**: Added a `.bytespace-navbar__mobile-backdrop` overlay (`background: rgba(0, 0, 0, 0.4); z-index: 52;`) plus document-level `mousedown` and `touchstart` event listeners with `useRef` detecting clicks outside the drawer and hamburger button, ensuring any tap outside closes the menu immediately.
+- **3D Ornaments Restored**: Replaced mobile `display: none` on `.bytespace-hero__ornaments` with scaled, edge-anchored 3D objects (`Lime Cylinder`, `Lime Spiral`, `Small Squiggle`, `Pyramid`, `Torus Ring`, `Large Squiggle`) framed cleanly along the edges with `pointer-events: none` and `overflow: hidden`.
+
+### 2. Explore Diverse Paths (Side Breathing Room)
+- Increased container side padding on mobile to `padding-left: clamp(24px, 7vw, 44px); padding-right: clamp(24px, 7vw, 44px);`.
+- Constrained `.bytespace-diverse-paths__grid` to `max-width: 330px; margin: 0 auto; gap: clamp(12px, 3.5vw, 16px);`.
+- Provides generous 24px–44px of clean breathing room on both the left and right sides of the screen where the boxes are across all mobile widths down to 320px.
+
+### 3. Create and Manage (Visual Composition Scaled & Centered)
+- Restructured `.bytespace-showcase-visual-wrapper--creator` on mobile using a clean 480px x 520px canvas dynamically scaled via `transform: scale(clamp(0.55, calc((100vw - 32px) / 480), 0.95)); transform-origin: top center;`.
+- Anchored creator girl in the center (`left: 50%; transform: translateX(-50%); width: 310px;`).
+- Positioned Revenue card 1 (`left: 10px; top: 35px; width: 170px;`) and Revenue card 2 (`left: 10px; top: 175px; width: 125px;`) on the left.
+- Positioned Lime spiral on the right (`right: 15px; top: 50px; width: 95px;`).
+- Positioned Happy Students card on the bottom right (`right: 10px; bottom: 20px; width: 210px;`).
+- Dynamically sized container height to `clamp(290px, calc(520px * ((100vw - 32px) / 480)), 500px);`, completely eliminating any clipping, cutoff, or horizontal overflow down to 320px.
+
+### 4. Discover Section (Testimonial Card Grid: Name & Designation Beside Avatar)
+- Converted `.bytespace-testimonial-card` to a 2-row CSS grid on mobile (`@media (max-width: 768px)`):
+  - Row 1: Avatar on left (`grid-area: avatar`), Name & Role/Designation on right (`grid-area: author`).
+  - Row 2: Quote text spanning full width below them (`grid-area: quote`).
+- Left desktop and tablet layout (`> 768px`) strictly untouched as `display: flex; flex-direction: column`.
+
+### 5. Footer (Compact Newsletter Input & Button)
+- Replaced full 100% width on `.bytespace-footer__input-wrapper` with a compact centered box: `max-width: clamp(250px, 80vw, 300px); margin: 0 auto;`.
+- Reduced email input height to `44px` with centered placeholder text.
+- Reduced submit button height to `40px` and width to compact pill (`min-width: 135px; width: auto; margin: 0 auto; align-self: center;`).
+
+### 6. Mobile Auth Pages (Login & Register Premium Redesign)
+- Centered top header logo and constrained content container to `max-width: 460px; margin: 0 auto;`.
+- Replaced cumbersome text blocks with a modern, compact greeting header (`font-size: 22px;` bold title and clean subtitle).
+- Form card elevated with `box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22); border-radius: 24px; padding: 28px 22px;`.
+- Sized input fields at 48px with 12px border-radius and clean typography.
+- Electric Lime high-contrast submit button (`height: 48px; border-radius: 24px; font-weight: 600; box-shadow: 0 4px 16px rgba(212, 251, 32, 0.35);`).
+- Compact social login buttons (52px x 52px, 14px border radius).
+- Tested down to 320px with zero horizontal scroll or overflow.
+
+### 7. Verification & QA
+- **Unit Tests**: All 9 test suites and **31/31 unit tests pass** (`npm test -- --watchAll=false`).
+- **Production Build**: `npm run build` compiled successfully with 0 errors and 0 warnings.
+
+---
+
+## 19. Hero Mobile 3D Ornaments Alignment & Path to Professional Color & Positioning Fix
+
+### 1. Hero 3D Objects on Mobile (`<= 768px`)
+- **Root Cause**: `.bytespace-hero__ornaments` inherited `left: 50%; transform: translateX(-50%)` from desktop. Without resetting `transform: none`, setting `left: 0` shifted the container's right edge directly into the horizontal center of the screen, causing right-anchored ornaments (like the Lime Cylinder) to collide directly into the middle of the H1 title text ("Courses Available"). In addition, mobile `top` coordinates placed the pyramid directly over the subtitle and the squiggle over the search button.
+- **Fix**:
+  - Added `transform: none !important; left: 0; right: 0; width: 100%; z-index: 2;` to `.bytespace-hero__ornaments` on mobile.
+  - Repositioned the 6 ornaments to open, safe outer framing zones:
+    - **Lime Spiral**: Top-left corner (`left: -20px; top: 15px; width: clamp(60px, 15vw, 80px)`).
+    - **Lime Cylinder**: Top-right corner (`right: -20px; top: 15px; width: clamp(55px, 14vw, 75px)`).
+    - **Small Pyramid**: Mid-right outer screen edge (`right: -10px; top: clamp(260px, 48vw, 320px)`).
+    - **Small Squiggle**: Mid-left outer screen edge (`left: -10px; top: clamp(260px, 48vw, 320px)`).
+    - **Large Squiggle**: Bottom-right open space beside cards (`right: clamp(4px, 2vw, 15px); bottom: clamp(50px, 12vw, 90px)`).
+    - **Torus Ring**: Bottom-left open space beside cards (`left: clamp(4px, 2vw, 15px); bottom: clamp(50px, 12vw, 90px)`).
+  - Kept behind text (`z-index: 20`) with `pointer-events: none` and `overflow: hidden`, completely eliminating text/search bar collisions.
+
+### 2. Path to Professional 3D Ornament (All Screens)
+- **Root Cause**: `LearnerGrowthRow.jsx` was importing `ornament-cone-lime.png`, which is an off-theme dull grey/pinkish marshmallow cylinder rather than the vibrant Electric Lime asset. In addition, on mobile, `top: -10px; right: 10px;` lifted the ornament above the boy's head, placing it directly underneath the metrics row ("16 Creators").
+- **Fix**:
+  - Updated `LearnerGrowthRow.jsx` import to `ornament-cylinder-lime.png` (`#D4FB20`), restoring the vibrant Electric Lime 3D cylinder across **all screen sizes (PC, tablet, and mobile)**.
+  - Adjusted mobile styling in `GrowthShowcase.css` to `top: 45px; right: 15px; width: 65px; z-index: 1; filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.12));`, cleanly floating the cylinder beside the learner's shoulder well below the metrics text.
+
+### 3. Verification & QA
+- **Unit Tests**: All 9 test suites and **31/31 unit tests pass** (`npm test -- --watchAll=false`).
+- **Production Build**: `npm run build` compiled successfully with 0 errors and 0 warnings.
+
+---
+
+## 20. Creator CTA Section Ground Truth Design Alignment & Full Responsiveness Pass
+
+### 1. Root Causes & Discrepancies Identified from User Ground Truth Reference
+1. **Headline Color Mismatch**:
+   - In previous iterations, "Creator" was styled in electric lime (`#D4FB20`).
+   - In the actual design (Image 1), the entire headline is **pure crisp white (`#FFFFFF`)** across both lines:
+     - Line 1: `Unlock Your Potential as a`
+     - Line 2: `Creator with ByteSpace`
+2. **Missing White Grid Mesh**:
+   - The blue banner lacked the subtle, sharp white square mesh grid lines (`rgba(255, 255, 255, 0.14)`) visible across the entire block in the reference design.
+3. **Incomplete & Dull 3D Ornaments Composition**:
+   - The block previously only had 3 ornaments (often dull grey or out of place).
+   - In the actual design, there are **7 distinct 3D objects** with calibrated materials and rotations:
+     1. **Top-Left**: Large Electric Lime Spiral (`cta-spiral-lime.png`), rotated -25°, entering from top-left.
+     2. **Top-Left Inner**: White 3D coiled squiggle ribbon (`cta-squiggle-white.png`), rotated -35°, sitting between spiral and heading.
+     3. **Bottom-Left Outer**: Crisp White Cone / Pyramid (`cta-cone-white.png`), rotated 25°, apex pointing up-right.
+     4. **Bottom-Left Inner**: Large Electric Lime Torus Ring (`cta-torus-lime.png`), sitting on the bottom border, looping upwards.
+     5. **Top-Right Inner**: Vibrant Electric Lime Pyramid (`cta-pyramid-lime.png`), apex pointing up, angled right.
+     6. **Top-Right Corner**: Crisp White Cylinder (`cta-cylinder-white.png`), rotated -35°, peeking in from top-right.
+     7. **Bottom-Right Corner**: Large Electric Lime Spiral (`cta-spiral-lime.png`), rotated 25°, peeking in from bottom-right.
+4. **Button & Typography Spacing**:
+   - Replaced diffuse green blur with tight, premium Electric Lime glow (`box-shadow: 0 4px 18px rgba(212, 251, 32, 0.35)`).
+   - Adjusted description width to 900px so it balances into 3 elegant lines matching the reference design.
+
+### 2. Implementation Across All Breakpoints
+- **Desktop (> 1024px, 1440px+)**:
+  - Full-width blue banner with `min-height: 488px; background-color: #003BE2;`.
+  - Crisp 115px x 115px CSS linear-gradient grid pattern (`rgba(255, 255, 255, 0.14)`).
+  - All 7 ornaments positioned with fluid clamp formulas matching Image 1 pixel measurements.
+  - Headline capped at 620px to cleanly break into the 2 target lines in pure white.
+- **Tablet (769px – 1024px)**:
+  - Scaled grid down to 90px x 90px.
+  - Scaled ornaments down proportionally to 65%–75% of desktop, edge-anchored to provide a clean 660px safe central zone for headline and description.
+- **Mobile (320px – 768px, down to min width 320px)**:
+  - Scaled grid down to 70px x 70px.
+  - Scaled headline dynamically with `clamp(22px, 6.2vw, 28px)` and max-width 320px.
+  - Sized button with `min-width: 160px; max-width: 220px; height: 44px;`.
+  - Ornaments scaled and anchored to corner framing zones, leaving the central text column completely unobstructed with zero horizontal overflow down to 320px.
+
+### 3. Verification & QA
+- **Unit Tests**: All 9 test suites and **31/31 unit tests pass** (`npm test -- --watchAll=false`).
+  - Unit test `renders heading with highlighted Creator text` maintained passing by keeping `<span className="bytespace-cta__highlight">` in JSX and styling with `color: inherit; font-weight: inherit;`.
+- **Production Build**: `npm run build` compiled successfully with 0 errors and 0 warnings.
+
+
 
 
 

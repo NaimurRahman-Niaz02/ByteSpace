@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   brandInfo,
   headerNavLinks,
@@ -14,10 +14,33 @@ import './Navbar.css';
  */
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+  const hamburgerRef = useRef(null);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen((prev) => !prev);
   };
+
+  // Close mobile drawer when clicking outside
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const handleOutsideClick = (e) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(e.target) &&
+        hamburgerRef.current &&
+        !hamburgerRef.current.contains(e.target)
+      ) {
+        setMobileMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleOutsideClick);
+    document.addEventListener('touchstart', handleOutsideClick);
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener('touchstart', handleOutsideClick);
+    };
+  }, [mobileMenuOpen]);
 
   return (
     <header className="bytespace-navbar" role="banner">
@@ -84,6 +107,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Hamburger Toggle */}
           <button
+            ref={hamburgerRef}
             type="button"
             className={`bytespace-navbar__hamburger ${
               mobileMenuOpen ? 'bytespace-navbar__hamburger--active' : ''
@@ -99,8 +123,18 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Mobile Backdrop to catch outside clicks */}
+      {mobileMenuOpen && (
+        <div
+          className="bytespace-navbar__mobile-backdrop"
+          onClick={() => setMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
       {/* Mobile Dropdown / Drawer */}
       <div
+        ref={menuRef}
         className={`bytespace-navbar__mobile-menu ${
           mobileMenuOpen ? 'bytespace-navbar__mobile-menu--open' : ''
         }`}
